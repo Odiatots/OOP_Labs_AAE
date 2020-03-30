@@ -1,0 +1,61 @@
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe.config
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\Andrejchenko.LabOne.pdb
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\PersonsLib.dll
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\PersonsLib.pdb
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csprojResolveAssemblyReference.cache
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.exe
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe.config
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\PersonsLib.dll
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\PersonsLib.pdb
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csprojAssemblyReference.cache
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csproj.CopyComplete
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.exe
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe.config
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\PersonsLib.dll
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\bin\Debug\PersonsLib.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csprojAssemblyReference.cache
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csproj.CopyComplete
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.exe
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.Properties.Resources.resources
+C:\Users\Wind\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csproj.GenerateResource.cache
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe.config
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\bin\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\bin\Debug\PersonsLib.dll
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\bin\Debug\PersonsLib.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csprojAssemblyReference.cache
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\obj\Debug\Andrejchenko.LabOne.Properties.Resources.resources
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csproj.GenerateResource.cache
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csproj.CopyComplete
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\obj\Debug\Andrejchenko.LabOne.exe
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\Andrejchenko\obj\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe.config
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\bin\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\bin\Debug\PersonsLib.dll
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\bin\Debug\PersonsLib.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csprojAssemblyReference.cache
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\obj\Debug\Andrejchenko.LabOne.Properties.Resources.resources
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csproj.GenerateResource.cache
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csproj.CopyComplete
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\obj\Debug\Andrejchenko.LabOne.exe
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\Andrejchenko\obj\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csprojAssemblyReference.cache
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\obj\Debug\Andrejchenko.LabOne.Properties.Resources.resources
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csproj.GenerateResource.cache
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\obj\Debug\Andrejchenko.LabOne.exe
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\obj\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe.config
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\bin\Debug\Andrejchenko.LabOne.exe
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\bin\Debug\Andrejchenko.LabOne.pdb
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\bin\Debug\PersonsLib.dll
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\bin\Debug\PersonsLib.pdb
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_2_23.04.2020\Andrejchenko\obj\Debug\Andrejchenko.LabOne.csproj.CopyComplete
