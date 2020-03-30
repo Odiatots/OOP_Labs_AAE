@@ -1,0 +1,25 @@
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\obj\Debug\PersonsLib.csprojResolveAssemblyReference.cache
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\bin\Debug\PersonsLib.dll
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\bin\Debug\PersonsLib.pdb
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\obj\Debug\PersonsLib.dll
+\\tsclient\C\Users\5am8r\Desktop\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\obj\Debug\PersonsLib.pdb
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\bin\Debug\PersonsLib.dll
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\bin\Debug\PersonsLib.pdb
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\obj\Debug\PersonsLib.csprojAssemblyReference.cache
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\obj\Debug\PersonsLib.dll
+C:\Users\Odiatots\Desktop\Andrejchenko_1_11.03.2020\Andrejchenko\Andrejchenko\Andrejchenko\PersonsLib\obj\Debug\PersonsLib.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\PersonsLib\bin\Debug\PersonsLib.dll
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\PersonsLib\bin\Debug\PersonsLib.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\PersonsLib\obj\Debug\PersonsLib.csprojAssemblyReference.cache
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\PersonsLib\obj\Debug\PersonsLib.dll
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_с делегатами\PersonsLib\obj\Debug\PersonsLib.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\PersonsLib\bin\Debug\PersonsLib.dll
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\PersonsLib\bin\Debug\PersonsLib.pdb
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\PersonsLib\obj\Debug\PersonsLib.csprojAssemblyReference.cache
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\PersonsLib\obj\Debug\PersonsLib.dll
+C:\Users\Wind\Desktop\Andrejchenko_1_12.13.2020_v2\PersonsLib\obj\Debug\PersonsLib.pdb
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_1_12.13.2020_v2(исправлено)\PersonsLib\bin\Debug\PersonsLib.dll
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_1_12.13.2020_v2(исправлено)\PersonsLib\bin\Debug\PersonsLib.pdb
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_1_12.13.2020_v2(исправлено)\PersonsLib\obj\Debug\PersonsLib.csprojAssemblyReference.cache
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_1_12.13.2020_v2(исправлено)\PersonsLib\obj\Debug\PersonsLib.dll
+C:\Users\Odiatots\Desktop\ООП Лабы\Andrejchenko_1_12.13.2020_v2(исправлено)\PersonsLib\obj\Debug\PersonsLib.pdb
