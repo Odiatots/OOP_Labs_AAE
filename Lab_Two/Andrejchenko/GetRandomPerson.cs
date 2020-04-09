@@ -119,6 +119,7 @@ namespace Andrejchenko.LabTwo
             return randomChild;
         }
 
+        //TODO Сигнатура XML комментария и метода различны
         /// <summary>
         /// Сгенерировать номер или серию паспорта
         /// </summary>
@@ -150,6 +151,7 @@ namespace Andrejchenko.LabTwo
         /// значение</param>
         /// <returns>Номер или серия</returns>
         private static string FillPassportDataWithZeros(
+            //TODO: RSDN
             string PassportData, int lenghtRequriedPassportData)
         {
             if (PassportData.Length < lenghtRequriedPassportData)
@@ -174,6 +176,7 @@ namespace Andrejchenko.LabTwo
         {
             var randomSexType = _random.Next(0, 1);
 
+            //TODO: 1ЛР
             if (randomSexType == 0)
             {
                 person.SexType = SexTypes.Male;
@@ -200,6 +203,7 @@ namespace Andrejchenko.LabTwo
         public static void GetRandomPersonBaseProp(string lastNames,
             string firstNames, Person person)
         {
+            //TODO: 1ЛР
             var baseFirstNames =
                 firstNames.Split('\n');
             var baseLastNames =

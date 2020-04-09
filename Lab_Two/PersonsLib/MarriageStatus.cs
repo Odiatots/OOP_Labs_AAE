@@ -1,5 +1,6 @@
 ﻿namespace PersonsLib
 {
+    //TODO: XML
     public enum MarriageStatus
     {
         Single,

@@ -42,6 +42,7 @@ namespace PersonsLib
             }
         }
 
+        //TODO: Не используется
         /// <summary>
         /// Отец
         /// </summary>
@@ -52,6 +53,7 @@ namespace PersonsLib
         /// </summary>
         public Adult Father { get; set; }
 
+        //TODO: Не используется
         /// <summary>
         /// Мать
         /// </summary>

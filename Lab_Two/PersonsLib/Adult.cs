@@ -82,6 +82,7 @@ namespace PersonsLib
         /// </summary>
         private MarriageStatus _marriageStatus;
 
+        //TODO: В автосвойство
         /// <summary>
         /// Состояние брака
         /// </summary>
@@ -125,6 +126,7 @@ namespace PersonsLib
             }
         }
 
+        //TODO: Не используется
         /// <summary>
         /// Место работы
         /// </summary>
@@ -139,7 +141,7 @@ namespace PersonsLib
 
         #region Методы
 
-        /// <summary>
+        /// <s//TODO Сигнатура XML комментария и метода различныummary>
         /// Проверка серии/номера паспорта на корректность значений
         /// </summary>
         /// <param name="value">Серия/номер паспорта</param>
@@ -171,10 +173,12 @@ namespace PersonsLib
         /// <returns>Информация о взрослом</returns>
         public override string InfoAboutPerson()
         {
+            //TODO: RSDN - именование
             string StatusOfMarriage;
 
             switch (MarriageStatus)
             {
+                //TODO: RSDN - форматирование как swich-case-ов, так и if-ов
                 case MarriageStatus.Single:
                     {
                         if (SexType == SexTypes.Female) StatusOfMarriage = "Не замужем";
