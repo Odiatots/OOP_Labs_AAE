@@ -24,11 +24,11 @@ namespace Andrejchenko.LabOne
             var randomSexType = _random.Next(0, 1);
             randomPerson.Age = _random.Next(0, 100);
 
+            //TODO: Правильнее в switch-case, а не if-else.
             if (randomSexType == 0)
             {
                 randomPerson.SexType = SexTypes.Male;
 
-                //TODO: Дубль (исправлено)
                 GetRandomPersonProp(Properties.Resources.LastName_Male,
                     Properties.Resources.FirstName_Male, randomPerson);
 
@@ -37,7 +37,6 @@ namespace Andrejchenko.LabOne
             {
                 randomPerson.SexType = SexTypes.Female;
 
-                //TODO: Дубль (исправлено)
                 GetRandomPersonProp(Properties.Resources.FirstName_Female,
                     Properties.Resources.LastName_Female, randomPerson);
             }
@@ -53,6 +52,8 @@ namespace Andrejchenko.LabOne
         public static void GetRandomPersonProp(string lastNames,
             string firstNames, Person person)
         {
+            //TODO: Алгоритм генерации имени и фамилии дублируется, правильно их вынести в отдельный метод,
+            //TODO: а из него уже возвращать строку имя/фамилия и присваивать уже нужному свойству персоны
             var baseFirstNames =
                 firstNames.Split('\n');
             var baseLastNames =

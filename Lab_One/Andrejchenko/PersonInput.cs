@@ -38,11 +38,17 @@ namespace Andrejchenko.LabOne
                 new Action(() =>
                 {
                     Console.Write("Пол (М/Ж): ");
+                    //TODO: Тут переменная используется в трёх контекстах в одном участке кода
+                    //TODO: консольный ввод, первая буква от ввода, нужная вам строка
+                    //TODO: Корректнее будет сделать 2-3 переменных и назвать их соответственно
+
                     var buffer = Console.ReadLine();
                     buffer = buffer.First().ToString().ToUpper();
                     switch (buffer)
                     {
                         case "М":
+                            //TODO: Тут корректнее написать nameof(SexTypes.Male), чтобы обеспечить более
+                            //TODO: строгую типизацию
                             buffer = "Male";
                             break;
                         case "Ж":
