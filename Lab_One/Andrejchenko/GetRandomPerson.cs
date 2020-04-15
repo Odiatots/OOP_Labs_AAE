@@ -24,52 +24,45 @@ namespace Andrejchenko.LabOne
             var randomSexType = _random.Next(0, 1);
             randomPerson.Age = _random.Next(0, 100);
 
-            //TODO: Правильнее в switch-case, а не if-else.
-            if (randomSexType == 0)
+            //TODO: Правильнее в switch-case, а не if-else - исправлено
+
+            switch (randomSexType)
             {
-                randomPerson.SexType = SexTypes.Male;
-
-                GetRandomPersonProp(Properties.Resources.LastName_Male,
-                    Properties.Resources.FirstName_Male, randomPerson);
-
-            }
-            else if (randomSexType == 1)
-            {
-                randomPerson.SexType = SexTypes.Female;
-
-                GetRandomPersonProp(Properties.Resources.FirstName_Female,
-                    Properties.Resources.LastName_Female, randomPerson);
+                case 0:
+                    randomPerson.SexType = SexTypes.Male;
+                    randomPerson.FirstName = GetRandomPersonNames(
+                        Properties.Resources.FirstName_Male);
+                    randomPerson.LastName = GetRandomPersonNames(
+                        Properties.Resources.LastName_Male);
+                    break;
+                case 1:
+                    randomPerson.SexType = SexTypes.Female;
+                    randomPerson.FirstName = GetRandomPersonNames(
+                        Properties.Resources.FirstName_Female);
+                    randomPerson.LastName = GetRandomPersonNames(
+                        Properties.Resources.LastName_Female);
+                    break;
             }
             return randomPerson;
         }
 
         /// <summary>
-        /// Вспомогательный метод генерации персоны
+        /// Вспомогательный метод генерации имен персоны
         /// </summary>
-        /// <param name="lastNames">Фамилия</param>
-        /// <param name="firstNames">Имя</param>
-        /// <param name="person">Персона</param>
-        public static void GetRandomPersonProp(string lastNames,
-            string firstNames, Person person)
+        /// <param name="names">Список имен или фамилий</param>
+        /// <returns></returns>
+        public static string GetRandomPersonNames(string names)
         {
             //TODO: Алгоритм генерации имени и фамилии дублируется, правильно их вынести в отдельный метод,
-            //TODO: а из него уже возвращать строку имя/фамилия и присваивать уже нужному свойству персоны
-            var baseFirstNames =
-                firstNames.Split('\n');
-            var baseLastNames =
-                lastNames.Split('\n');
+            //TODO: а из него уже возвращать строку имя/фамилия и присваивать уже нужному свойству персоны - исправлено
+            var baseNames = names.Split('\n');
 
-            var firstNameRandomIndex =
-                _random.Next(0, baseFirstNames.Length - 1);
-            var lastNameRandomIndex =
-                _random.Next(0, baseLastNames.Length - 1);
+            var nameRandomIndex = _random.Next(0, baseNames.Length - 1);
 
-            person.FirstName =
-                baseFirstNames[firstNameRandomIndex].Substring(0,
-                baseFirstNames[firstNameRandomIndex].Length - 1);
-            person.LastName =
-                baseLastNames[lastNameRandomIndex].Substring(0,
-                baseLastNames[lastNameRandomIndex].Length - 1);
+            return baseNames[nameRandomIndex].Substring(0,
+                baseNames[nameRandomIndex].Length - 1);
+
         }
+
     }
 }

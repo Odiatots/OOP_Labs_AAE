@@ -40,23 +40,23 @@ namespace Andrejchenko.LabOne
                     Console.Write("Пол (М/Ж): ");
                     //TODO: Тут переменная используется в трёх контекстах в одном участке кода
                     //TODO: консольный ввод, первая буква от ввода, нужная вам строка
-                    //TODO: Корректнее будет сделать 2-3 переменных и назвать их соответственно
+                    //TODO: Корректнее будет сделать 2-3 переменных и назвать их соответственно - исправлено
 
-                    var buffer = Console.ReadLine();
-                    buffer = buffer.First().ToString().ToUpper();
-                    switch (buffer)
+                    var bufferConsole = Console.ReadLine();
+                    var consoleFirstLetter = bufferConsole.First().ToString().ToUpper();
+                    switch (consoleFirstLetter)
                     {
                         case "М":
                             //TODO: Тут корректнее написать nameof(SexTypes.Male), чтобы обеспечить более
-                            //TODO: строгую типизацию
-                            buffer = "Male";
+                            //TODO: строгую типизацию - исправлено
+                            bufferConsole = nameof(SexTypes.Male);
                             break;
                         case "Ж":
-                            buffer = "Female";
+                            bufferConsole = nameof(SexTypes.Female);
                             break;
                     }
                     newPerson.SexType = (SexTypes)Enum.Parse(
-                        typeof(SexTypes), buffer);
+                        typeof(SexTypes), bufferConsole);
                 })
             };
             actionList.ForEach(SetValue);
