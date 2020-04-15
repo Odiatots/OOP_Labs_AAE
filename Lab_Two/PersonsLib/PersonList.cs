@@ -12,7 +12,7 @@ namespace PersonsLib
         /// <summary>
         /// Массив со списком людей
         /// </summary>
-        private Person[] _personList;
+        private PersonBase[] _personList;
         #endregion
 
         #region Свойства
@@ -31,7 +31,7 @@ namespace PersonsLib
         /// </summary>
         /// <param name="index">Индекс в списке людей</param>
         /// <returns>Экземпляр класса PersonList</returns>
-        public Person this[int index]
+        public PersonBase this[int index]
         {
             get
             {
@@ -62,18 +62,18 @@ namespace PersonsLib
         /// </summary>
         public void Clear()
         {
-            _personList = new Person[0];
+            _personList = new PersonBase[0];
         }
 
         /// <summary>
         /// Добавление элемента в список людей
         /// </summary>
         /// <param name="person">Новый человек</param>
-        public void AddPerson(Person person)
+        public void AddPerson(PersonBase person)
         {
             var bufferOfPerson = _personList;
 
-            _personList = new Person[bufferOfPerson.Length + 1];
+            _personList = new PersonBase[bufferOfPerson.Length + 1];
 
             for (int i = 0; i < bufferOfPerson.Length; i++)
             {
@@ -89,7 +89,7 @@ namespace PersonsLib
         /// </summary>
         /// <param name="person">Экземпляр класса Person</param>
         /// <returns>Индекс человека в списке</returns>
-        public int GetIndexOfPerson(Person person)
+        public int GetIndexOfPerson(PersonBase person)
         {
             for (int i = 0; i < _personList.Length; i++)
             {
@@ -108,7 +108,7 @@ namespace PersonsLib
         /// экземпляром класса Person
         /// </summary>
         /// <param name="person">Экземпляр класса Person</param>
-        public void DelPerson(Person person)
+        public void DelPerson(PersonBase person)
         {
             DelPersonByIndex(GetIndexOfPerson(person));
         }
@@ -126,7 +126,7 @@ namespace PersonsLib
 
             var bufferOfPerson = _personList;
             int counter = 0;
-            _personList = new Person[bufferOfPerson.Length - 1];
+            _personList = new PersonBase[bufferOfPerson.Length - 1];
 
             for (int i = 0; i < bufferOfPerson.Length; i++)
             {
@@ -142,9 +142,9 @@ namespace PersonsLib
         /// Добавление нескольких людей в конец списка
         /// </summary>
         /// <param name="persons">Массив людей</param>
-        public void AddRangeOfPersons(Person[] persons)
+        public void AddRangeOfPersons(PersonBase[] persons)
         {
-            foreach (Person person in persons)
+            foreach (PersonBase person in persons)
             {
                 AddPerson(person);
             }

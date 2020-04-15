@@ -24,7 +24,7 @@ namespace Andrejchenko.LabTwo
         /// Генерация случайного человека: взрослый или ребенок
         /// </summary>
         /// <returns>Сгенерированный ребенок или взрослый</returns>
-        public static Person CreateRandomPerson()
+        public static PersonBase CreateRandomPerson()
         {
             if (_random.Next(0, 2) != 0)
             {
@@ -119,11 +119,11 @@ namespace Andrejchenko.LabTwo
             return randomChild;
         }
 
-        //TODO Сигнатура XML комментария и метода различны
+        //TODO Сигнатура XML комментария и метода различны - исправлено
         /// <summary>
         /// Сгенерировать номер или серию паспорта
         /// </summary>
-        /// <param name="isPassportNumber">Генерировать номер</param>
+        /// <param name="isNumber">Генерировать номер</param>
         /// <returns>Номер или серия</returns>
         private static string GetRandomPassportData(bool isNumber)
         {
@@ -146,80 +146,70 @@ namespace Andrejchenko.LabTwo
         /// <summary>
         /// Заполнить нули в начале номера или серии паспорта
         /// </summary>
-        /// <param name="PassportData">Серия или номер паспорта</param>
+        /// <param name="passportData">Серия или номер паспорта</param>
         /// <param name="lenghtRequriedPassportData">Исправленное 
         /// значение</param>
         /// <returns>Номер или серия</returns>
         private static string FillPassportDataWithZeros(
-            //TODO: RSDN
-            string PassportData, int lenghtRequriedPassportData)
+            //TODO: RSDN - исправлено
+            string passportData, int lenghtRequriedPassportData)
         {
-            if (PassportData.Length < lenghtRequriedPassportData)
+            if (passportData.Length < lenghtRequriedPassportData)
             {
                 var amountOfZero =
-                    lenghtRequriedPassportData - PassportData.Length;
+                    lenghtRequriedPassportData - passportData.Length;
 
                 for (int i = 0; i < amountOfZero; i++)
                 {
-                    PassportData = "0" + PassportData;
+                    passportData = "0" + passportData;
                 }
             }
 
-            return PassportData;
+            return passportData;
         }
 
         /// <summary>
         /// Задание базовых полей человека
         /// </summary>
         /// <param name="person">Персона для заполнения</param>
-        public static void ReceiveRandomPersonBaseProp(Person person)
+        public static void ReceiveRandomPersonBaseProp(PersonBase person)
         {
             var randomSexType = _random.Next(0, 1);
 
-            //TODO: 1ЛР
-            if (randomSexType == 0)
+            //TODO: 1ЛР - исправлено
+            switch (randomSexType)
             {
-                person.SexType = SexTypes.Male;
-
-                GetRandomPersonBaseProp(Properties.Resources.LastName_Male,
-                    Properties.Resources.FirstName_Male, person);
-
-            }
-            else if (randomSexType == 1)
-            {
-                person.SexType = SexTypes.Female;
-
-                GetRandomPersonBaseProp(Properties.Resources.FirstName_Female,
-                    Properties.Resources.LastName_Female, person);
+                case 0:
+                    person.SexType = SexTypes.Male;
+                    person.FirstName = GetRandomPersonBaseNames(
+                        Properties.Resources.FirstName_Male);
+                    person.LastName = GetRandomPersonBaseNames(
+                        Properties.Resources.LastName_Male);
+                    break;
+                case 1:
+                    person.SexType = SexTypes.Female;
+                    person.FirstName = GetRandomPersonBaseNames(
+                        Properties.Resources.FirstName_Female);
+                    person.LastName = GetRandomPersonBaseNames(
+                        Properties.Resources.LastName_Female);
+                    break;
             }
         }
 
         /// <summary>
-        /// Вспомогательный метод задания базовых полей человека
+        /// Вспомогательный метод генерации имен персоны
         /// </summary>
-        /// <param name="lastNames">Фамилия</param>
-        /// <param name="firstNames">Имя</param>
-        /// <param name="person">Персона</param>
-        public static void GetRandomPersonBaseProp(string lastNames,
-            string firstNames, Person person)
+        /// <param name="names">Список имен или фамилий</param>
+        /// <returns>Фамилия или имя</returns>
+        public static string GetRandomPersonBaseNames(string names)
         {
-            //TODO: 1ЛР
-            var baseFirstNames =
-                firstNames.Split('\n');
-            var baseLastNames =
-                lastNames.Split('\n');
+            //TODO: 1ЛР - исправлено
+            var baseNames = names.Split('\n');
 
-            var firstNameRandomIndex =
-                _random.Next(0, baseFirstNames.Length - 1);
-            var lastNameRandomIndex =
-                _random.Next(0, baseLastNames.Length - 1);
+            var nameRandomIndex = _random.Next(0, baseNames.Length - 1);
 
-            person.FirstName =
-                baseFirstNames[firstNameRandomIndex].Substring(0,
-                baseFirstNames[firstNameRandomIndex].Length - 1);
-            person.LastName =
-                baseLastNames[lastNameRandomIndex].Substring(0,
-                baseLastNames[lastNameRandomIndex].Length - 1);
+            return baseNames[nameRandomIndex].Substring(0,
+                baseNames[nameRandomIndex].Length - 1);
         }
 
         #endregion

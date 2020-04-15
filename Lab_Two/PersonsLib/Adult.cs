@@ -5,7 +5,7 @@ namespace PersonsLib
     /// <summary>
     /// Класс, описывающий взрослого человека
     /// </summary>
-    public class Adult : Person
+    public class Adult : PersonBase
     {
         #region Константы
 
@@ -77,20 +77,11 @@ namespace PersonsLib
             }
         }
 
+        //TODO: В автосвойство - исправлено
         /// <summary>
         /// Состояние брака
         /// </summary>
-        private MarriageStatus _marriageStatus;
-
-        //TODO: В автосвойство
-        /// <summary>
-        /// Состояние брака
-        /// </summary>
-        public MarriageStatus MarriageStatus
-        {
-            get { return _marriageStatus; }
-            set { _marriageStatus = value; }
-        }
+        public MarriageStatus MarriageStatus { get; set; }
 
         /// <summary>
         /// Партнер
@@ -126,12 +117,7 @@ namespace PersonsLib
             }
         }
 
-        //TODO: Не используется
-        /// <summary>
-        /// Место работы
-        /// </summary>
-        private string _placeOfWork;
-
+        //TODO: Не используется (было поле и автосвойство) - исправлено
         /// <summary>
         /// Место работы
         /// </summary>
@@ -173,54 +159,54 @@ namespace PersonsLib
         /// <returns>Информация о взрослом</returns>
         public override string InfoAboutPerson()
         {
-            //TODO: RSDN - именование
-            string StatusOfMarriage;
+            //TODO: RSDN - именование - исправлено
+            string statusOfMarriage;
 
             switch (MarriageStatus)
             {
-                //TODO: RSDN - форматирование как swich-case-ов, так и if-ов
+                //TODO: RSDN - форматирование как swich-case-ов, так и if-ов - исправлено
                 case MarriageStatus.Single:
-                    {
-                        if (SexType == SexTypes.Female) StatusOfMarriage = "Не замужем";
-                        else StatusOfMarriage = "Не женат";
-                        break;
-                    }
+                    if (SexType == SexTypes.Female)
+                        statusOfMarriage = "Не замужем";
+                    else
+                        statusOfMarriage = "Не женат";
+                    break;
                 case MarriageStatus.Married:
-                    {
-                        if (SexType == SexTypes.Female) StatusOfMarriage = "Замужем";
-                        else StatusOfMarriage = "Женат";
-                        break;
-                    }
+                    if (SexType == SexTypes.Female)
+                        statusOfMarriage = "Замужем";
+                    else
+                        statusOfMarriage = "Женат";
+                    break;
                 case MarriageStatus.Widowed:
-                    {
-                        if (SexType == SexTypes.Female) StatusOfMarriage = "Вдова";
-                        else StatusOfMarriage = "Вдовец";
-                        break;
-                    }
+                    if (SexType == SexTypes.Female)
+                        statusOfMarriage = "Вдова";
+                    else
+                        statusOfMarriage = "Вдовец";
+                    break;
                 case MarriageStatus.Separated:
-                    {
-                        if (SexType == SexTypes.Female) StatusOfMarriage = "Отделена";
-                        else StatusOfMarriage = "Отделен";
-                        break;
-                    }
+                    if (SexType == SexTypes.Female)
+                        statusOfMarriage = "Отделена";
+                    else
+                        statusOfMarriage = "Отделен";
+                    break;
                 case MarriageStatus.Divorced:
-                    {
-                        if (SexType == SexTypes.Female) StatusOfMarriage = "Разведена";
-                        else StatusOfMarriage = "Разведен";
-                        break;
-                    }
+                    if (SexType == SexTypes.Female)
+                        statusOfMarriage = "Разведена";
+                    else
+                        statusOfMarriage = "Разведен";
+                    break;
                 default:
-                    {
-                        if (SexType == SexTypes.Female) StatusOfMarriage = "Неизвестно";
-                        else StatusOfMarriage = "Неизвестно";
-                        break;
-                    }
+                    if (SexType == SexTypes.Female)
+                        statusOfMarriage = "Неизвестно";
+                    else
+                        statusOfMarriage = "Неизвестно";
+                    break;
 
             }
 
             var infoAboutPerson = base.InfoAboutPerson() +
                 $"\nСерия/номер паспорта: {PassportSerial} " +
-                $"{PassportNumber}\nСемейное положение: {StatusOfMarriage}";
+                $"{PassportNumber}\nСемейное положение: {statusOfMarriage}";
 
             if (MarriageStatus == MarriageStatus.Married)
             {

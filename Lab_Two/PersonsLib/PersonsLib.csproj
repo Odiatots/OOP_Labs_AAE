@@ -47,7 +47,7 @@
     <Compile Include="MarriageStatus.cs" />
     <Compile Include="PersonList.cs" />
     <Compile Include="SexTypes.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="PersonBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

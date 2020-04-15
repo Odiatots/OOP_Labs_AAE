@@ -5,7 +5,7 @@ namespace PersonsLib
     /// <summary>
     /// Класс, описывающий ребенка
     /// </summary>
-    public class Child : Person
+    public class Child : PersonBase
     {
         #region Константы
 
@@ -42,23 +42,13 @@ namespace PersonsLib
             }
         }
 
-        //TODO: Не используется
-        /// <summary>
-        /// Отец
-        /// </summary>
-        private Adult _father;
-
+        //TODO: Не используется (было поле и автосвойство) - исправлено
         /// <summary>
         /// Отец
         /// </summary>
         public Adult Father { get; set; }
 
-        //TODO: Не используется
-        /// <summary>
-        /// Мать
-        /// </summary>
-        private Adult _mother;
-
+        //TODO: Не используется (было поле и автосвойство) - исправлено
         /// <summary>
         /// Мать
         /// </summary>

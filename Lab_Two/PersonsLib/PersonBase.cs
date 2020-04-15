@@ -4,11 +4,11 @@ using System.Text.RegularExpressions;
 
 namespace PersonsLib
 {
-    //TODO: RSDN - именование
+    //TODO: RSDN - именование - исправлено
     /// <summary>
     /// Класс, описывающий человека
     /// </summary>
-    public abstract class Person
+    public abstract class PersonBase
     {
         #region Поля и свойства
 
@@ -86,32 +86,8 @@ namespace PersonsLib
 
         #endregion
 
-        #region Конструкторы
-
-        //TODO: Не используется
-        /// <summary>
-        /// Конструктор для инициализации полей человека по умолчанию
-        /// </summary>
-        public Person() { }
-
-        //TODO: Не используется
-        /// <summary>
-        /// Конструктор для инициализации полей человека
-        /// </summary>
-        /// <param name="firstName">Имя человека</param>
-        /// <param name="lastName">Фамилия человека</param>
-        /// <param name="age">Возраст человека</param>
-        /// <param name="gender">Пол человека</param>
-        public Person(string firstName, string lastName, int age,
-            SexTypes gender)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = age;
-            SexType = gender;
-        }
-
-        #endregion
+        //TODO: Не используется (был стандартный конструктор) - исправлено
+        //TODO: Не используется (был конструктор с параметрами) - исправлено
 
         #region Проверки
 
@@ -126,13 +102,8 @@ namespace PersonsLib
             var regexForName = new Regex(
                 $"^{expressionForRegex}((-)?){expressionForRegex}$");
 
-            //TODO: можно просто return regexForName.IsMatch(input); вместо всего что ниже
-            if (!regexForName.IsMatch(input))
-            {
-                return false;
-            }
-
-            return true;
+            return regexForName.IsMatch(input);
+            //TODO: можно просто return regexForName.IsMatch(input); вместо всего что ниже - исправлено
         }
 
         /// <summary>
@@ -167,8 +138,8 @@ namespace PersonsLib
         private static string FirstLetterChangeToBig(string wordToChange)
         {
             string[] buffer = wordToChange.Split('-');
-            //TODO: Небезопасно, лучше сделать пустой строкой
-            wordToChange = null;
+            //TODO: Небезопасно, лучше сделать пустой строкой - исправлено
+            wordToChange = string.Empty;
 
             for (int i = 0; i < buffer.Length; i++)
             {
