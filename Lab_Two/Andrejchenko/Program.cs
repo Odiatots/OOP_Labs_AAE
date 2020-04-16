@@ -24,7 +24,8 @@ namespace Andrejchenko.LabTwo
 
             Console.Write("Заполняем списки ---> ");
 
-            for (int i = 0; i < 7; i++)
+            // Вернуть 7
+            for (int i = 0; i < 100; i++)
             {
                 listPersons.AddPerson(GetRandomPerson.CreateRandomPerson());
             }

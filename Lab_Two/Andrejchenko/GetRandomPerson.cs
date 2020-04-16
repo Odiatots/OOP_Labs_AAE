@@ -36,20 +36,22 @@ namespace Andrejchenko.LabTwo
             }
         }
 
-        //TODO: Учесть пол при формировании родителей и супругов
+        //TODO: Учесть пол при формировании родителей и супругов - исправлено
         /// <summary>
         /// Задание случайного взрослого
         /// </summary>
         /// <param name="forMarriage">Генерация партнера
         /// для человека, состоящего в браке</param>
         /// <param name="partner">Партнер</param>
+        /// <param name="sexType">Пол человека, для
+        /// формирования супругов</param>
         /// <returns>Сгенерированный взрослый</returns>
         public static Adult ReceiveRandomAdult(bool forMarriage = false,
-            Adult partner = null)
+            Adult partner = null, string sexType = null)
         {
             var randomAdult = new Adult();
 
-            ReceiveRandomPersonBaseProp(randomAdult);
+            ReceiveRandomPersonBaseProp(randomAdult, sexType);
 
             randomAdult.Age = _random.Next(Adult.MINAGE, Adult.MAXAGE);
 
@@ -60,8 +62,18 @@ namespace Andrejchenko.LabTwo
 
                 if (randomAdult.MarriageStatus == MarriageStatus.Married)
                 {
-                    randomAdult.Partner = 
-                        ReceiveRandomAdult(true, randomAdult);
+                    switch (randomAdult.SexType)
+                    {
+                        case SexTypes.Male:
+                            randomAdult.Partner = ReceiveRandomAdult(
+                                true, randomAdult, "Female");
+                            break;
+
+                        case SexTypes.Female:
+                            randomAdult.Partner = ReceiveRandomAdult(
+                                true, randomAdult, "Male");
+                            break;
+                    }
                 }
             }
             else
@@ -95,19 +107,19 @@ namespace Andrejchenko.LabTwo
 
             randomChild.Age = _random.Next(Child.MINAGE, Child.MAXAGE);
 
-            var haveMother = _random.Next(0, 1);
+            // По статистике 2,5% детей растут без матери,
+            // поэтому такой интервал
+            var haveMother = _random.Next(0, 40);
 
-            if (haveMother == 0)
-            {
-                randomChild.Mother = ReceiveRandomAdult();
-            }
+            if (!(haveMother == 0))
+                randomChild.Mother = ReceiveRandomAdult(sexType: "Female");
 
-            var haveFather = _random.Next(0, 1);
+            // По статистике 25% детей растут без отца,
+            // поэтому такой интервал
+            var haveFather = _random.Next(0, 5);
 
-            if (haveFather == 0)
-            {
-                randomChild.Father = ReceiveRandomAdult();
-            }
+            if (!(haveFather == 0))
+                randomChild.Father = ReceiveRandomAdult(sexType: "Male");
 
             var allPlaceOfTeachChildNames =
                 Properties.Resources.PlaceOfTeachChild.Split('\n');
@@ -172,9 +184,25 @@ namespace Andrejchenko.LabTwo
         /// Задание базовых полей человека
         /// </summary>
         /// <param name="person">Персона для заполнения</param>
-        public static void ReceiveRandomPersonBaseProp(PersonBase person)
+        /// <param name="sexType">Пол человека, для 
+        /// формирования супругов</param>
+        public static void ReceiveRandomPersonBaseProp(PersonBase person, 
+            string sexType = null)
         {
-            var randomSexType = _random.Next(0, 1);
+            var randomSexType = _random.Next(0, 2);
+
+            if (!(sexType == null))
+            {
+                switch (sexType)
+                {
+                    case "Male":
+                        randomSexType = 0;
+                        break;
+                    case "Female":
+                        randomSexType = 1;
+                        break;
+                }
+            }         
 
             //TODO: 1ЛР - исправлено
             switch (randomSexType)
