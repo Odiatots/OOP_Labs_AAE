@@ -36,7 +36,6 @@ namespace Andrejchenko.LabTwo
             }
         }
 
-        //TODO: Учесть пол при формировании родителей и супругов - исправлено
         /// <summary>
         /// Задание случайного взрослого
         /// </summary>
@@ -131,7 +130,6 @@ namespace Andrejchenko.LabTwo
             return randomChild;
         }
 
-        //TODO Сигнатура XML комментария и метода различны - исправлено
         /// <summary>
         /// Сгенерировать номер или серию паспорта
         /// </summary>
@@ -163,7 +161,6 @@ namespace Andrejchenko.LabTwo
         /// значение</param>
         /// <returns>Номер или серия</returns>
         private static string FillPassportDataWithZeros(
-            //TODO: RSDN - исправлено
             string passportData, int lenghtRequriedPassportData)
         {
             if (passportData.Length < lenghtRequriedPassportData)
@@ -204,7 +201,6 @@ namespace Andrejchenko.LabTwo
                 }
             }         
 
-            //TODO: 1ЛР - исправлено
             switch (randomSexType)
             {
                 case 0:
@@ -231,7 +227,6 @@ namespace Andrejchenko.LabTwo
         /// <returns>Фамилия или имя</returns>
         public static string GetRandomPersonBaseNames(string names)
         {
-            //TODO: 1ЛР - исправлено
             var baseNames = names.Split('\n');
 
             var nameRandomIndex = _random.Next(0, baseNames.Length - 1);

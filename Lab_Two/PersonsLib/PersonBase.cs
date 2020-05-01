@@ -4,7 +4,6 @@ using System.Text.RegularExpressions;
 
 namespace PersonsLib
 {
-    //TODO: RSDN - именование - исправлено
     /// <summary>
     /// Класс, описывающий человека
     /// </summary>
@@ -86,9 +85,6 @@ namespace PersonsLib
 
         #endregion
 
-        //TODO: Не используется (был стандартный конструктор) - исправлено
-        //TODO: Не используется (был конструктор с параметрами) - исправлено
-
         #region Проверки
 
         /// <summary>
@@ -103,7 +99,6 @@ namespace PersonsLib
                 $"^{expressionForRegex}((-)?){expressionForRegex}$");
 
             return regexForName.IsMatch(input);
-            //TODO: можно просто return regexForName.IsMatch(input); вместо всего что ниже - исправлено
         }
 
         /// <summary>
@@ -138,7 +133,6 @@ namespace PersonsLib
         private static string FirstLetterChangeToBig(string wordToChange)
         {
             string[] buffer = wordToChange.Split('-');
-            //TODO: Небезопасно, лучше сделать пустой строкой - исправлено
             wordToChange = string.Empty;
 
             for (int i = 0; i < buffer.Length; i++)

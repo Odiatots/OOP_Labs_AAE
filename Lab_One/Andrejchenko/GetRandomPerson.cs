@@ -23,9 +23,7 @@ namespace Andrejchenko.LabOne
 
             var randomSexType = _random.Next(0, 1);
             randomPerson.Age = _random.Next(0, 100);
-
-            //TODO: Правильнее в switch-case, а не if-else - исправлено
-
+            
             switch (randomSexType)
             {
                 case 0:
@@ -53,8 +51,6 @@ namespace Andrejchenko.LabOne
         /// <returns></returns>
         public static string GetRandomPersonNames(string names)
         {
-            //TODO: Алгоритм генерации имени и фамилии дублируется, правильно их вынести в отдельный метод,
-            //TODO: а из него уже возвращать строку имя/фамилия и присваивать уже нужному свойству персоны - исправлено
             var baseNames = names.Split('\n');
 
             var nameRandomIndex = _random.Next(0, baseNames.Length - 1);

@@ -12,6 +12,7 @@ namespace PersonsLib
     /// </summary>
     public class Person
     {
+
         #region Поля и свойства
         /// <summary>
         /// Имя человека
@@ -87,8 +88,9 @@ namespace PersonsLib
         #endregion
 
         #region Конструкторы
+
         /// <summary>
-        /// Конструктор для инициализации полей человека по умолчанию
+        /// Конструктор по умолчанию
         /// </summary>
         public Person() { }
 

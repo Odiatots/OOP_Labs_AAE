@@ -42,13 +42,11 @@ namespace PersonsLib
             }
         }
 
-        //TODO: Не используется (было поле и автосвойство) - исправлено
         /// <summary>
         /// Отец
         /// </summary>
         public Adult Father { get; set; }
 
-        //TODO: Не используется (было поле и автосвойство) - исправлено
         /// <summary>
         /// Мать
         /// </summary>

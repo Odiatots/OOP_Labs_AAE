@@ -1,6 +1,5 @@
 ﻿namespace PersonsLib
 {
-    //TODO: XML - исправлено
     /// <summary>
     /// Статус состояния в браке
     /// </summary>

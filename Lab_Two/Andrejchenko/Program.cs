@@ -24,8 +24,8 @@ namespace Andrejchenko.LabTwo
 
             Console.Write("Заполняем списки ---> ");
 
-            // Вернуть 7
-            for (int i = 0; i < 100; i++)
+            // TODO: Вернуть 7 - исправлено
+            for (int i = 0; i < 7; i++)
             {
                 listPersons.AddPerson(GetRandomPerson.CreateRandomPerson());
             }
@@ -46,6 +46,7 @@ namespace Andrejchenko.LabTwo
 
             switch (listPersons[3])
             {
+                //TODO: Вызвать метод, присущий данному типу.
                 case Adult adult:
                     {
                         Console.Write("взрослый человек.");
