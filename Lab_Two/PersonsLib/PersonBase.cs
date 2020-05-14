@@ -170,5 +170,18 @@ namespace PersonsLib
         }
 
         #endregion
+
+        #region Методы
+
+        /// <summary>
+        /// Определение человека
+        /// </summary>
+        /// <returns>Человек</returns>
+        public virtual string WhoAmI()
+        {
+            return "Я - человек!";
+        }
+
+        #endregion
     }
 }

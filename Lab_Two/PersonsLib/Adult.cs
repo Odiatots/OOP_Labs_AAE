@@ -147,6 +147,24 @@ namespace PersonsLib
             }
         }
 
+        /// <summary>
+        /// Посмотреть телек
+        /// </summary>
+        /// <returns>Смотрит телек</returns>
+        public string WatchTV()
+        {
+            return $" {ShortInfoAboutPerson()} идет залипать в телек.";
+        }
+
+        /// <summary>
+        /// Определение взрослого
+        /// </summary>
+        /// <returns>Взрослый</returns>
+        public override string WhoAmI()
+        {
+            return "Я - взрослый человек.";
+        }
+
         #endregion
 
         #region Формирование информации

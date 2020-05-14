@@ -46,18 +46,24 @@ namespace Andrejchenko.LabTwo
 
             switch (listPersons[3])
             {
-                //TODO: Вызвать метод, присущий данному типу.
+                //TODO: Вызвать метод, присущий данному типу - исправлено
                 case Adult adult:
                     {
                         Console.Write("взрослый человек.");
+                        var person = listPersons[3] as Adult;
+                        Console.WriteLine(person.WatchTV());
                         break;
                     }
                 case Child child:
                     {
                         Console.Write("ребенок.");
+                        var person = listPersons[3] as Child;
+                        Console.WriteLine(person.TryWatchTV());
                         break;
                     }
             }
+
+            Console.WriteLine(listPersons[3].WhoAmI());
 
             Console.ReadKey();
         }

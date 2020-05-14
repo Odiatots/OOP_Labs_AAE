@@ -113,5 +113,28 @@ namespace PersonsLib
         }
 
         #endregion
+
+        #region Методы
+
+        /// <summary>
+        /// Посмотреть телек
+        /// </summary>
+        /// <returns>Не смотрит телек</returns>
+        public string TryWatchTV()
+        {
+            return $" {ShortInfoAboutPerson()} отправляется спать. Поздно уже.";
+        }
+
+        /// <summary>
+        /// Определение ребенка
+        /// </summary>
+        /// <returns>Взрослый</returns>
+        public override string WhoAmI()
+        {
+            return "Я - ребенок.";
+        }
+
+        #endregion
+
     }
 }
