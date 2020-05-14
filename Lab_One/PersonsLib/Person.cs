@@ -185,6 +185,8 @@ namespace PersonsLib
             return $"{FirstName} {LastName}, " +
                 $"Возраст: {Age}, Пол: {SexType}";
         } 
+
         #endregion
+
     }
 }
