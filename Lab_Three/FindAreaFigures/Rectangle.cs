@@ -56,21 +56,7 @@ namespace FindAreaFigures
             get => _paramA;
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException(
-                        $"{nameof(value)} must be greater " +
-                        $"than or equal to zero");
-                }
-                else if (Double.IsNaN(_paramA))
-                {
-                    throw new ArithmeticException(
-                        $"{nameof(value)} is NaN");
-                }
-                else
-                {
-                    _paramA = value;
-                }
+                _paramA = CheckArgument.ChekException(value, nameof(value));
             }
         }
 
@@ -82,21 +68,7 @@ namespace FindAreaFigures
             get => _paramB;
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException(
-                        $"{nameof(value)} must be greater " +
-                        $"than or equal to zero");
-                }
-                else if (Double.IsNaN(_paramB))
-                {
-                    throw new ArithmeticException(
-                        $"{nameof(value)} is NaN");
-                }
-                else
-                {
-                    _paramB = value;
-                }
+                _paramB = CheckArgument.ChekException(value, nameof(value));
             }
         }
 
@@ -108,21 +80,7 @@ namespace FindAreaFigures
             get => _paramDg;
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException(
-                        $"{nameof(value)} must be greater " +
-                        $"than or equal to zero");
-                }
-                else if (Double.IsNaN(_paramDg))
-                {
-                    throw new ArithmeticException(
-                        $"{nameof(value)} is NaN");
-                }
-                else
-                {
-                    _paramDg = value;
-                }
+                _paramDg = CheckArgument.ChekException(value, nameof(value));
             }
         }
 
@@ -134,19 +92,15 @@ namespace FindAreaFigures
             get => _paramAlpha;
             set
             {
-                if (value < 0 || value > 180)
+                if (value > 180)
                 {
                     throw new ArgumentOutOfRangeException(
-                        $"{nameof(value)} must be between 0 and 180");
-                }
-                else if (Double.IsNaN(_paramAlpha))
-                {
-                    throw new ArithmeticException(
-                        $"{nameof(value)} is NaN");
+                        $"{nameof(value)} must be less than 180");
                 }
                 else
                 {
-                    _paramAlpha = value;
+                    _paramAlpha = CheckArgument.ChekException(
+                        value, nameof(value));
                 }
             }
         }
