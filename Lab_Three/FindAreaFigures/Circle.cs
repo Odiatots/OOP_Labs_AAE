@@ -17,17 +17,17 @@ namespace FindAreaFigures
         /// <summary>
         /// Поле параметр радиус
         /// </summary>
-        private double _paramR;
+        private double _radiusCircle;
 
         /// <summary>
         /// Поле параметр диаметр
         /// </summary>
-        private double _paramD;
+        private double _diameterCircle;
 
         /// <summary>
         /// Поле параметр длина окружности
         /// </summary>
-        private double _paramCr;
+        private double _circumference;
 
         /// <summary>
         /// Поле параметр площадь фигуры
@@ -46,30 +46,30 @@ namespace FindAreaFigures
         /// <summary>
         /// Свойство параметр радиус
         /// </summary>
-        public double ParamR
+        public double RadiusCircle
         {
-            get => _paramR;
-            set => _paramR = CheckArgument.ChekException(
+            get => _radiusCircle;
+            set => _radiusCircle = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр диаметр
         /// </summary>
-        public double ParamD
+        public double DiameterCircle
         {
-            get => _paramD;
-            set => _paramD = CheckArgument.ChekException(
+            get => _diameterCircle;
+            set => _diameterCircle = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр длина окружности
         /// </summary>
-        public double ParamCr
+        public double Circumference
         {
-            get => _paramCr;
-            set => _paramCr = CheckArgument.ChekException(
+            get => _circumference;
+            set => _circumference = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
@@ -85,13 +85,13 @@ namespace FindAreaFigures
                 switch (_calcType)
                 {
                     case "radius":
-                        bufferArea = Math.PI * Math.Pow(ParamR, 2);
+                        bufferArea = Math.PI * Math.Pow(RadiusCircle, 2);
                         break;
                     case "diameter":
-                        bufferArea = Math.PI * Math.Pow(ParamD, 2) / 4;
+                        bufferArea = Math.PI * Math.Pow(DiameterCircle, 2) / 4;
                         break;
                     case "circumference":
-                        bufferArea = Math.Pow(ParamCr, 2) / (4 * Math.PI);
+                        bufferArea = Math.Pow(Circumference, 2) / (4 * Math.PI);
                         break;
                     default:
                         bufferArea = 0;
