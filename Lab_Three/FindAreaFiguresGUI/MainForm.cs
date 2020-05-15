@@ -50,7 +50,7 @@ namespace FindAreaFiguresGUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void label2_Click(object sender, EventArgs e)
+        private void CloseLabel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -60,7 +60,7 @@ namespace FindAreaFiguresGUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void label3_Click(object sender, EventArgs e)
+        private void MinimazeLabel_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
@@ -75,7 +75,7 @@ namespace FindAreaFiguresGUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void MovePanel_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
         }
@@ -85,7 +85,7 @@ namespace FindAreaFiguresGUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void MovePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
