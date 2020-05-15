@@ -42,7 +42,7 @@ namespace FindAreaFigures
         /// <summary>
         /// Поле параметр способ расчета
         /// </summary>
-        private string _calcType;
+        private string _calcTypeArea;
 
         #endregion
 
@@ -98,7 +98,7 @@ namespace FindAreaFigures
             {
                 double bufferArea;
 
-                switch (_calcType)
+                switch (_calcTypeArea)
                 {
                     case "side rectangle":
                         bufferArea = LengthRectangle * WidthRectangle;

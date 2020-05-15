@@ -22,5 +22,10 @@ namespace FindAreaFigures
         /// </summary>
         public string NameFigure { get; }
 
+        /// <summary>
+        /// Тип исходных данных
+        /// </summary>
+        public List<string> CalcType { get; }
+
     }
 }
