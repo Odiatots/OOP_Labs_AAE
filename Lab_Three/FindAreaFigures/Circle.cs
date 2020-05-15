@@ -20,9 +20,24 @@ namespace FindAreaFigures
         private double _paramR;
 
         /// <summary>
+        /// Поле параметр диаметр
+        /// </summary>
+        private double _paramD;
+
+        /// <summary>
+        /// Поле параметр длина окружности
+        /// </summary>
+        private double _paramCr;
+
+        /// <summary>
         /// Поле параметр площадь фигуры
         /// </summary>
         private double _figureArea;
+
+        /// <summary>
+        /// Поле параметр способ расчета
+        /// </summary>
+        private string _calcType;
 
         #endregion
 
@@ -33,8 +48,64 @@ namespace FindAreaFigures
         /// </summary>
         public double ParamR
         {
-            get { return _paramR; }
-            set { _paramR = value; }
+            get => _paramR;
+            set
+            {
+
+                _paramR = value;
+            }
+        }
+
+        /// <summary>
+        /// Свойство параметр диаметр
+        /// </summary>
+        public double ParamD
+        {
+            get => _paramD;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException(
+                        $"{nameof(value)} must be greater " +
+                        $"than or equal to zero");
+                }
+                else if (Double.IsNaN(_paramD))
+                {
+                    throw new ArithmeticException(
+                        $"{nameof(value)} is NaN");
+                }
+                else
+                {
+                    _paramD = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Свойство параметр длина окружности
+        /// </summary>
+        public double ParamCr
+        {
+            get => _paramCr;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException(
+                        $"{nameof(value)} must be greater " +
+                        $"than or equal to zero");
+                }
+                else if (Double.IsNaN(_paramR))
+                {
+                    throw new ArithmeticException(
+                        $"{nameof(value)} is NaN");
+                }
+                else
+                {
+                    _paramCr = value;
+                }
+            }
         }
 
         /// <summary>
@@ -44,11 +115,22 @@ namespace FindAreaFigures
         {
             get
             {
-                double bufferArea = 0;
+                double bufferArea;
 
-                if (ParamR != 0)
+                switch (_calcType)
                 {
-                    bufferArea = 2 * Math.PI * ParamR;
+                    case "radius":
+                        bufferArea = Math.PI * Math.Pow(ParamR, 2);
+                        break;
+                    case "diameter":
+                        bufferArea = Math.PI * Math.Pow(ParamD, 2) / 4;
+                        break;
+                    case "circumference":
+                        bufferArea = Math.Pow(ParamCr, 2) / (4 * Math.PI);
+                        break;
+                    default:
+                        bufferArea = 0;
+                        break;
                 }
 
                 return bufferArea;
@@ -56,6 +138,21 @@ namespace FindAreaFigures
             set
             {
                 _figureArea = value;
+            }
+        }
+
+        /// <summary>
+        /// Свойство параметр способ расчета
+        /// </summary>
+        public List<string> CalcType
+        {
+            get
+            {
+                var bufferCalcType = new List<string>();
+                bufferCalcType.Add("radius");
+                bufferCalcType.Add("diameter");
+                bufferCalcType.Add("circumference");
+                return bufferCalcType;
             }
         }
 
