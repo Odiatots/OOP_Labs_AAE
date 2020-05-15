@@ -51,7 +51,7 @@ namespace FindAreaFigures
             }
             else
             {
-                return CheckArgument.ChekException(dimension, name);
+                return CheckArgument.ChekException(dimension, name:name);
             }
         }
     }

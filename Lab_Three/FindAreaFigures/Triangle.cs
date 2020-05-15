@@ -17,25 +17,25 @@ namespace FindAreaFigures
         /// <summary>
         /// Поле параметр сторона 1
         /// </summary>
-        private double _paramA;
+        private double _firstSideTriangle;
 
         /// <summary>
         /// Поле параметр сторона 2
         /// </summary>
-        private double _paramB;
+        private double _secondSideTriangle;
 
         /// <summary>
         /// Поле параметр сторона 3
         /// </summary>
-        private double _paramC;
+        private double _thirdSideTriangle;
 
         /// <summary>
         /// Поле параметр угол между сторонами 1 и 2
-        private double _paramAlpha;
+        private double _angleBetweenSides;
 
         /// <summary>
         /// Поле параметр высота, опущенная на сторону 1
-        private double _paramH;
+        private double _sideDown;
 
         /// <summary>
         /// Поле параметр площадь фигуры
@@ -54,50 +54,50 @@ namespace FindAreaFigures
         /// <summary>
         /// Свойство параметр сторона 1
         /// </summary>
-        public double ParamA
+        public double FirstSideTriangle
         {
-            get => _paramA;
-            set => _paramA = CheckArgument.ChekException(
+            get => _firstSideTriangle;
+            set => _firstSideTriangle = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр сторона 2
         /// </summary>
-        public double ParamB
+        public double SecondSideTriangle
         {
-            get => _paramB;
-            set => _paramB = CheckArgument.ChekException(
+            get => _secondSideTriangle;
+            set => _secondSideTriangle = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр сторона 3
         /// </summary>
-        public double ParamC
+        public double ThirdSideTriangle
         {
-            get => _paramC;
-            set => _paramC = CheckArgument.ChekException(
+            get => _thirdSideTriangle;
+            set => _thirdSideTriangle = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр угол между сторонами 1 и 2
         /// </summary>
-        public double ParamAlpha
+        public double AngleBetweenSides
         {
-            get => _paramAlpha;
-            set => _paramAlpha = CheckArgument.ChekExceptionAngle(
+            get => _angleBetweenSides;
+            set => _angleBetweenSides = CheckArgument.ChekExceptionAngle(
                 value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр высота, опущенная на сторону 1
         /// </summary>
-        public double ParamH
+        public double SideDown
         {
-            get => _paramH;
-            set => _paramH = CheckArgument.ChekException(
+            get => _sideDown;
+            set => _sideDown = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
@@ -113,18 +113,23 @@ namespace FindAreaFigures
                 switch (_calcType)
                 {
                     case "two sides and the angle":
-                        bufferArea = ParamA * ParamB *
-                            Math.Sin(ParamAlpha * Math.PI / 180) / 2;
+                        bufferArea = FirstSideTriangle *
+                            SecondSideTriangle *
+                            Math.Sin(AngleBetweenSides * Math.PI / 180) / 2;
                         break;
                     case "side and height lowered onto it":
-                        bufferArea = ParamA * ParamH / 2;
+                        bufferArea = FirstSideTriangle * SideDown / 2;
                         break;
                     case "all sides":
-                        if (IsExistTriangle(ParamA, ParamB, ParamC))
+                        if (IsExistTriangle(FirstSideTriangle, 
+                            SecondSideTriangle, ThirdSideTriangle))
                         {
-                            double halfP = (ParamA + ParamB + ParamC) / 2;
-                            bufferArea = Math.Sqrt(halfP * (halfP - ParamA) *
-                                (halfP - ParamB) * (halfP - ParamC));
+                            double halfP = (FirstSideTriangle +
+                                SecondSideTriangle + ThirdSideTriangle) / 2;
+                            bufferArea = Math.Sqrt(halfP * 
+                                (halfP - FirstSideTriangle) * 
+                                (halfP - SecondSideTriangle) * 
+                                (halfP - ThirdSideTriangle));
                         }
                         else
                         {
@@ -138,10 +143,6 @@ namespace FindAreaFigures
                 }
 
                 return bufferArea;
-            }
-            set
-            {
-                _figureArea = value;
             }
         }
 
@@ -173,10 +174,6 @@ namespace FindAreaFigures
         /// <returns>да/нет</returns>
         public bool IsExistTriangle(double a, double b, double c)
         {
-            a = ParamA;
-            b = ParamB;
-            c = ParamC;
-
             if (a + b > c & a + c > b & b + c > a)
             {
                 return true;
