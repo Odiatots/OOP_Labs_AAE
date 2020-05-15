@@ -42,7 +42,8 @@ namespace FindAreaFigures
         /// <param name="dimension">Параметр</param>
         /// <param name="name">Название параметра</param>
         /// <returns>Проверенный параметр</returns>
-        public static double ChekExceptionAngle(double dimension, string name)
+        public static double ChekExceptionAngle(
+            double dimension, string name)
         {
             if (dimension > 180)
             {

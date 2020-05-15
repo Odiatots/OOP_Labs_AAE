@@ -136,6 +136,14 @@ namespace FindAreaFigures
             }
         }
 
+        /// <summary>
+        /// Имя
+        /// </summary>
+        public string NameFigure
+        {
+            get => "Rectangle";
+        }
+
         #endregion
 
     }

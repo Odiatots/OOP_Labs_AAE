@@ -169,6 +169,14 @@ namespace FindAreaFigures
             }
         }
 
+        /// <summary>
+        /// Имя
+        /// </summary>
+        public string NameFigure
+        {
+            get => "Triangle";
+        }
+
         #endregion
 
         #region Методы

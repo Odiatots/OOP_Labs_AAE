@@ -47,7 +47,7 @@
     <Compile Include="Triangle.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="Rectangle.cs" />
-    <Compile Include="FigureBase.cs" />
+    <Compile Include="IFigure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

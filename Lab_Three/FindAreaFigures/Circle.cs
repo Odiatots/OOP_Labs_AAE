@@ -88,10 +88,12 @@ namespace FindAreaFigures
                         bufferArea = Math.PI * Math.Pow(RadiusCircle, 2);
                         break;
                     case "diameter":
-                        bufferArea = Math.PI * Math.Pow(DiameterCircle, 2) / 4;
+                        bufferArea = Math.PI *
+                            Math.Pow(DiameterCircle, 2) / 4;
                         break;
                     case "circumference":
-                        bufferArea = Math.Pow(Circumference, 2) / (4 * Math.PI);
+                        bufferArea = Math.Pow(Circumference, 2) / 
+                            (4 * Math.PI);
                         break;
                     default:
                         bufferArea = 0;
@@ -119,6 +121,14 @@ namespace FindAreaFigures
                 bufferCalcType.Add("circumference");
                 return bufferCalcType;
             }
+        }
+
+        /// <summary>
+        /// Имя
+        /// </summary>
+        public string NameFigure
+        {
+            get => "Circle";
         }
 
         #endregion

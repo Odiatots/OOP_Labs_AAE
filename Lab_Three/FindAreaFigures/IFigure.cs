@@ -17,5 +17,10 @@ namespace FindAreaFigures
         /// </summary>
         double FigureArea { get; set; }
 
+        /// <summary>
+        /// Имя
+        /// </summary>
+        public string NameFigure { get; }
+
     }
 }
