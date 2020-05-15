@@ -49,10 +49,8 @@ namespace FindAreaFigures
         public double ParamR
         {
             get => _paramR;
-            set
-            {
-                _paramR = CheckArgument.ChekException(value, nameof(value));
-            }
+            set => _paramR = CheckArgument.ChekException(
+                value, nameof(value));
         }
 
         /// <summary>
@@ -61,10 +59,8 @@ namespace FindAreaFigures
         public double ParamD
         {
             get => _paramD;
-            set
-            {
-                _paramD = CheckArgument.ChekException(value, nameof(value));
-            }
+            set => _paramD = CheckArgument.ChekException(
+                value, nameof(value));
         }
 
         /// <summary>
@@ -73,10 +69,8 @@ namespace FindAreaFigures
         public double ParamCr
         {
             get => _paramCr;
-            set
-            {
-                _paramCr = CheckArgument.ChekException(value, nameof(value));
-            }
+            set => _paramCr = CheckArgument.ChekException(
+                value, nameof(value));
         }
 
         /// <summary>

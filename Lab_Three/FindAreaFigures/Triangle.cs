@@ -57,10 +57,8 @@ namespace FindAreaFigures
         public double ParamA
         {
             get => _paramA;
-            set
-            {
-                _paramA = CheckArgument.ChekException(value, nameof(value));
-            }
+            set => _paramA = CheckArgument.ChekException(
+                value, nameof(value));
         }
 
         /// <summary>
@@ -69,10 +67,8 @@ namespace FindAreaFigures
         public double ParamB
         {
             get => _paramB;
-            set
-            {
-                _paramB = CheckArgument.ChekException(value, nameof(value));
-            }
+            set => _paramB = CheckArgument.ChekException(
+                value, nameof(value));
         }
 
         /// <summary>
@@ -81,10 +77,8 @@ namespace FindAreaFigures
         public double ParamC
         {
             get => _paramC;
-            set
-            {
-                _paramC = CheckArgument.ChekException(value, nameof(value));
-            }
+            set => _paramC = CheckArgument.ChekException(
+                value, nameof(value));
         }
 
         /// <summary>
@@ -93,19 +87,8 @@ namespace FindAreaFigures
         public double ParamAlpha
         {
             get => _paramAlpha;
-            set
-            {
-                if (value > 180)
-                {
-                    throw new ArgumentOutOfRangeException(
-                        $"{nameof(value)} must be less than 180");
-                }
-                else
-                {
-                    _paramAlpha = CheckArgument.ChekException(
-                        value, nameof(value));
-                }
-            }
+            set => _paramAlpha = CheckArgument.ChekExceptionAngle(
+                value, nameof(value));
         }
 
         /// <summary>
@@ -114,10 +97,8 @@ namespace FindAreaFigures
         public double ParamH
         {
             get => _paramH;
-            set
-            {
-                _paramH = CheckArgument.ChekException(value, nameof(value));
-            }
+            set => _paramH = CheckArgument.ChekException(
+                value, nameof(value));
         }
 
         /// <summary>

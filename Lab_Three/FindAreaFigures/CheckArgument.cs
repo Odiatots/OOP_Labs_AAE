@@ -12,7 +12,7 @@ namespace FindAreaFigures
     public static class CheckArgument
     {
         /// <summary>
-        /// Метод проброса исключений
+        /// Метод проброса исключений для параметров
         /// </summary>
         /// <param name="dimension">Параметр</param>
         /// <param name="name">Название параметра</param>
@@ -33,6 +33,25 @@ namespace FindAreaFigures
             else
             {
                 return dimension;
+            }
+        }
+
+        /// <summary>
+        /// Метод проброса исключений для параметров угла
+        /// </summary>
+        /// <param name="dimension">Параметр</param>
+        /// <param name="name">Название параметра</param>
+        /// <returns>Проверенный параметр</returns>
+        public static double ChekExceptionAngle(double dimension, string name)
+        {
+            if (dimension > 180)
+            {
+                throw new ArgumentOutOfRangeException(
+                    $"{name} must be less than 180");
+            }
+            else
+            {
+                return CheckArgument.ChekException(dimension, name);
             }
         }
     }
