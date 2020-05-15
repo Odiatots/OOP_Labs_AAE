@@ -31,11 +31,11 @@ namespace FindAreaFigures
 
         /// <summary>
         /// Поле параметр угол между сторонами 1 и 2
-        private double _angleBetweenSides;
+        private double _angleBetweenSidesTriangle;
 
         /// <summary>
         /// Поле параметр высота, опущенная на сторону 1
-        private double _sideDown;
+        private double _sideDownTriangle;
 
         /// <summary>
         /// Поле параметр площадь фигуры
@@ -84,20 +84,20 @@ namespace FindAreaFigures
         /// <summary>
         /// Свойство параметр угол между сторонами 1 и 2
         /// </summary>
-        public double AngleBetweenSides
+        public double AngleBetweenSidesTriangle
         {
-            get => _angleBetweenSides;
-            set => _angleBetweenSides = CheckArgument.ChekExceptionAngle(
-                value, nameof(value));
+            get => _angleBetweenSidesTriangle;
+            set => _angleBetweenSidesTriangle = 
+                CheckArgument.ChekExceptionAngle(value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр высота, опущенная на сторону 1
         /// </summary>
-        public double SideDown
+        public double SideDownTriangle
         {
-            get => _sideDown;
-            set => _sideDown = CheckArgument.ChekException(
+            get => _sideDownTriangle;
+            set => _sideDownTriangle = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
@@ -115,17 +115,21 @@ namespace FindAreaFigures
                     case "two sides and the angle":
                         bufferArea = FirstSideTriangle *
                             SecondSideTriangle *
-                            Math.Sin(AngleBetweenSides * Math.PI / 180) / 2;
+                            Math.Sin(AngleBetweenSidesTriangle *
+                            Math.PI / 180) / 2;
                         break;
                     case "side and height lowered onto it":
-                        bufferArea = FirstSideTriangle * SideDown / 2;
+                        bufferArea = FirstSideTriangle *
+                            SideDownTriangle / 2;
                         break;
                     case "all sides":
                         if (IsExistTriangle(FirstSideTriangle, 
                             SecondSideTriangle, ThirdSideTriangle))
                         {
-                            double halfP = (FirstSideTriangle +
-                                SecondSideTriangle + ThirdSideTriangle) / 2;
+                            double halfP = 
+                                (FirstSideTriangle +
+                                SecondSideTriangle + 
+                                ThirdSideTriangle) / 2;
                             bufferArea = Math.Sqrt(halfP * 
                                 (halfP - FirstSideTriangle) * 
                                 (halfP - SecondSideTriangle) * 
@@ -143,6 +147,10 @@ namespace FindAreaFigures
                 }
 
                 return bufferArea;
+            }
+            set
+            {
+                _figureArea = value;
             }
         }
 

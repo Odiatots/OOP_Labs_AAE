@@ -17,22 +17,22 @@ namespace FindAreaFigures
         /// <summary>
         /// Поле параметр длины
         /// </summary>
-        private double _paramA;
+        private double _lengthRectangle;
 
         /// <summary>
         /// Поле параметр ширины
         /// </summary>
-        private double _paramB;
+        private double _widthRectangle;
 
         /// <summary>
         /// Поле параметр диагональ
         /// </summary>
-        private double _paramDg;
+        private double _diagonalRectangle;
 
         /// <summary>
         /// Поле параметр угол между диагоналями
         /// </summary>
-        private double _paramAlpha;
+        private double _angleBetweenDiagonalsRectangle;
 
         /// <summary>
         /// Поле параметр площадь фигуры
@@ -51,40 +51,41 @@ namespace FindAreaFigures
         /// <summary>
         /// Свойство параметр длины
         /// </summary>
-        public double ParamA
+        public double LengthRectangle
         {
-            get => _paramA;
-            set => _paramA = CheckArgument.ChekException(
+            get => _lengthRectangle;
+            set => _lengthRectangle = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр ширины
         /// </summary>
-        public double ParamB
+        public double WidthRectangle
         {
-            get => _paramB;
-            set => _paramB = CheckArgument.ChekException(
+            get => _widthRectangle;
+            set => _widthRectangle = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр диагональ
         /// </summary>
-        public double ParamDg
+        public double DiagonalRectangle
         {
-            get => _paramDg;
-            set => _paramDg = CheckArgument.ChekException(
+            get => _diagonalRectangle;
+            set => _diagonalRectangle = CheckArgument.ChekException(
                 value, nameof(value));
         }
 
         /// <summary>
         /// Свойство параметр угол между диагоналями
         /// </summary>
-        public double ParamAlpha
+        public double AngleBetweenDiagonalsRectangle
         {
-            get => _paramAlpha;
-            set => _paramAlpha = CheckArgument.ChekExceptionAngle(
+            get => _angleBetweenDiagonalsRectangle;
+            set => _angleBetweenDiagonalsRectangle = 
+                CheckArgument.ChekExceptionAngle(
                 value, nameof(value));
         }
 
@@ -100,11 +101,13 @@ namespace FindAreaFigures
                 switch (_calcType)
                 {
                     case "side rectangle":
-                        bufferArea = ParamA * ParamB;
+                        bufferArea = LengthRectangle * WidthRectangle;
                         break;
                     case "diagonal and angle":
-                        bufferArea = Math.Sin(ParamAlpha * Math.PI / 180) *
-                            Math.Pow(ParamDg, 2) / 2;
+                        bufferArea = Math.Sin(
+                            AngleBetweenDiagonalsRectangle *
+                            Math.PI / 180) *
+                            Math.Pow(DiagonalRectangle, 2) / 2;
                         break;
                     default:
                         bufferArea = 0;
