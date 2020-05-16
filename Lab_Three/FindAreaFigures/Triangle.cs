@@ -148,14 +148,11 @@ namespace FindAreaFigures
 
                 return bufferArea;
             }
-            set
-            {
-                _figureArea = value;
-            }
+            set => _figureArea = value;
         }
 
         /// <summary>
-        /// Свойство параметр способ расчета
+        /// Свойство параметр способы расчета
         /// </summary>
         public List<string> CalcType
         {
@@ -166,6 +163,44 @@ namespace FindAreaFigures
                 bufferCalcType.Add("side and height lowered onto it");
                 bufferCalcType.Add("all sides");
                 return bufferCalcType;
+            }
+        }
+
+        /// <summary>
+        /// Свойство параметр способ расчета
+        /// </summary>
+        public string CalcTypeArea
+        {
+            set => _calcTypeArea = value;
+        }
+
+        /// <summary>
+        /// Лист свойств исходных данных
+        /// </summary>
+        public List<string> CalcTypesToForm
+        {
+            get
+            {
+                var bufferCalcTypes = new List<string>();
+                switch (_calcTypeArea)
+                {
+                    case "two sides and the angle":
+                        bufferCalcTypes.Add(nameof(FirstSideTriangle));
+                        bufferCalcTypes.Add(nameof(SecondSideTriangle));
+                        bufferCalcTypes.Add(nameof(AngleBetweenSidesTriangle));
+                        break;
+                    case "side and height lowered onto it":
+                        bufferCalcTypes.Add(nameof(FirstSideTriangle));
+                        bufferCalcTypes.Add(nameof(SideDownTriangle));
+                        break;
+                    case "all sides":
+                        bufferCalcTypes.Add(nameof(FirstSideTriangle));
+                        bufferCalcTypes.Add(nameof(SecondSideTriangle));
+                        bufferCalcTypes.Add(nameof(ThirdSideTriangle));
+                        break;
+                }
+
+                return bufferCalcTypes;
             }
         }
 

@@ -102,10 +102,7 @@ namespace FindAreaFigures
 
                 return bufferArea;
             }
-            set
-            {
-                _figureArea = value;
-            }
+            set => _figureArea = value;
         }
 
         /// <summary>
@@ -120,6 +117,39 @@ namespace FindAreaFigures
                 bufferCalcType.Add("diameter");
                 bufferCalcType.Add("circumference");
                 return bufferCalcType;
+            }
+        }
+
+        /// <summary>
+        /// Свойство параметр способ расчета
+        /// </summary>
+        public string CalcTypeArea
+        {
+            set => _calcTypeArea = value;
+        }
+
+        /// <summary>
+        /// Лист свойств исходных данных
+        /// </summary>
+        public List<string> CalcTypesToForm
+        {
+            get
+            {
+                var bufferCalcTypes = new List<string>();
+                switch (_calcTypeArea)
+                {
+                    case "radius":
+                        bufferCalcTypes.Add(nameof(RadiusCircle));
+                        break;
+                    case "diameter":
+                        bufferCalcTypes.Add(nameof(DiameterCircle));
+                        break;
+                    case "circumference":
+                        bufferCalcTypes.Add(nameof(Circumference));
+                        break;
+                }
+
+                return bufferCalcTypes;
             }
         }
 

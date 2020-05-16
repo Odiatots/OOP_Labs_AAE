@@ -116,10 +116,7 @@ namespace FindAreaFigures
 
                 return bufferArea;
             }
-            set
-            {
-                _figureArea = value;
-            }
+            set => _figureArea = value;
         }
 
         /// <summary>
@@ -133,6 +130,38 @@ namespace FindAreaFigures
                 bufferCalcType.Add("side rectangle");
                 bufferCalcType.Add("diagonal and angle");
                 return bufferCalcType;
+            }
+        }
+
+        /// <summary>
+        /// Свойство параметр способ расчета
+        /// </summary>
+        public string CalcTypeArea
+        {
+            set => _calcTypeArea = value;
+        }
+
+        /// <summary>
+        /// Лист свойств исходных данных
+        /// </summary>
+        public List<string> CalcTypesToForm
+        {
+            get
+            {
+                var bufferCalcTypes = new List<string>();
+                switch (_calcTypeArea)
+                {
+                    case "side rectangle":
+                        bufferCalcTypes.Add(nameof(LengthRectangle));
+                        bufferCalcTypes.Add(nameof(WidthRectangle));
+                        break;
+                    case "diagonal and angle":
+                        bufferCalcTypes.Add(nameof(AngleBetweenDiagonalsRectangle));
+                        bufferCalcTypes.Add(nameof(DiagonalRectangle));
+                        break;
+                }
+
+                return bufferCalcTypes;
             }
         }
 

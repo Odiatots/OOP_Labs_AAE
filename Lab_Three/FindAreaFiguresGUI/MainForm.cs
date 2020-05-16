@@ -21,7 +21,20 @@ namespace FindAreaFiguresGUI
         /// </summary>
         private List<IFigure> _itemsList;
 
-        private List<string> _calcTypeInForm;
+        /// <summary>
+        /// Тип расчета
+        /// </summary>
+        private List<string> _selectedCalcType;
+
+        /// <summary>
+        /// Лист свойств расчетных полей
+        /// </summary>
+        private List<string> _calcTypesToForm;
+
+        /// <summary>
+        /// Площадь фигуры
+        /// </summary>
+        private double _areaFigure;
 
         /// <summary>
         /// Иниицаилизация главной формы
@@ -96,50 +109,77 @@ namespace FindAreaFiguresGUI
             }
         }
 
-        // TODO: Не рефрешится CalcTypeComboBox при перевыборе TypeFigureComboBox
         /// <summary>
-        /// Добавление элемента ComboBox и  при выборе Index TypeFigureComboBox
+        /// Раскрытие элемента TypeCalcComboBox и TypeCalcLabel
+        /// при выборе Index TypeFigureComboBox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void TypeFigureComboBox_SelectionChangeCommitted(
             object sender, EventArgs e)
         {
-            // Создаем комбобокс и лейбл
-            ComboBox CalcTypeComboBox = new ComboBox();
-            Label TypeCalcLabel = new Label();
-
-            // Задаем комбобокс
-            CalcTypeComboBox.BackColor = Color.FromArgb(54, 57, 63);
-            CalcTypeComboBox.Cursor = Cursors.PanSouth;
-            CalcTypeComboBox.FlatStyle = FlatStyle.Flat;
-            CalcTypeComboBox.Font = new Font("Segoe UI", 8.25F,
-                FontStyle.Regular, GraphicsUnit.Point, 0);
-            CalcTypeComboBox.ForeColor = Color.FromArgb(225, 255, 255);
-            CalcTypeComboBox.Location = new Point(168, 69);
-            CalcTypeComboBox.Name = "CalcTypeComboBox";
-            CalcTypeComboBox.Size = new Size(121, 21);
-
-            // Задаем лейбл
-            TypeCalcLabel.AutoSize = true;
-            TypeCalcLabel.Font = new Font("Segoe UI", 9.75F,
-                FontStyle.Regular, GraphicsUnit.Point, 204);
-            TypeCalcLabel.ForeColor = Color.FromArgb(225, 255, 255);
-            TypeCalcLabel.Location = new Point(168, 43);
-            TypeCalcLabel.Name = "TypeCalcLabel";
-            TypeCalcLabel.Size = new Size(80, 17);
-            TypeCalcLabel.Text = "Тип расчета:";
-
-            // Добавляем комбобокс и лейбл в коллекцию
-            this.Controls.Add(CalcTypeComboBox);
-            this.Controls.Add(TypeCalcLabel);
+            CalcTypeComboBox.Visible = true;
+            CalcTypeLabel.Visible = true;
 
             // Вытаскиваем класс фигуры из TypeFigureComboBox и 
             // передаем список методов расчета в CalcTypeComboBox
-            var buffer = TypeFigureComboBox.SelectedItem as IFigure;
-            _calcTypeInForm = buffer.CalcType;
-            CalcTypeComboBox.DataSource = _calcTypeInForm;
-            CalcTypeComboBox.Refresh();
+            var bufferClassFigure = TypeFigureComboBox.SelectedItem as IFigure;
+            _selectedCalcType = bufferClassFigure.CalcType;
+            CalcTypeComboBox.DataSource = _selectedCalcType;
+        }
+
+        /// <summary>
+        /// Раскрытие элемента GiveDimensionButton
+        /// при выборе Index CalcTypeComboBox
+        /// и передача CalcType в IFigure
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalcTypeComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            GiveDimensionButton.Visible = true;
+
+            var bufferClassFigure = TypeFigureComboBox.SelectedItem as IFigure;
+            bufferClassFigure.CalcTypeArea = CalcTypeComboBox.SelectedItem as String;
+
+        }
+
+        /// <summary>
+        /// Нажатие на кнопку "дать ввести параметры"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GiveDimensionButton_Click(object sender, EventArgs e)
+        {
+            DimensionsDataGridView.Visible = true;
+
+            var bufferClassFigure = TypeFigureComboBox.SelectedItem as IFigure;
+            _calcTypesToForm = bufferClassFigure.CalcTypesToForm;
+
+            for (int i = 0; i < _calcTypesToForm.Count; i++)
+            {
+                DimensionsDataGridView.Rows.Add(_calcTypesToForm[i]);
+            }
+
+        }
+
+        /// <summary>
+        /// Нажатие на кнопку "посчитай"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GetResultButton_Click(object sender, EventArgs e)
+        {
+            var bufferClassFigure = TypeFigureComboBox.SelectedItem as IFigure;
+            // TODO: фигня
+            for (int i = 0; i < _calcTypesToForm.Count; i++)
+            {
+                _calcTypesToForm[i] = Convert.ToDouble(DimensionsDataGridView[1, i].Value);
+            }
+
+            _areaFigure = bufferClassFigure.FigureArea;
+
+            FigureAreaTextBox.Text = $"{_areaFigure}";
         }
     }
 }
