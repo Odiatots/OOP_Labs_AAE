@@ -172,36 +172,7 @@ namespace FindAreaFigures
         public string CalcTypeArea
         {
             set => _calcTypeArea = value;
-        }
-
-        /// <summary>
-        /// Лист свойств исходных данных
-        /// </summary>
-        public List<string> CalcTypesToForm
-        {
-            get
-            {
-                var bufferCalcTypes = new List<string>();
-                switch (_calcTypeArea)
-                {
-                    case "two sides and the angle":
-                        bufferCalcTypes.Add(nameof(FirstSideTriangle));
-                        bufferCalcTypes.Add(nameof(SecondSideTriangle));
-                        bufferCalcTypes.Add(nameof(AngleBetweenSidesTriangle));
-                        break;
-                    case "side and height lowered onto it":
-                        bufferCalcTypes.Add(nameof(FirstSideTriangle));
-                        bufferCalcTypes.Add(nameof(SideDownTriangle));
-                        break;
-                    case "all sides":
-                        bufferCalcTypes.Add(nameof(FirstSideTriangle));
-                        bufferCalcTypes.Add(nameof(SecondSideTriangle));
-                        bufferCalcTypes.Add(nameof(ThirdSideTriangle));
-                        break;
-                }
-
-                return bufferCalcTypes;
-            }
+            get => _calcTypeArea;
         }
 
         /// <summary>
@@ -210,6 +181,59 @@ namespace FindAreaFigures
         public string NameFigure
         {
             get => "Triangle";
+        }
+
+        /// <summary>
+        /// Варианты измерений фигуры
+        /// </summary>
+        public List<object> DimensionsFigure
+        {
+            get
+            {
+                var buffer = new List<object>();
+
+                switch (_calcTypeArea)
+                {
+                    case "two sides and the angle":
+                        buffer.Add(FirstSideTriangle);
+                        buffer.Add(SecondSideTriangle);
+                        buffer.Add(AngleBetweenSidesTriangle);
+                        break;
+                    case "side and height lowered onto it":
+                        buffer.Add(FirstSideTriangle);
+                        buffer.Add(SideDownTriangle);
+                        break;
+                    case "all sides":
+                        buffer.Add(FirstSideTriangle);
+                        buffer.Add(SecondSideTriangle);
+                        buffer.Add(ThirdSideTriangle);
+                        break;
+                }
+
+                return buffer;
+            }
+            set
+            {
+                var buffer = value;
+
+                switch (_calcTypeArea)
+                {
+                    case "two sides and the angle":
+                        FirstSideTriangle = Convert.ToDouble(buffer[0]);
+                        SecondSideTriangle = Convert.ToDouble(buffer[1]);
+                        AngleBetweenSidesTriangle = Convert.ToDouble(buffer[2]);
+                        break;
+                    case "side and height lowered onto it":
+                        FirstSideTriangle = Convert.ToDouble(buffer[0]);
+                        SideDownTriangle = Convert.ToDouble(buffer[1]);
+                        break;
+                    case "all sides":
+                        FirstSideTriangle = Convert.ToDouble(buffer[0]);
+                        SecondSideTriangle = Convert.ToDouble(buffer[1]);
+                        ThirdSideTriangle = Convert.ToDouble(buffer[2]);
+                        break;
+                }
+            }
         }
 
         #endregion

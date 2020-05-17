@@ -142,35 +142,52 @@ namespace FindAreaFigures
         }
 
         /// <summary>
-        /// Лист свойств исходных данных
-        /// </summary>
-        public List<string> CalcTypesToForm
-        {
-            get
-            {
-                var bufferCalcTypes = new List<string>();
-                switch (_calcTypeArea)
-                {
-                    case "side rectangle":
-                        bufferCalcTypes.Add(nameof(LengthRectangle));
-                        bufferCalcTypes.Add(nameof(WidthRectangle));
-                        break;
-                    case "diagonal and angle":
-                        bufferCalcTypes.Add(nameof(AngleBetweenDiagonalsRectangle));
-                        bufferCalcTypes.Add(nameof(DiagonalRectangle));
-                        break;
-                }
-
-                return bufferCalcTypes;
-            }
-        }
-
-        /// <summary>
         /// Имя
         /// </summary>
         public string NameFigure
         {
             get => "Rectangle";
+        }
+
+        /// <summary>
+        /// Варианты измерений фигуры
+        /// </summary>
+        public List<object> DimensionsFigure
+        {
+            get
+            {
+                var buffer = new List<object>();
+
+                switch (_calcTypeArea)
+                {
+                    case "side rectangle":
+                        buffer.Add(LengthRectangle);
+                        buffer.Add(WidthRectangle);
+                        break;
+                    case "diagonal and angle":
+                        buffer.Add(AngleBetweenDiagonalsRectangle);
+                        buffer.Add(DiagonalRectangle);
+                        break;
+                }
+
+                return buffer;
+            }
+            set
+            {
+                var buffer = value;
+
+                switch (_calcTypeArea)
+                {
+                    case "side rectangle":
+                        LengthRectangle = Convert.ToDouble(buffer[0]);
+                        WidthRectangle = Convert.ToDouble(buffer[1]);
+                        break;
+                    case "diagonal and angle":
+                        AngleBetweenDiagonalsRectangle = Convert.ToDouble(buffer[0]);
+                        DiagonalRectangle = Convert.ToDouble(buffer[1]);
+                        break;
+                }
+            }
         }
 
         #endregion

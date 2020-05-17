@@ -129,36 +129,54 @@ namespace FindAreaFigures
         }
 
         /// <summary>
-        /// Лист свойств исходных данных
-        /// </summary>
-        public List<string> CalcTypesToForm
-        {
-            get
-            {
-                var bufferCalcTypes = new List<string>();
-                switch (_calcTypeArea)
-                {
-                    case "radius":
-                        bufferCalcTypes.Add(nameof(RadiusCircle));
-                        break;
-                    case "diameter":
-                        bufferCalcTypes.Add(nameof(DiameterCircle));
-                        break;
-                    case "circumference":
-                        bufferCalcTypes.Add(nameof(Circumference));
-                        break;
-                }
-
-                return bufferCalcTypes;
-            }
-        }
-
-        /// <summary>
         /// Имя
         /// </summary>
         public string NameFigure
         {
             get => "Circle";
+        }
+
+        /// <summary>
+        /// Варианты измерений фигуры
+        /// </summary>
+        public List<object> DimensionsFigure
+        {
+            get
+            {
+                var buffer = new List<object>();
+
+                switch (_calcTypeArea)
+                {
+                    case "radius":
+                        buffer.Add(RadiusCircle);
+                        break;
+                    case "diameter":
+                        buffer.Add(DiameterCircle);
+                        break;
+                    case "circumference":
+                        buffer.Add(Circumference);
+                        break;
+                }
+
+                return buffer;
+            }
+            set
+            {
+                var buffer = value;
+
+                switch (_calcTypeArea)
+                {
+                    case "radius":
+                        RadiusCircle = Convert.ToDouble(buffer[0]);
+                        break;
+                    case "diameter":
+                        DiameterCircle = Convert.ToDouble(buffer[0]);
+                        break;
+                    case "circumference":
+                        Circumference = Convert.ToDouble(buffer[0]);
+                        break;
+                }
+            }
         }
 
         #endregion

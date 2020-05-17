@@ -33,9 +33,9 @@ namespace FindAreaFigures
         public string CalcTypeArea { set; }
 
         /// <summary>
-        /// Лист свойств исходных данных
+        /// Варианты измерений фигуры
         /// </summary>
-        public List<string> CalcTypesToForm { get; }
+        public List<object> DimensionsFigure { get; set; }
 
     }
 }

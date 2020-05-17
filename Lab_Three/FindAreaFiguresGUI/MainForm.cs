@@ -29,7 +29,7 @@ namespace FindAreaFiguresGUI
         /// <summary>
         /// Лист свойств расчетных полей
         /// </summary>
-        private List<string> _calcTypesToForm;
+        private List<object> _calcTypesToForm;
 
         /// <summary>
         /// Площадь фигуры
@@ -142,6 +142,7 @@ namespace FindAreaFiguresGUI
             var bufferClassFigure = TypeFigureComboBox.SelectedItem as IFigure;
             bufferClassFigure.CalcTypeArea = CalcTypeComboBox.SelectedItem as String;
 
+
         }
 
         /// <summary>
@@ -152,15 +153,13 @@ namespace FindAreaFiguresGUI
         private void GiveDimensionButton_Click(object sender, EventArgs e)
         {
             DimensionsDataGridView.Visible = true;
-
             var bufferClassFigure = TypeFigureComboBox.SelectedItem as IFigure;
-            _calcTypesToForm = bufferClassFigure.CalcTypesToForm;
+            _calcTypesToForm = bufferClassFigure.DimensionsFigure;
 
             for (int i = 0; i < _calcTypesToForm.Count; i++)
             {
                 DimensionsDataGridView.Rows.Add(_calcTypesToForm[i]);
             }
-
         }
 
         /// <summary>
@@ -171,15 +170,22 @@ namespace FindAreaFiguresGUI
         private void GetResultButton_Click(object sender, EventArgs e)
         {
             var bufferClassFigure = TypeFigureComboBox.SelectedItem as IFigure;
-            // TODO: фигня
+            
+            var _calcBuffer = _calcTypesToForm;
+
             for (int i = 0; i < _calcTypesToForm.Count; i++)
             {
-                _calcTypesToForm[i] = Convert.ToDouble(DimensionsDataGridView[1, i].Value);
+                _calcBuffer[i] = Convert.ToDouble(DimensionsDataGridView[1, i].Value);
             }
+
+            bufferClassFigure.DimensionsFigure = _calcBuffer;
 
             _areaFigure = bufferClassFigure.FigureArea;
 
             FigureAreaTextBox.Text = $"{_areaFigure}";
+
+            // TODO: rectangle не посчитал
+            // TODO: длины строк по РСДН
         }
     }
 }
