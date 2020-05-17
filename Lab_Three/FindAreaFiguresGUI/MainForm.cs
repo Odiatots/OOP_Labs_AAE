@@ -193,12 +193,27 @@ namespace FindAreaFiguresGUI
             // сохранения введенных параметров с формы
             for (int i = 0; i < _calcTypesToForm.Count; i++)
             {
-                _calcBuffer.Add(Convert.ToDouble(
-                    DimensionsDataGridView[1, i].Value as string));
+                double buffer = CheckDimensions(
+                    DimensionsDataGridView[1, i].Value as string,
+                    _calcTypesToForm[i] as string);
+
+                _calcBuffer.Add(Convert.ToDouble(buffer));
             }
 
             // передача введенных параметров в расчетный класс
-            _classFigure.DimensionsFigure = _calcBuffer;
+            try
+            {
+                _classFigure.DimensionsFigure = _calcBuffer;
+            }
+            catch (ArgumentOutOfRangeException exception)
+            {
+                Console.WriteLine(exception.Message);
+                MessageBox.Show($"{exception.Message}.",
+                    "Message", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
 
             // расчет площади
             _areaFigure = _classFigure.FigureArea;
@@ -213,24 +228,34 @@ namespace FindAreaFiguresGUI
         /// </summary>
         /// <param name="value">Параметр</param>
         /// <param name="name">Имя параметра</param>
-        private bool CheckDimensions(string value, string name)
+        private double CheckDimensions(string value, string name)
         {
-            try
+            double buffer;
+
+            if (!Double.TryParse(value, out buffer))
             {
-                Double.Parse(value);
-                return false;
-            }
-            catch (FormatException exception)
-            {
-                Console.WriteLine(exception.Message);
+                Console.WriteLine($"{name} - INVALID");
                 MessageBox.Show($"{name} - INVALID, please, think.",
-                    "Message",
-                    MessageBoxButtons.OK,
+                    "Message",MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.DefaultDesktopOnly);
-                return true;
             }
+            else if (String.IsNullOrEmpty(value))
+            {
+                Console.WriteLine($"{name} - is null or empty");
+                MessageBox.Show($"{name} - is null or empty.",
+                    "Message", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
+            else
+            {
+                buffer = Double.Parse(value);
+            }
+
+            return buffer;
         }
     }
 }
