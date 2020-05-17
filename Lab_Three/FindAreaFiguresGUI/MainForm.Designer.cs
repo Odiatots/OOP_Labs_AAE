@@ -42,6 +42,7 @@
             this.ValueDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GetResultButton = new System.Windows.Forms.Button();
             this.FigureAreaTextBox = new System.Windows.Forms.TextBox();
+            this.ResultLabel = new System.Windows.Forms.Label();
             this.MovePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DimensionsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -175,7 +176,7 @@
             this.ValueDimensions});
             this.DimensionsDataGridView.Location = new System.Drawing.Point(11, 151);
             this.DimensionsDataGridView.Name = "DimensionsDataGridView";
-            this.DimensionsDataGridView.Size = new System.Drawing.Size(276, 114);
+            this.DimensionsDataGridView.Size = new System.Drawing.Size(276, 97);
             this.DimensionsDataGridView.TabIndex = 7;
             this.DimensionsDataGridView.Visible = false;
             // 
@@ -197,27 +198,46 @@
             this.GetResultButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GetResultButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GetResultButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GetResultButton.Location = new System.Drawing.Point(11, 282);
+            this.GetResultButton.Location = new System.Drawing.Point(11, 267);
             this.GetResultButton.Name = "GetResultButton";
             this.GetResultButton.Size = new System.Drawing.Size(276, 23);
             this.GetResultButton.TabIndex = 8;
             this.GetResultButton.Text = "Посчитай";
             this.GetResultButton.UseVisualStyleBackColor = false;
+            this.GetResultButton.Visible = false;
             this.GetResultButton.Click += new System.EventHandler(this.GetResultButton_Click);
             // 
             // FigureAreaTextBox
             // 
-            this.FigureAreaTextBox.Location = new System.Drawing.Point(11, 322);
+            this.FigureAreaTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.FigureAreaTextBox.Cursor = System.Windows.Forms.Cursors.No;
+            this.FigureAreaTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FigureAreaTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.FigureAreaTextBox.Location = new System.Drawing.Point(12, 329);
             this.FigureAreaTextBox.Name = "FigureAreaTextBox";
-            this.FigureAreaTextBox.Size = new System.Drawing.Size(276, 21);
+            this.FigureAreaTextBox.ReadOnly = true;
+            this.FigureAreaTextBox.Size = new System.Drawing.Size(276, 22);
             this.FigureAreaTextBox.TabIndex = 9;
+            this.FigureAreaTextBox.Visible = false;
+            // 
+            // ResultLabel
+            // 
+            this.ResultLabel.AutoSize = true;
+            this.ResultLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ResultLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ResultLabel.Location = new System.Drawing.Point(12, 305);
+            this.ResultLabel.Name = "ResultLabel";
+            this.ResultLabel.Size = new System.Drawing.Size(68, 17);
+            this.ResultLabel.TabIndex = 10;
+            this.ResultLabel.Text = "Результат:";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(299, 367);
+            this.ClientSize = new System.Drawing.Size(299, 372);
+            this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.FigureAreaTextBox);
             this.Controls.Add(this.GetResultButton);
             this.Controls.Add(this.DimensionsDataGridView);
@@ -258,6 +278,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValueDimensions;
         private System.Windows.Forms.Button GetResultButton;
         private System.Windows.Forms.TextBox FigureAreaTextBox;
+        private System.Windows.Forms.Label ResultLabel;
     }
 }
 

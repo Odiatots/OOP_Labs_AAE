@@ -183,7 +183,8 @@ namespace FindAreaFigures
                         WidthRectangle = Convert.ToDouble(buffer[1]);
                         break;
                     case "diagonal and angle":
-                        AngleBetweenDiagonalsRectangle = Convert.ToDouble(buffer[0]);
+                        AngleBetweenDiagonalsRectangle = 
+                            Convert.ToDouble(buffer[0]);
                         DiagonalRectangle = Convert.ToDouble(buffer[1]);
                         break;
                 }

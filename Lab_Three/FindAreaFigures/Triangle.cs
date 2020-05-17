@@ -221,7 +221,8 @@ namespace FindAreaFigures
                     case "two sides and the angle":
                         FirstSideTriangle = Convert.ToDouble(buffer[0]);
                         SecondSideTriangle = Convert.ToDouble(buffer[1]);
-                        AngleBetweenSidesTriangle = Convert.ToDouble(buffer[2]);
+                        AngleBetweenSidesTriangle = 
+                            Convert.ToDouble(buffer[2]);
                         break;
                     case "side and height lowered onto it":
                         FirstSideTriangle = Convert.ToDouble(buffer[0]);
