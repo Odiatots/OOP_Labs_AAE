@@ -129,7 +129,11 @@ namespace FindAreaFiguresGUI
             // Вытаскиваем класс фигуры из TypeFigureComboBox и 
             // передаем список методов расчета в CalcTypeComboBox
             _classFigure = TypeFigureComboBox.SelectedItem as IFigure;
-            _selectedCalcType = _classFigure.CalcType;
+            _selectedCalcType = new List<string>();
+            foreach (string p in _classFigure.CalcTypeAreaDictionary.Values)
+            {
+                _selectedCalcType.Add(p);
+            }
             CalcTypeComboBox.DataSource = _selectedCalcType;
         }
 
@@ -189,7 +193,8 @@ namespace FindAreaFiguresGUI
             // сохранения введенных параметров с формы
             for (int i = 0; i < _calcTypesToForm.Count; i++)
             {
-                _calcBuffer.Add(Convert.ToDouble(DimensionsDataGridView[1, i].Value as string));
+                _calcBuffer.Add(Convert.ToDouble(
+                    DimensionsDataGridView[1, i].Value as string));
             }
 
             // передача введенных параметров в расчетный класс

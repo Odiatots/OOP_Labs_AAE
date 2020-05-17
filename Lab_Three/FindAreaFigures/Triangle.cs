@@ -110,19 +110,19 @@ namespace FindAreaFigures
             {
                 double bufferArea;
 
-                switch (_calcTypeArea)
+                switch (CalcTypeAreaIndex)
                 {
-                    case "two sides and the angle":
+                    case 1:
                         bufferArea = FirstSideTriangle *
                             SecondSideTriangle *
                             Math.Sin(AngleBetweenSidesTriangle *
                             Math.PI / 180) / 2;
                         break;
-                    case "side and height lowered onto it":
+                    case 2:
                         bufferArea = FirstSideTriangle *
                             SideDownTriangle / 2;
                         break;
-                    case "all sides":
+                    case 3:
                         if (IsExistTriangle(FirstSideTriangle, 
                             SecondSideTriangle, ThirdSideTriangle))
                         {
@@ -154,14 +154,14 @@ namespace FindAreaFigures
         /// <summary>
         /// Свойство параметр способы расчета
         /// </summary>
-        public List<string> CalcType
+        public Dictionary<int, string> CalcTypeAreaDictionary
         {
             get
             {
-                var bufferCalcType = new List<string>();
-                bufferCalcType.Add("two sides and the angle");
-                bufferCalcType.Add("side and height lowered onto it");
-                bufferCalcType.Add("all sides");
+                var bufferCalcType = new Dictionary<int, string>();
+                bufferCalcType.Add(1, "two sides and the angle");
+                bufferCalcType.Add(2, "side and height lowered onto it");
+                bufferCalcType.Add(3, "all sides");
                 return bufferCalcType;
             }
         }
@@ -172,7 +172,28 @@ namespace FindAreaFigures
         public string CalcTypeArea
         {
             set => _calcTypeArea = value;
-            get => _calcTypeArea;
+        }
+
+        /// <summary>
+        /// Свойство параметр индекс способа расчета
+        /// </summary>
+        public int CalcTypeAreaIndex
+        {
+            get
+            {
+                int buffer = 0;
+
+                for (int i = 1; i < CalcTypeAreaDictionary.Count + 1; i++)
+                {
+                    if (CalcTypeAreaDictionary[i] == _calcTypeArea)
+                    {
+                        buffer = i;
+                        break;
+                    }
+                }
+
+                return buffer;
+            }
         }
 
         /// <summary>
@@ -192,18 +213,18 @@ namespace FindAreaFigures
             {
                 var buffer = new List<object>();
 
-                switch (_calcTypeArea)
+                switch (CalcTypeAreaIndex)
                 {
-                    case "two sides and the angle":
+                    case 1:
                         buffer.Add("Side 1");
                         buffer.Add("Side 2");
                         buffer.Add("Angle, grad.");
                         break;
-                    case "side and height lowered onto it":
+                    case 2:
                         buffer.Add("Side 1");
                         buffer.Add("Side down");
                         break;
-                    case "all sides":
+                    case 3:
                         buffer.Add("Side 1");
                         buffer.Add("Side 2");
                         buffer.Add("Side 3");
@@ -216,19 +237,19 @@ namespace FindAreaFigures
             {
                 var buffer = value;
 
-                switch (_calcTypeArea)
+                switch (CalcTypeAreaIndex)
                 {
-                    case "two sides and the angle":
+                    case 1:
                         FirstSideTriangle = Convert.ToDouble(buffer[0]);
                         SecondSideTriangle = Convert.ToDouble(buffer[1]);
                         AngleBetweenSidesTriangle = 
                             Convert.ToDouble(buffer[2]);
                         break;
-                    case "side and height lowered onto it":
+                    case 2:
                         FirstSideTriangle = Convert.ToDouble(buffer[0]);
                         SideDownTriangle = Convert.ToDouble(buffer[1]);
                         break;
-                    case "all sides":
+                    case 3:
                         FirstSideTriangle = Convert.ToDouble(buffer[0]);
                         SecondSideTriangle = Convert.ToDouble(buffer[1]);
                         ThirdSideTriangle = Convert.ToDouble(buffer[2]);

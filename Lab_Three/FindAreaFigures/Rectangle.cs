@@ -100,7 +100,7 @@ namespace FindAreaFigures
 
                 switch (_calcTypeArea)
                 {
-                    case "side rectangle":
+                    case "sides rectangle":
                         bufferArea = LengthRectangle * WidthRectangle;
                         break;
                     case "diagonal and angle":
@@ -122,13 +122,13 @@ namespace FindAreaFigures
         /// <summary>
         /// Свойство параметр способ расчета
         /// </summary>
-        public List<string> CalcType
+        public Dictionary<int, string> CalcTypeAreaDictionary
         {
             get
             {
-                var bufferCalcType = new List<string>();
-                bufferCalcType.Add("side rectangle");
-                bufferCalcType.Add("diagonal and angle");
+                var bufferCalcType = new Dictionary<int, string>();
+                bufferCalcType.Add(1,"sides rectangle");
+                bufferCalcType.Add(2,"diagonal and angle");
                 return bufferCalcType;
             }
         }
@@ -139,6 +139,28 @@ namespace FindAreaFigures
         public string CalcTypeArea
         {
             set => _calcTypeArea = value;
+        }
+
+        /// <summary>
+        /// Свойство параметр индекс способа расчета
+        /// </summary>
+        public int CalcTypeAreaIndex
+        {
+            get
+            {
+                int buffer = 0;
+
+                for (int i = 1; i < CalcTypeAreaDictionary.Count + 1; i++)
+                {
+                    if (CalcTypeAreaDictionary[i] == _calcTypeArea)
+                    {
+                        buffer = i;
+                        break;
+                    }
+                }
+
+                return buffer;
+            }
         }
 
         /// <summary>
@@ -160,7 +182,7 @@ namespace FindAreaFigures
 
                 switch (_calcTypeArea)
                 {
-                    case "side rectangle":
+                    case "sides rectangle":
                         buffer.Add("Length");
                         buffer.Add("Width");
                         break;
@@ -178,7 +200,7 @@ namespace FindAreaFigures
 
                 switch (_calcTypeArea)
                 {
-                    case "side rectangle":
+                    case "sides rectangle":
                         LengthRectangle = Convert.ToDouble(buffer[0]);
                         WidthRectangle = Convert.ToDouble(buffer[1]);
                         break;

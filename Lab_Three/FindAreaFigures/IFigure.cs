@@ -23,9 +23,9 @@ namespace FindAreaFigures
         public string NameFigure { get; }
 
         /// <summary>
-        /// Лист типов исходных данных
+        /// Словарь типов исходных данных
         /// </summary>
-        public List<string> CalcType { get; }
+        public Dictionary<int, string> CalcTypeAreaDictionary { get; }
 
         /// <summary>
         /// Тип исходных данных

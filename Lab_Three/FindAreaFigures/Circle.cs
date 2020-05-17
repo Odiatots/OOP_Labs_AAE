@@ -108,14 +108,14 @@ namespace FindAreaFigures
         /// <summary>
         /// Свойство параметр способ расчета
         /// </summary>
-        public List<string> CalcType
+        public Dictionary<int, string> CalcTypeAreaDictionary
         {
             get
             {
-                var bufferCalcType = new List<string>();
-                bufferCalcType.Add("radius");
-                bufferCalcType.Add("diameter");
-                bufferCalcType.Add("circumference");
+                var bufferCalcType = new Dictionary<int, string>();
+                bufferCalcType.Add(1, "radius");
+                bufferCalcType.Add(2, "diameter");
+                bufferCalcType.Add(3, "circumference");
                 return bufferCalcType;
             }
         }
@@ -126,6 +126,28 @@ namespace FindAreaFigures
         public string CalcTypeArea
         {
             set => _calcTypeArea = value;
+        }
+
+        /// <summary>
+        /// Свойство параметр индекс способа расчета
+        /// </summary>
+        public int CalcTypeAreaIndex
+        {
+            get
+            {
+                int buffer = 0;
+
+                for (int i = 1; i < CalcTypeAreaDictionary.Count + 1; i++)
+                {
+                    if (CalcTypeAreaDictionary[i] == _calcTypeArea)
+                    {
+                        buffer = i;
+                        break;
+                    }
+                }
+
+                return buffer;
+            }
         }
 
         /// <summary>
