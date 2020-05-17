@@ -163,6 +163,7 @@ namespace FindAreaFiguresGUI
             DimensionsDataGridView.Visible = true;
             GetResultButton.Visible = true;
             FigureAreaTextBox.Visible = true;
+            ResultLabel.Visible = true;
 
             // создание списка расчетных параметров для выведения на форму
             _calcTypesToForm = _classFigure.DimensionsFigure;

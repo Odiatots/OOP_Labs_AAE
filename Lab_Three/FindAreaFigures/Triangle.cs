@@ -195,18 +195,18 @@ namespace FindAreaFigures
                 switch (_calcTypeArea)
                 {
                     case "two sides and the angle":
-                        buffer.Add(FirstSideTriangle);
-                        buffer.Add(SecondSideTriangle);
-                        buffer.Add(AngleBetweenSidesTriangle);
+                        buffer.Add("Side 1");
+                        buffer.Add("Side 2");
+                        buffer.Add("Angle, grad.");
                         break;
                     case "side and height lowered onto it":
-                        buffer.Add(FirstSideTriangle);
-                        buffer.Add(SideDownTriangle);
+                        buffer.Add("Side 1");
+                        buffer.Add("Side down");
                         break;
                     case "all sides":
-                        buffer.Add(FirstSideTriangle);
-                        buffer.Add(SecondSideTriangle);
-                        buffer.Add(ThirdSideTriangle);
+                        buffer.Add("Side 1");
+                        buffer.Add("Side 2");
+                        buffer.Add("Side 3");
                         break;
                 }
 

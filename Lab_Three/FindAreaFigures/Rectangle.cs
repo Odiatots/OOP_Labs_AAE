@@ -161,12 +161,12 @@ namespace FindAreaFigures
                 switch (_calcTypeArea)
                 {
                     case "side rectangle":
-                        buffer.Add(LengthRectangle);
-                        buffer.Add(WidthRectangle);
+                        buffer.Add("Length");
+                        buffer.Add("Width");
                         break;
                     case "diagonal and angle":
-                        buffer.Add(AngleBetweenDiagonalsRectangle);
-                        buffer.Add(DiagonalRectangle);
+                        buffer.Add("Angle, grad.");
+                        buffer.Add("Diagonal");
                         break;
                 }
 

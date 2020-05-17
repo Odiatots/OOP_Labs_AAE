@@ -38,11 +38,11 @@
             this.CalcTypeLabel = new System.Windows.Forms.Label();
             this.GiveDimensionButton = new System.Windows.Forms.Button();
             this.DimensionsDataGridView = new System.Windows.Forms.DataGridView();
-            this.Dimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValueDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GetResultButton = new System.Windows.Forms.Button();
             this.FigureAreaTextBox = new System.Windows.Forms.TextBox();
             this.ResultLabel = new System.Windows.Forms.Label();
+            this.Dimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MovePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DimensionsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -94,14 +94,14 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(7, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 21);
+            this.label1.Size = new System.Drawing.Size(113, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Калькулятор площадей";
+            this.label1.Text = "Area calculator";
             // 
             // TypeFigureComboBox
             // 
             this.TypeFigureComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.TypeFigureComboBox.Cursor = System.Windows.Forms.Cursors.PanSouth;
+            this.TypeFigureComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TypeFigureComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TypeFigureComboBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TypeFigureComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -119,14 +119,14 @@
             this.TypeFigureLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TypeFigureLabel.Location = new System.Drawing.Point(8, 43);
             this.TypeFigureLabel.Name = "TypeFigureLabel";
-            this.TypeFigureLabel.Size = new System.Drawing.Size(80, 17);
+            this.TypeFigureLabel.Size = new System.Drawing.Size(76, 17);
             this.TypeFigureLabel.TabIndex = 3;
-            this.TypeFigureLabel.Text = "Тип фигуры:";
+            this.TypeFigureLabel.Text = "Type figure:";
             // 
             // CalcTypeComboBox
             // 
             this.CalcTypeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.CalcTypeComboBox.Cursor = System.Windows.Forms.Cursors.PanSouth;
+            this.CalcTypeComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CalcTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CalcTypeComboBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CalcTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -145,9 +145,9 @@
             this.CalcTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.CalcTypeLabel.Location = new System.Drawing.Point(163, 43);
             this.CalcTypeLabel.Name = "CalcTypeLabel";
-            this.CalcTypeLabel.Size = new System.Drawing.Size(83, 17);
+            this.CalcTypeLabel.Size = new System.Drawing.Size(64, 17);
             this.CalcTypeLabel.TabIndex = 5;
-            this.CalcTypeLabel.Text = "Тип расчета:";
+            this.CalcTypeLabel.Text = "Type calc:";
             this.CalcTypeLabel.Visible = false;
             // 
             // GiveDimensionButton
@@ -161,7 +161,7 @@
             this.GiveDimensionButton.Name = "GiveDimensionButton";
             this.GiveDimensionButton.Size = new System.Drawing.Size(276, 23);
             this.GiveDimensionButton.TabIndex = 6;
-            this.GiveDimensionButton.Text = "Дай ввести параметры";
+            this.GiveDimensionButton.Text = "let me input";
             this.GiveDimensionButton.UseVisualStyleBackColor = false;
             this.GiveDimensionButton.Visible = false;
             this.GiveDimensionButton.Click += new System.EventHandler(this.GiveDimensionButton_Click);
@@ -170,26 +170,18 @@
             // 
             this.DimensionsDataGridView.AllowUserToAddRows = false;
             this.DimensionsDataGridView.AllowUserToDeleteRows = false;
+            this.DimensionsDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.DimensionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DimensionsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Dimensions,
             this.ValueDimensions});
+            this.DimensionsDataGridView.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.DimensionsDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.DimensionsDataGridView.Location = new System.Drawing.Point(11, 151);
             this.DimensionsDataGridView.Name = "DimensionsDataGridView";
             this.DimensionsDataGridView.Size = new System.Drawing.Size(276, 97);
             this.DimensionsDataGridView.TabIndex = 7;
             this.DimensionsDataGridView.Visible = false;
-            // 
-            // Dimensions
-            // 
-            this.Dimensions.HeaderText = "Параметры";
-            this.Dimensions.Name = "Dimensions";
-            this.Dimensions.ReadOnly = true;
-            // 
-            // ValueDimensions
-            // 
-            this.ValueDimensions.HeaderText = "Значения";
-            this.ValueDimensions.Name = "ValueDimensions";
             // 
             // GetResultButton
             // 
@@ -202,7 +194,7 @@
             this.GetResultButton.Name = "GetResultButton";
             this.GetResultButton.Size = new System.Drawing.Size(276, 23);
             this.GetResultButton.TabIndex = 8;
-            this.GetResultButton.Text = "Посчитай";
+            this.GetResultButton.Text = "Go!";
             this.GetResultButton.UseVisualStyleBackColor = false;
             this.GetResultButton.Visible = false;
             this.GetResultButton.Click += new System.EventHandler(this.GetResultButton_Click);
@@ -227,9 +219,23 @@
             this.ResultLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ResultLabel.Location = new System.Drawing.Point(12, 305);
             this.ResultLabel.Name = "ResultLabel";
-            this.ResultLabel.Size = new System.Drawing.Size(68, 17);
+            this.ResultLabel.Size = new System.Drawing.Size(46, 17);
             this.ResultLabel.TabIndex = 10;
-            this.ResultLabel.Text = "Результат:";
+            this.ResultLabel.Text = "Result:";
+            this.ResultLabel.Visible = false;
+            // 
+            // Dimensions
+            // 
+            this.Dimensions.HeaderText = "Dimensions";
+            this.Dimensions.Name = "Dimensions";
+            this.Dimensions.ReadOnly = true;
+            this.Dimensions.Width = 125;
+            // 
+            // ValueDimensions
+            // 
+            this.ValueDimensions.HeaderText = "Values";
+            this.ValueDimensions.Name = "ValueDimensions";
+            this.ValueDimensions.Width = 105;
             // 
             // MainForm
             // 
@@ -274,11 +280,11 @@
         private System.Windows.Forms.Label CalcTypeLabel;
         private System.Windows.Forms.Button GiveDimensionButton;
         private System.Windows.Forms.DataGridView DimensionsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dimensions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValueDimensions;
         private System.Windows.Forms.Button GetResultButton;
         private System.Windows.Forms.TextBox FigureAreaTextBox;
         private System.Windows.Forms.Label ResultLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dimensions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValueDimensions;
     }
 }
 

@@ -148,13 +148,13 @@ namespace FindAreaFigures
                 switch (_calcTypeArea)
                 {
                     case "radius":
-                        buffer.Add(RadiusCircle);
+                        buffer.Add("Radius");
                         break;
                     case "diameter":
-                        buffer.Add(DiameterCircle);
+                        buffer.Add("Diameter");
                         break;
                     case "circumference":
-                        buffer.Add(Circumference);
+                        buffer.Add("Circumference");
                         break;
                 }
 
