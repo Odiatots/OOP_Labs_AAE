@@ -182,14 +182,33 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void GetResultButton_Click(object sender, EventArgs e)
         {
-            // измренеия с формы
-            var _calcBuffer = _calcTypesToForm;
-
+            // измерения с формы
+            List<object> _calcBuffer = new List<object>();
+            
             // сохранения введенных параметров с формы
             for (int i = 0; i < _calcTypesToForm.Count; i++)
             {
-                _calcBuffer[i] = 
-                    Convert.ToDouble(DimensionsDataGridView[1, i].Value);
+                bool hasErrors = true;
+                while (hasErrors)
+                {
+                    try
+                    {
+                        _calcBuffer.Add(Convert.ToDouble(
+                            DimensionsDataGridView[1, i].Value));
+                        hasErrors = false;
+                    }
+                    catch (FormatException exception)
+                    {
+                        Console.WriteLine(exception.Message);
+                        MessageBox.Show($"{_calcTypesToForm[i]} - INVALID, please, think.",
+                            "Message",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly);
+                        DimensionsDataGridView[1, i].Value = null;
+                    }
+                }
             }
 
             // передача введенных параметров в расчетный класс

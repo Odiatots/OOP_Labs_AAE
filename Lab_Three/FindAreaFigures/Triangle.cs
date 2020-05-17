@@ -248,7 +248,7 @@ namespace FindAreaFigures
         /// <param name="b">Сторона 2</param>
         /// <param name="c">Сторона 3</param>
         /// <returns>да/нет</returns>
-        public bool IsExistTriangle(double a, double b, double c)
+        private bool IsExistTriangle(double a, double b, double c)
         {
             if (a + b > c & a + c > b & b + c > a)
             {
