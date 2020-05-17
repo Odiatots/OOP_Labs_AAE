@@ -50,7 +50,7 @@ namespace FindAreaFiguresGUI
         }
 
         /// <summary>
-        /// 
+        /// Загрузка формы
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -125,6 +125,10 @@ namespace FindAreaFiguresGUI
         {
             CalcTypeComboBox.Visible = true;
             CalcTypeLabel.Visible = true;
+            GetResultButton.Visible = false;
+            GiveDimensionButton.Visible = false;
+            DimensionsDataGridView.Visible = false;
+            DimensionsDataGridView.Rows.Clear();
 
             // Вытаскиваем класс фигуры из TypeFigureComboBox и 
             // передаем список методов расчета в CalcTypeComboBox
@@ -147,6 +151,7 @@ namespace FindAreaFiguresGUI
         private void CalcTypeComboBox_SelectionChangeCommitted(
             object sender, EventArgs e)
         {
+            GetResultButton.Visible = false;
             GiveDimensionButton.Visible = true;
             DimensionsDataGridView.Rows.Clear();
 
