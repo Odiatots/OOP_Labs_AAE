@@ -164,6 +164,7 @@ namespace FindAreaFiguresGUI
             GetResultButton.Visible = true;
             FigureAreaTextBox.Visible = true;
             ResultLabel.Visible = true;
+            DimensionsDataGridView.Rows.Clear();
 
             // создание списка расчетных параметров для выведения на форму
             _calcTypesToForm = _classFigure.DimensionsFigure;
@@ -188,27 +189,7 @@ namespace FindAreaFiguresGUI
             // сохранения введенных параметров с формы
             for (int i = 0; i < _calcTypesToForm.Count; i++)
             {
-                bool hasErrors = true;
-                while (hasErrors)
-                {
-                    try
-                    {
-                        _calcBuffer.Add(Convert.ToDouble(
-                            DimensionsDataGridView[1, i].Value));
-                        hasErrors = false;
-                    }
-                    catch (FormatException exception)
-                    {
-                        Console.WriteLine(exception.Message);
-                        MessageBox.Show($"{_calcTypesToForm[i]} - INVALID, please, think.",
-                            "Message",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error,
-                            MessageBoxDefaultButton.Button1,
-                            MessageBoxOptions.DefaultDesktopOnly);
-                        DimensionsDataGridView[1, i].Value = null;
-                    }
-                }
+                _calcBuffer.Add(Convert.ToDouble(DimensionsDataGridView[1, i].Value as string));
             }
 
             // передача введенных параметров в расчетный класс
@@ -220,6 +201,31 @@ namespace FindAreaFiguresGUI
             // вывод результатов в текстбокс
             FigureAreaTextBox.Text = $"{_areaFigure}";
 
+        }
+
+        /// <summary>
+        /// Проверка введеных параметров
+        /// </summary>
+        /// <param name="value">Параметр</param>
+        /// <param name="name">Имя параметра</param>
+        private bool CheckDimensions(string value, string name)
+        {
+            try
+            {
+                Double.Parse(value);
+                return false;
+            }
+            catch (FormatException exception)
+            {
+                Console.WriteLine(exception.Message);
+                MessageBox.Show($"{name} - INVALID, please, think.",
+                    "Message",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+                return true;
+            }
         }
     }
 }
