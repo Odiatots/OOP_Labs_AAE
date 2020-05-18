@@ -212,12 +212,7 @@ namespace FindAreaFiguresGUI
             }
             catch (ArgumentOutOfRangeException exception)
             {
-                Console.WriteLine(exception.Message);
-                MessageBox.Show($"{exception.Message}.",
-                    "Message", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+                GiveStandartMessageBox(exception.Message);
             }
 
             // расчет площади
@@ -227,12 +222,7 @@ namespace FindAreaFiguresGUI
             }
             catch (ArgumentOutOfRangeException exception)
             {
-                Console.WriteLine(exception.Message);
-                MessageBox.Show($"{exception.Message}.",
-                    "Message", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+                GiveStandartMessageBox(exception.Message);
             }
 
             // вывод результатов в текстбокс
@@ -251,21 +241,12 @@ namespace FindAreaFiguresGUI
 
             if (!Double.TryParse(value, out buffer))
             {
-                Console.WriteLine($"{name} - INVALID");
-                MessageBox.Show($"{name} - INVALID, please, think.",
-                    "Message",MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+                GiveStandartMessageBox($"{name} - INVALID");
+
             }
             else if (String.IsNullOrEmpty(value))
             {
-                Console.WriteLine($"{name} - is null or empty");
-                MessageBox.Show($"{name} - is null or empty.",
-                    "Message", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+                GiveStandartMessageBox($"{name} - is null or empty");
             }
             else
             {
@@ -273,6 +254,20 @@ namespace FindAreaFiguresGUI
             }
 
             return buffer;
+        }
+
+        /// <summary>
+        /// Вызов распространенного экспешина
+        /// </summary>
+        /// <param name="exception">Текст исключения</param>
+        private void GiveStandartMessageBox(string exception)
+        {
+            Console.WriteLine(exception);
+            MessageBox.Show($"{exception}.",
+                "Message", MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
         }
     }
 }
