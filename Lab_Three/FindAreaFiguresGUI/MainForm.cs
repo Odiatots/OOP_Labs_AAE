@@ -221,7 +221,19 @@ namespace FindAreaFiguresGUI
             }
 
             // расчет площади
-            _areaFigure = _classFigure.FigureArea;
+            try
+            {
+                _areaFigure = _classFigure.FigureArea; ;
+            }
+            catch (ArgumentOutOfRangeException exception)
+            {
+                Console.WriteLine(exception.Message);
+                MessageBox.Show($"{exception.Message}.",
+                    "Message", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
 
             // вывод результатов в текстбокс
             FigureAreaTextBox.Text = $"{_areaFigure}";

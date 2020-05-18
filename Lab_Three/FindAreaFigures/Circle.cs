@@ -73,37 +73,6 @@ namespace FindAreaFigures
                 value, nameof(value));
         }
 
-        /// <summary>
-        /// Свойство площадь фигуры
-        /// </summary>
-        public double FigureArea
-        {
-            get
-            {
-                double bufferArea;
-
-                switch (_calcTypeArea)
-                {
-                    case "radius":
-                        bufferArea = Math.PI * Math.Pow(RadiusCircle, 2);
-                        break;
-                    case "diameter":
-                        bufferArea = Math.PI *
-                            Math.Pow(DiameterCircle, 2) / 4;
-                        break;
-                    case "circumference":
-                        bufferArea = Math.Pow(Circumference, 2) / 
-                            (4 * Math.PI);
-                        break;
-                    default:
-                        bufferArea = 0;
-                        break;
-                }
-
-                return bufferArea;
-            }
-            set => _figureArea = value;
-        }
 
         /// <summary>
         /// Свойство параметр способ расчета
@@ -118,6 +87,38 @@ namespace FindAreaFigures
                 bufferCalcType.Add(3, "circumference");
                 return bufferCalcType;
             }
+        }
+
+        /// <summary>
+        /// Свойство площадь фигуры
+        /// </summary>
+        public double FigureArea
+        {
+            get
+            {
+                double bufferArea;
+
+                switch (CalcTypeAreaIndex)
+                {
+                    case 1:
+                        bufferArea = Math.PI * Math.Pow(RadiusCircle, 2);
+                        break;
+                    case 2:
+                        bufferArea = Math.PI *
+                            Math.Pow(DiameterCircle, 2) / 4;
+                        break;
+                    case 3:
+                        bufferArea = Math.Pow(Circumference, 2) / 
+                            (4 * Math.PI);
+                        break;
+                    default:
+                        bufferArea = 0;
+                        break;
+                }
+
+                return bufferArea;
+            }
+            set => _figureArea = value;
         }
 
         /// <summary>
@@ -167,15 +168,15 @@ namespace FindAreaFigures
             {
                 var buffer = new List<object>();
 
-                switch (_calcTypeArea)
+                switch (CalcTypeAreaIndex)
                 {
-                    case "radius":
+                    case 1:
                         buffer.Add("Radius");
                         break;
-                    case "diameter":
+                    case 2:
                         buffer.Add("Diameter");
                         break;
-                    case "circumference":
+                    case 3:
                         buffer.Add("Circumference");
                         break;
                 }
@@ -186,15 +187,15 @@ namespace FindAreaFigures
             {
                 var buffer = value;
 
-                switch (_calcTypeArea)
+                switch (CalcTypeAreaIndex)
                 {
-                    case "radius":
+                    case 1:
                         RadiusCircle = Convert.ToDouble(buffer[0]);
                         break;
-                    case "diameter":
+                    case 2:
                         DiameterCircle = Convert.ToDouble(buffer[0]);
                         break;
-                    case "circumference":
+                    case 3:
                         Circumference = Convert.ToDouble(buffer[0]);
                         break;
                 }

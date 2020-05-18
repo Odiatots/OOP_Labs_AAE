@@ -102,6 +102,21 @@ namespace FindAreaFigures
         }
 
         /// <summary>
+        /// Свойство параметр способы расчета
+        /// </summary>
+        public Dictionary<int, string> CalcTypeAreaDictionary
+        {
+            get
+            {
+                var bufferCalcType = new Dictionary<int, string>();
+                bufferCalcType.Add(1, "two sides and the angle");
+                bufferCalcType.Add(2, "side and height lowered onto it");
+                bufferCalcType.Add(3, "all sides");
+                return bufferCalcType;
+            }
+        }
+
+        /// <summary>
         /// Свойство площадь фигуры
         /// </summary>
         public double FigureArea
@@ -149,21 +164,6 @@ namespace FindAreaFigures
                 return bufferArea;
             }
             set => _figureArea = value;
-        }
-
-        /// <summary>
-        /// Свойство параметр способы расчета
-        /// </summary>
-        public Dictionary<int, string> CalcTypeAreaDictionary
-        {
-            get
-            {
-                var bufferCalcType = new Dictionary<int, string>();
-                bufferCalcType.Add(1, "two sides and the angle");
-                bufferCalcType.Add(2, "side and height lowered onto it");
-                bufferCalcType.Add(3, "all sides");
-                return bufferCalcType;
-            }
         }
 
         /// <summary>
