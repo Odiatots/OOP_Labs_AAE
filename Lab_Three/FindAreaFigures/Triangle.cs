@@ -101,6 +101,7 @@ namespace FindAreaFigures
                 value, nameof(value));
         }
 
+        // TODO: реализовать лучше через отдельный класс Params (value, name) или через enum
         /// <summary>
         /// Свойство параметр способы расчета
         /// </summary>
@@ -204,6 +205,7 @@ namespace FindAreaFigures
             get => "Triangle";
         }
 
+        // TODO: Это свойство надо распилить на гет и сет
         /// <summary>
         /// Варианты измерений фигуры
         /// </summary>

@@ -26,6 +26,7 @@ namespace FindAreaFiguresGUI
         /// </summary>
         private List<string> _selectedCalcType;
 
+        // TODO: Слабая типизация - плохо придумать как разделить свойство
         /// <summary>
         /// Лист свойств расчетных полей
         /// </summary>
