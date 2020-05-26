@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MovePanel = new System.Windows.Forms.Panel();
             this.MinimazeLabel = new System.Windows.Forms.Label();
             this.CloseLabel = new System.Windows.Forms.Label();
@@ -38,11 +39,11 @@
             this.CalcTypeLabel = new System.Windows.Forms.Label();
             this.GiveDimensionButton = new System.Windows.Forms.Button();
             this.DimensionsDataGridView = new System.Windows.Forms.DataGridView();
+            this.Dimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GetResultButton = new System.Windows.Forms.Button();
             this.FigureAreaTextBox = new System.Windows.Forms.TextBox();
             this.ResultLabel = new System.Windows.Forms.Label();
-            this.Dimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValueDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MovePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DimensionsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -183,6 +184,19 @@
             this.DimensionsDataGridView.TabIndex = 7;
             this.DimensionsDataGridView.Visible = false;
             // 
+            // Dimensions
+            // 
+            this.Dimensions.HeaderText = "Dimensions";
+            this.Dimensions.Name = "Dimensions";
+            this.Dimensions.ReadOnly = true;
+            this.Dimensions.Width = 125;
+            // 
+            // ValueDimensions
+            // 
+            this.ValueDimensions.HeaderText = "Values";
+            this.ValueDimensions.Name = "ValueDimensions";
+            this.ValueDimensions.Width = 105;
+            // 
             // GetResultButton
             // 
             this.GetResultButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
@@ -224,19 +238,6 @@
             this.ResultLabel.Text = "Result:";
             this.ResultLabel.Visible = false;
             // 
-            // Dimensions
-            // 
-            this.Dimensions.HeaderText = "Dimensions";
-            this.Dimensions.Name = "Dimensions";
-            this.Dimensions.ReadOnly = true;
-            this.Dimensions.Width = 125;
-            // 
-            // ValueDimensions
-            // 
-            this.ValueDimensions.HeaderText = "Values";
-            this.ValueDimensions.Name = "ValueDimensions";
-            this.ValueDimensions.Width = 105;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -255,6 +256,7 @@
             this.Controls.Add(this.MovePanel);
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
