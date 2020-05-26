@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindAreaFigures", "FindAreaFigures\FindAreaFigures.csproj", "{0481C3DF-7336-47DB-9B81-6AE78D8E6EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindAreaFiguresGUI", "FindAreaFiguresGUI\FindAreaFiguresGUI.csproj", "{872C71D4-B732-4EA6-BD43-A11B32631920}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0481C3DF-7336-47DB-9B81-6AE78D8E6EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0481C3DF-7336-47DB-9B81-6AE78D8E6EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0481C3DF-7336-47DB-9B81-6AE78D8E6EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0481C3DF-7336-47DB-9B81-6AE78D8E6EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872C71D4-B732-4EA6-BD43-A11B32631920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872C71D4-B732-4EA6-BD43-A11B32631920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872C71D4-B732-4EA6-BD43-A11B32631920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872C71D4-B732-4EA6-BD43-A11B32631920}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {217469D6-4B84-406D-B200-1EE9F0D1E158}
+	EndGlobalSection
+EndGlobal

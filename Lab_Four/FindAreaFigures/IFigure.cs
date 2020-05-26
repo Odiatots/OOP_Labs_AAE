@@ -13,14 +13,14 @@ namespace FindAreaFigures
     {
 
         /// <summary>
+        /// Свойство площадь фигуры
+        /// </summary>
+        double FigureArea { get; set; }
+
+        /// <summary>
         /// Имя
         /// </summary>
         public string NameFigure { get; }
-
-        /// <summary>
-        /// Свойство площадь фигуры
-        /// </summary>
-        public double FigureArea { get; set; }
 
         /// <summary>
         /// Словарь типов исходных данных
