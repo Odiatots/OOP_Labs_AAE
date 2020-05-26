@@ -162,11 +162,11 @@ namespace FindAreaFigures
         /// <summary>
         /// Варианты измерений фигуры
         /// </summary>
-        public List<object> DimensionsFigure
+        public List<string> NamesDimensionsFigure
         {
             get
             {
-                var buffer = new List<object>();
+                var buffer = new List<string>();
 
                 switch (CalcTypeAreaIndex)
                 {
@@ -183,6 +183,13 @@ namespace FindAreaFigures
 
                 return buffer;
             }
+        }
+
+        /// <summary>
+        /// Значения измерений фигуры
+        /// </summary>
+        public List<double> ValuesDimensionsFigure
+        {
             set
             {
                 var buffer = value;
@@ -190,13 +197,13 @@ namespace FindAreaFigures
                 switch (CalcTypeAreaIndex)
                 {
                     case 1:
-                        RadiusCircle = Convert.ToDouble(buffer[0]);
+                        RadiusCircle = buffer[0];
                         break;
                     case 2:
-                        DiameterCircle = Convert.ToDouble(buffer[0]);
+                        DiameterCircle = buffer[0];
                         break;
                     case 3:
-                        Circumference = Convert.ToDouble(buffer[0]);
+                        Circumference = buffer[0];
                         break;
                 }
             }

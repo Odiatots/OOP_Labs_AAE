@@ -174,11 +174,11 @@ namespace FindAreaFigures
         /// <summary>
         /// Варианты измерений фигуры
         /// </summary>
-        public List<object> DimensionsFigure
+        public List<string> NamesDimensionsFigure
         {
             get
             {
-                var buffer = new List<object>();
+                var buffer = new List<string>();
 
                 switch (CalcTypeAreaIndex)
                 {
@@ -194,6 +194,13 @@ namespace FindAreaFigures
 
                 return buffer;
             }
+        }
+
+        /// <summary>
+        /// Значения измерений фигуры
+        /// </summary>
+        public List<double> ValuesDimensionsFigure
+        {
             set
             {
                 var buffer = value;
@@ -201,18 +208,16 @@ namespace FindAreaFigures
                 switch (CalcTypeAreaIndex)
                 {
                     case 1:
-                        LengthRectangle = Convert.ToDouble(buffer[0]);
-                        WidthRectangle = Convert.ToDouble(buffer[1]);
+                        LengthRectangle = buffer[0];
+                        WidthRectangle = buffer[1];
                         break;
                     case 2:
-                        AngleBetweenDiagonalsRectangle = 
-                            Convert.ToDouble(buffer[0]);
-                        DiagonalRectangle = Convert.ToDouble(buffer[1]);
+                        AngleBetweenDiagonalsRectangle = buffer[0];
+                        DiagonalRectangle = buffer[1];
                         break;
                 }
             }
         }
-
         #endregion
 
     }

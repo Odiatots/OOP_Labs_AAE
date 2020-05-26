@@ -26,11 +26,10 @@ namespace FindAreaFiguresGUI
         /// </summary>
         private List<string> _selectedCalcType;
 
-        // TODO: Слабая типизация - плохо придумать как разделить свойство
         /// <summary>
         /// Лист свойств расчетных полей
         /// </summary>
-        private List<object> _calcTypesToForm;
+        private List<string> _calcTypesToForm;
 
         /// <summary>
         /// Площадь фигуры
@@ -177,7 +176,7 @@ namespace FindAreaFiguresGUI
             DimensionsDataGridView.Rows.Clear();
 
             // создание списка расчетных параметров для выведения на форму
-            _calcTypesToForm = _classFigure.DimensionsFigure;
+            _calcTypesToForm = _classFigure.NamesDimensionsFigure;
 
             // выведение названий параметров на форму
             for (int i = 0; i < _calcTypesToForm.Count; i++)
@@ -194,7 +193,7 @@ namespace FindAreaFiguresGUI
         private void GetResultButton_Click(object sender, EventArgs e)
         {
             // измерения с формы
-            List<object> _calcBuffer = new List<object>();
+            List<double> _calcBuffer = new List<double>();
             
             // сохранения введенных параметров с формы
             for (int i = 0; i < _calcTypesToForm.Count; i++)
@@ -203,13 +202,13 @@ namespace FindAreaFiguresGUI
                     DimensionsDataGridView[1, i].Value as string,
                     _calcTypesToForm[i] as string);
 
-                _calcBuffer.Add(Convert.ToDouble(buffer));
+                _calcBuffer.Add(buffer);
             }
 
             // передача введенных параметров в расчетный класс
             try
             {
-                _classFigure.DimensionsFigure = _calcBuffer;
+                _classFigure.ValuesDimensionsFigure = _calcBuffer;
             }
             catch (ArgumentOutOfRangeException exception)
             {

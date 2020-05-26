@@ -205,15 +205,14 @@ namespace FindAreaFigures
             get => "Triangle";
         }
 
-        // TODO: Это свойство надо распилить на гет и сет
         /// <summary>
         /// Варианты измерений фигуры
         /// </summary>
-        public List<object> DimensionsFigure
+        public List<string> NamesDimensionsFigure
         {
             get
             {
-                var buffer = new List<object>();
+                var buffer = new List<string>();
 
                 switch (CalcTypeAreaIndex)
                 {
@@ -235,6 +234,13 @@ namespace FindAreaFigures
 
                 return buffer;
             }
+        }
+
+        /// <summary>
+        /// Значения измерений фигуры
+        /// </summary>
+        public List<double> ValuesDimensionsFigure
+        {
             set
             {
                 var buffer = value;
@@ -242,19 +248,18 @@ namespace FindAreaFigures
                 switch (CalcTypeAreaIndex)
                 {
                     case 1:
-                        FirstSideTriangle = Convert.ToDouble(buffer[0]);
-                        SecondSideTriangle = Convert.ToDouble(buffer[1]);
-                        AngleBetweenSidesTriangle = 
-                            Convert.ToDouble(buffer[2]);
+                        FirstSideTriangle = buffer[0];
+                        SecondSideTriangle = buffer[1];
+                        AngleBetweenSidesTriangle = buffer[2];
                         break;
                     case 2:
-                        FirstSideTriangle = Convert.ToDouble(buffer[0]);
-                        SideDownTriangle = Convert.ToDouble(buffer[1]);
+                        FirstSideTriangle = buffer[0];
+                        SideDownTriangle = buffer[1];
                         break;
                     case 3:
-                        FirstSideTriangle = Convert.ToDouble(buffer[0]);
-                        SecondSideTriangle = Convert.ToDouble(buffer[1]);
-                        ThirdSideTriangle = Convert.ToDouble(buffer[2]);
+                        FirstSideTriangle = buffer[0];
+                        SecondSideTriangle = buffer[1];
+                        ThirdSideTriangle = buffer[2];
                         break;
                 }
             }
