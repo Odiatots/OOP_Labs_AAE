@@ -42,9 +42,7 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            DataFiguresGridView.AutoGenerateColumns = true;
             DataFiguresGridView.DataSource = _figures;
-
         }
 
         /// <summary>
@@ -130,6 +128,32 @@ namespace FindAreaFiguresGUI
 
             fallPoint = 0;
             fallPoints = 0;
+        }
+
+        /// <summary>
+        /// Удаление элемента из списка
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RemoveFigure_Click(object sender, EventArgs e)
+        {
+            int _counter = DataFiguresGridView.SelectedRows.Count;
+
+            for (int i = 0; i < _counter; i++)
+            {
+                _figures.RemoveAt(DataFiguresGridView.SelectedRows[0].Index);
+            }
+        }
+
+        /// <summary>
+        /// Открытие формы поиска
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            var search = new SearchForm(_figures);
+            search.Show();
         }
     }
 }
