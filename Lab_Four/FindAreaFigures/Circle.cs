@@ -209,6 +209,32 @@ namespace FindAreaFigures
             }
         }
 
+        /// <summary>
+        /// Выходные параметры для вывода
+        /// </summary>
+        public string DimensionsToOutput
+        {
+            get
+            {
+                string buffer = string.Empty;
+
+                switch (CalcTypeAreaIndex)
+                {
+                    case 1:
+                        buffer = $"Radius = {RadiusCircle}";
+                        break;
+                    case 2:
+                        buffer = $"Diameter = {DiameterCircle}";
+                        break;
+                    case 3:
+                        buffer = $"Circumference = {Circumference}";
+                        break;
+                }
+
+                return buffer;
+            }
+        }
+
         #endregion
 
     }

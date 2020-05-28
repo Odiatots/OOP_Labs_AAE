@@ -19,7 +19,8 @@ namespace FindAreaFiguresGUI
         /// <summary>
         /// Основной лист фигур
         /// </summary>
-        private static BindingList<IFigure> _figures = new BindingList<IFigure>();
+        private static BindingList<IFigure> _figures = 
+            new BindingList<IFigure>();
 
         /// <summary>
         /// Последняя точка курсора
@@ -99,6 +100,36 @@ namespace FindAreaFiguresGUI
         {
             var figure = new FigureForm(_figures);
             figure.Show();
+
+        }
+
+        /// <summary>
+        /// Расширение формы при большом содержимом
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            CloseLabel.Location = new Point(0, 3);
+            MinimazeLabel.Location = new Point(0, 3);
+            this.Width = 0;
+            var fallAllPoint = DataFiguresGridView.Columns;
+            int fallPoints = 0;
+            foreach (DataGridViewColumn r in fallAllPoint)
+            {
+                fallPoints += r.Width;
+            }
+
+            var fallPoint = fallPoints;
+
+            this.Width = 45 + 22 + fallPoint;
+            DataFiguresGridView.Width = 45 + fallPoint;
+
+            CloseLabel.Location = new Point(45 + fallPoint - 3, 3);
+            MinimazeLabel.Location = new Point(45 + fallPoint - 33, 3);
+
+            fallPoint = 0;
+            fallPoints = 0;
         }
     }
 }

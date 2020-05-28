@@ -265,6 +265,37 @@ namespace FindAreaFigures
             }
         }
 
+        /// <summary>
+        /// Выходные параметры для вывода
+        /// </summary>
+        public string DimensionsToOutput
+        {
+            get
+            {
+                string buffer = string.Empty;
+
+                switch (CalcTypeAreaIndex)
+                {
+                    case 1:
+                        buffer = $"Side 1 = {FirstSideTriangle}," +
+                            $" Side 2 = {SecondSideTriangle}," +
+                            $" Angle = {AngleBetweenSidesTriangle}";
+                        break;
+                    case 2:
+                        buffer = $"Side 1 = {FirstSideTriangle}," +
+                            $" Side down = {SideDownTriangle}";
+                        break;
+                    case 3:
+                        buffer = $"Side 1 = {FirstSideTriangle}," +
+                            $" Side 2 = {SecondSideTriangle}," +
+                            $" Side 3 = {ThirdSideTriangle}";
+                        break;
+                }
+
+                return buffer;
+            }
+        }
+
         #endregion
 
         #region Методы

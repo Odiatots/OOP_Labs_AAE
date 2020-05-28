@@ -218,6 +218,32 @@ namespace FindAreaFigures
                 }
             }
         }
+
+        /// <summary>
+        /// Выходные параметры для вывода
+        /// </summary>
+        public string DimensionsToOutput
+        {
+            get
+            {
+                string buffer = string.Empty;
+
+                switch (CalcTypeAreaIndex)
+                {
+                    case 1:
+                        buffer = $"Length = {LengthRectangle}," +
+                            $" Width = {WidthRectangle}";
+                        break;
+                    case 2:
+                        buffer = $"Angle = {AngleBetweenDiagonalsRectangle}," +
+                            $" Diagonal = {DiagonalRectangle}";
+                        break;
+                }
+
+                return buffer;
+            }
+        }
+
         #endregion
 
     }
