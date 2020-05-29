@@ -29,11 +29,24 @@ namespace FindAreaFiguresGUI
         /// <summary>
         /// Инициализация формы
         /// </summary>
-        public SearchForm(BindingList<IFigure> figures)
+        public SearchForm(BindingList<IFigure> figures, 
+            Point pointClose,
+            Point pointMinimaze, 
+            int widthForm,
+            int widthGrid)
         {
             InitializeComponent();
 
             _figures = figures;
+            CloseLabel.Location = pointClose;
+            MinimazeLabel.Location = pointMinimaze;
+            this.Width = widthForm;
+            DataFiguresGridView.Width = widthGrid;
+            int buffer = SearchTextBox.Width;
+            SearchTextBox.Width = widthGrid;
+            SearchButton.Width = SearchButton.Width + 
+                SearchTextBox.Width - buffer;
+
         }
 
         /// <summary>
@@ -94,6 +107,132 @@ namespace FindAreaFiguresGUI
         private void SearchForm_Load(object sender, EventArgs e)
         {
             DataFiguresGridView.DataSource = _figuresFilter;
+
+            FigureRadioButton.Checked = true;
+        }
+        
+        /// <summary>
+        /// Расширение формы при большом содержимом
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            CloseLabel.Location = new Point(0, 3);
+            MinimazeLabel.Location = new Point(0, 3);
+            this.Width = 0;
+            var fallAllPoint = DataFiguresGridView.Columns;
+            int fallPoints = 0;
+            foreach (DataGridViewColumn r in fallAllPoint)
+            {
+                fallPoints += r.Width;
+            }
+
+            var fallPoint = fallPoints;
+
+            this.Width = 45 + 22 + fallPoint;
+            DataFiguresGridView.Width = 45 + fallPoint;
+            int buffer = SearchTextBox.Width;
+            SearchTextBox.Width = 45 + fallPoint;
+            SearchButton.Width = SearchButton.Width + 
+                SearchTextBox.Width - buffer;
+
+            CloseLabel.Location = new Point(45 + fallPoint - 3, 3);
+            MinimazeLabel.Location = new Point(45 + fallPoint - 33, 3);
+
+            fallPoint = 0;
+            fallPoints = 0;
+        }
+
+        /// <summary>
+        /// Поиск
+        /// </summary>
+        private void GoSearch()
+        {
+            _figuresFilter.Clear();
+
+            if (FigureRadioButton.Checked)
+            {
+                try
+                {
+                    foreach (var row in _figures)
+                    {
+                        if (row.NameFigure == SearchTextBox.Text)
+                        {
+                            _figuresFilter.Add(row);
+                        }
+                    }
+                }
+                catch (Exception exception)
+                {
+                    GiveStandartMessageBox(
+                        $"{exception}\nEnter the string!");
+                }
+            }
+            else if (AreaRadioButton.Checked)
+            {
+                try
+                {
+                    foreach (var row in _figures)
+                    {
+                        if (row.FigureArea ==
+                            Convert.ToDouble(SearchTextBox.Text))
+                        {
+                            _figuresFilter.Add(row);
+                        }
+                    }
+                }
+                catch (Exception exception)
+                {
+                    GiveStandartMessageBox(
+                        $"{exception}\nEnter decimal number!");
+                }
+            }
+            else if (AreaAprRadioButton.Checked)
+            {
+                try
+                {
+                    foreach (var row in _figures)
+                    {
+                        if (row.FigureArea < 
+                            1.05*Convert.ToDouble(SearchTextBox.Text) & 
+                            row.FigureArea >
+                            0.95 * Convert.ToDouble(SearchTextBox.Text))
+                        {
+                            _figuresFilter.Add(row);
+                        }
+                    }
+                }
+                catch (Exception exception)
+                {
+                    GiveStandartMessageBox($"Enter decimal number!");
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Вызов распространенного экспешина
+        /// </summary>
+        /// <param name="exception">Текст исключения</param>
+        private void GiveStandartMessageBox(string exception)
+        {
+            Console.WriteLine(exception);
+            MessageBox.Show($"{exception}.",
+                "Message", MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+        }
+
+        /// <summary>
+        /// Нажаите кнопки искать
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            GoSearch();
         }
     }
 }

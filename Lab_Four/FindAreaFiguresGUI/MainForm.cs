@@ -152,7 +152,11 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            var search = new SearchForm(_figures);
+            var search = new SearchForm(_figures,
+                CloseLabel.Location,
+                MinimazeLabel.Location,
+                this.Width,
+                DataFiguresGridView.Width);
             search.Show();
         }
     }

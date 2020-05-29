@@ -36,6 +36,11 @@
             this.TypeFigureLabel = new System.Windows.Forms.Label();
             this.RefreshButton = new System.Windows.Forms.Button();
             this.DataFiguresGridView = new System.Windows.Forms.DataGridView();
+            this.FigureRadioButton = new System.Windows.Forms.RadioButton();
+            this.AreaRadioButton = new System.Windows.Forms.RadioButton();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.AreaAprRadioButton = new System.Windows.Forms.RadioButton();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.MovePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataFiguresGridView)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +120,7 @@
             this.RefreshButton.TabIndex = 13;
             this.RefreshButton.Text = "Refresh";
             this.RefreshButton.UseVisualStyleBackColor = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // DataFiguresGridView
             // 
@@ -132,12 +138,79 @@
             this.DataFiguresGridView.Size = new System.Drawing.Size(409, 246);
             this.DataFiguresGridView.TabIndex = 14;
             // 
+            // FigureRadioButton
+            // 
+            this.FigureRadioButton.AutoSize = true;
+            this.FigureRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.FigureRadioButton.Location = new System.Drawing.Point(11, 364);
+            this.FigureRadioButton.Name = "FigureRadioButton";
+            this.FigureRadioButton.Size = new System.Drawing.Size(139, 18);
+            this.FigureRadioButton.TabIndex = 15;
+            this.FigureRadioButton.TabStop = true;
+            this.FigureRadioButton.Text = "Search by figure name";
+            this.FigureRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // AreaRadioButton
+            // 
+            this.AreaRadioButton.AutoSize = true;
+            this.AreaRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.AreaRadioButton.Location = new System.Drawing.Point(11, 388);
+            this.AreaRadioButton.Name = "AreaRadioButton";
+            this.AreaRadioButton.Size = new System.Drawing.Size(136, 18);
+            this.AreaRadioButton.TabIndex = 16;
+            this.AreaRadioButton.TabStop = true;
+            this.AreaRadioButton.Text = "Search by area exactly";
+            this.AreaRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.SearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.SearchTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.SearchTextBox.Location = new System.Drawing.Point(12, 336);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(406, 22);
+            this.SearchTextBox.TabIndex = 17;
+            // 
+            // AreaAprRadioButton
+            // 
+            this.AreaAprRadioButton.AutoSize = true;
+            this.AreaAprRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.AreaAprRadioButton.Location = new System.Drawing.Point(11, 412);
+            this.AreaAprRadioButton.Name = "AreaAprRadioButton";
+            this.AreaAprRadioButton.Size = new System.Drawing.Size(138, 18);
+            this.AreaAprRadioButton.TabIndex = 18;
+            this.AreaAprRadioButton.TabStop = true;
+            this.AreaAprRadioButton.Text = "Search by area approx";
+            this.AreaAprRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.SearchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.SearchButton.Location = new System.Drawing.Point(156, 364);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(262, 66);
+            this.SearchButton.TabIndex = 19;
+            this.SearchButton.Text = "Search!";
+            this.SearchButton.UseVisualStyleBackColor = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(430, 372);
+            this.ClientSize = new System.Drawing.Size(430, 439);
+            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.AreaAprRadioButton);
+            this.Controls.Add(this.SearchTextBox);
+            this.Controls.Add(this.AreaRadioButton);
+            this.Controls.Add(this.FigureRadioButton);
             this.Controls.Add(this.DataFiguresGridView);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.TypeFigureLabel);
@@ -167,5 +240,10 @@
         private System.Windows.Forms.Label TypeFigureLabel;
         private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.DataGridView DataFiguresGridView;
+        private System.Windows.Forms.RadioButton FigureRadioButton;
+        private System.Windows.Forms.RadioButton AreaRadioButton;
+        private System.Windows.Forms.TextBox SearchTextBox;
+        private System.Windows.Forms.RadioButton AreaAprRadioButton;
+        private System.Windows.Forms.Button SearchButton;
     }
 }
