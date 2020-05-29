@@ -39,6 +39,7 @@
             this.RemoveFigure = new System.Windows.Forms.Button();
             this.RefreshButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
+            this.RandomButton = new System.Windows.Forms.Button();
             this.MovePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataFiguresGridView)).BeginInit();
             this.SuspendLayout();
@@ -181,12 +182,28 @@
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
+            // RandomButton
+            // 
+            this.RandomButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.RandomButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RandomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RandomButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.RandomButton.Location = new System.Drawing.Point(353, 42);
+            this.RandomButton.Name = "RandomButton";
+            this.RandomButton.Size = new System.Drawing.Size(65, 24);
+            this.RandomButton.TabIndex = 14;
+            this.RandomButton.Text = "Random";
+            this.RandomButton.UseVisualStyleBackColor = false;
+            this.RandomButton.Click += new System.EventHandler(this.RandomBurron_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(430, 372);
+            this.Controls.Add(this.RandomButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.RemoveFigure);
@@ -222,5 +239,6 @@
         private System.Windows.Forms.Button RemoveFigure;
         private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.Button RandomButton;
     }
 }

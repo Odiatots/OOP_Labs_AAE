@@ -180,12 +180,17 @@ namespace FindAreaFiguresGUI
                         {
                             _figuresFilter.Add(row);
                         }
+                        if (Convert.ToDouble(SearchTextBox.Text) < 0)
+                        {
+                            GiveStandartMessageBox($"Enter non-negative " +
+                                $"decimal number!");
+                        }
                     }
                 }
-                catch (Exception exception)
+                catch
                 {
-                    GiveStandartMessageBox(
-                        $"{exception}\nEnter decimal number!");
+                    GiveStandartMessageBox($"\nEnter decimal" +
+                        $" number (separator - comma)!");
                 }
             }
             else if (AreaAprRadioButton.Checked)
@@ -201,11 +206,17 @@ namespace FindAreaFiguresGUI
                         {
                             _figuresFilter.Add(row);
                         }
+                        if (Convert.ToDouble(SearchTextBox.Text) < 0)
+                        {
+                            GiveStandartMessageBox($"Enter non-negative " +
+                                $"decimal number!");
+                        }
                     }
                 }
-                catch (Exception exception)
+                catch
                 {
-                    GiveStandartMessageBox($"Enter decimal number!");
+                    GiveStandartMessageBox($"\nEnter decimal" +
+                        $" number (separator - comma)!");
                 }
             }
 

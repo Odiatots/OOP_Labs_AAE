@@ -33,6 +33,11 @@ namespace FindAreaFiguresGUI
         public MainForm()
         {
             InitializeComponent();
+
+            #if !DEBUG
+            RandomButton.Visible = false;
+            #endif
+
         }
 
         /// <summary>
@@ -158,6 +163,16 @@ namespace FindAreaFiguresGUI
                 this.Width,
                 DataFiguresGridView.Width);
             search.Show();
+        }
+
+        /// <summary>
+        /// Нажаите кнопки рандом
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RandomBurron_Click(object sender, EventArgs e)
+        {
+            _figures.Add(RandomFigure.CreateFigure());
         }
     }
 }
