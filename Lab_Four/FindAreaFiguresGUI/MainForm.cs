@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FindAreaFigures;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace FindAreaFiguresGUI
 {
@@ -173,6 +175,58 @@ namespace FindAreaFiguresGUI
         private void RandomBurron_Click(object sender, EventArgs e)
         {
             _figures.Add(RandomFigure.CreateFigure());
+        }
+
+        /// <summary>
+        /// Сохранение листа
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            var formatter = new BinaryFormatter();
+            using (var fileStream = new FileStream(
+                "Figures.figcalc", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fileStream, _figures);
+                MessageBox.Show("File saved!",
+                    "Message", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
+
+        }
+
+        /// <summary>
+        /// Загрузка листа
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+            var formatter = new BinaryFormatter();
+            using (var fileStream = new FileStream(
+                "Figures.figcalc", FileMode.OpenOrCreate))
+            {
+                var newFigures = (BindingList<IFigure>)
+                    formatter.Deserialize(fileStream);
+
+                _figures.Clear();
+
+                foreach (var figure in newFigures)
+                {
+                    _figures.Add(figure);
+                }
+
+                MessageBox.Show("File downloaded!",
+                    "Message",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
         }
     }
 }

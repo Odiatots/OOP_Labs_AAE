@@ -9,6 +9,7 @@ namespace FindAreaFigures
     /// <summary>
     /// Класс треугольника
     /// </summary>
+    [Serializable]
     public class Triangle : IFigure
     {
 

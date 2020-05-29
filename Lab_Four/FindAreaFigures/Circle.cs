@@ -9,6 +9,7 @@ namespace FindAreaFigures
     /// <summary>
     /// Класс круга
     /// </summary>
+    [Serializable]
     public class Circle : IFigure
     {
 

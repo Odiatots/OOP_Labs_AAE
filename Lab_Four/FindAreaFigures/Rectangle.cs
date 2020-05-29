@@ -9,6 +9,7 @@ namespace FindAreaFigures
     /// <summary>
     /// Класс прямоугольника
     /// </summary>
+    [Serializable]
     public class Rectangle : IFigure
     {
 
