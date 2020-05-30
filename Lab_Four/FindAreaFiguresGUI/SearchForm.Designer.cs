@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             this.MovePanel = new System.Windows.Forms.Panel();
             this.MinimazeLabel = new System.Windows.Forms.Label();
@@ -54,7 +56,7 @@
             this.MovePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MovePanel.Location = new System.Drawing.Point(0, 0);
             this.MovePanel.Name = "MovePanel";
-            this.MovePanel.Size = new System.Drawing.Size(430, 33);
+            this.MovePanel.Size = new System.Drawing.Size(301, 33);
             this.MovePanel.TabIndex = 2;
             this.MovePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MovePanel_MouseDown);
             this.MovePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MovePanel_MouseMove);
@@ -65,7 +67,7 @@
             this.MinimazeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimazeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimazeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.MinimazeLabel.Location = new System.Drawing.Point(376, 3);
+            this.MinimazeLabel.Location = new System.Drawing.Point(248, 3);
             this.MinimazeLabel.Name = "MinimazeLabel";
             this.MinimazeLabel.Size = new System.Drawing.Size(21, 27);
             this.MinimazeLabel.TabIndex = 2;
@@ -78,7 +80,7 @@
             this.CloseLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.CloseLabel.Location = new System.Drawing.Point(403, 3);
+            this.CloseLabel.Location = new System.Drawing.Point(274, 3);
             this.CloseLabel.Name = "CloseLabel";
             this.CloseLabel.Size = new System.Drawing.Size(24, 27);
             this.CloseLabel.TabIndex = 1;
@@ -111,12 +113,14 @@
             // 
             this.RefreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.RefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefreshButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.RefreshButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RefreshButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RefreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.RefreshButton.Location = new System.Drawing.Point(104, 42);
             this.RefreshButton.Name = "RefreshButton";
-            this.RefreshButton.Size = new System.Drawing.Size(133, 24);
+            this.RefreshButton.Size = new System.Drawing.Size(62, 24);
             this.RefreshButton.TabIndex = 13;
             this.RefreshButton.Text = "Refresh";
             this.RefreshButton.UseVisualStyleBackColor = false;
@@ -129,14 +133,36 @@
             this.DataFiguresGridView.AllowUserToResizeRows = false;
             this.DataFiguresGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DataFiguresGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.DataFiguresGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataFiguresGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.DataFiguresGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataFiguresGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataFiguresGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataFiguresGridView.Cursor = System.Windows.Forms.Cursors.IBeam;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataFiguresGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DataFiguresGridView.EnableHeadersVisualStyles = false;
             this.DataFiguresGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.DataFiguresGridView.Location = new System.Drawing.Point(11, 75);
             this.DataFiguresGridView.Name = "DataFiguresGridView";
             this.DataFiguresGridView.ReadOnly = true;
-            this.DataFiguresGridView.Size = new System.Drawing.Size(409, 246);
-            this.DataFiguresGridView.TabIndex = 14;
+            this.DataFiguresGridView.RowHeadersVisible = false;
+            this.DataFiguresGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataFiguresGridView.Size = new System.Drawing.Size(280, 246);
+            this.DataFiguresGridView.TabIndex = 1;
             // 
             // FigureRadioButton
             // 
@@ -170,7 +196,7 @@
             this.SearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.SearchTextBox.Location = new System.Drawing.Point(12, 336);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(406, 22);
+            this.SearchTextBox.Size = new System.Drawing.Size(279, 22);
             this.SearchTextBox.TabIndex = 17;
             // 
             // AreaAprRadioButton
@@ -189,12 +215,14 @@
             // 
             this.SearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.SearchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.SearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.SearchButton.Location = new System.Drawing.Point(156, 364);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(262, 66);
+            this.SearchButton.Size = new System.Drawing.Size(135, 66);
             this.SearchButton.TabIndex = 19;
             this.SearchButton.Text = "Search!";
             this.SearchButton.UseVisualStyleBackColor = false;
@@ -205,7 +233,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(430, 439);
+            this.ClientSize = new System.Drawing.Size(301, 439);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.AreaAprRadioButton);
             this.Controls.Add(this.SearchTextBox);

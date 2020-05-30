@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FigureForm));
             this.MovePanel = new System.Windows.Forms.Panel();
             this.MinimazeLabel = new System.Windows.Forms.Label();
@@ -39,13 +41,13 @@
             this.CalcTypeLabel = new System.Windows.Forms.Label();
             this.GiveDimensionButton = new System.Windows.Forms.Button();
             this.DimensionsDataGridView = new System.Windows.Forms.DataGridView();
-            this.Dimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValueDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GetResultButton = new System.Windows.Forms.Button();
             this.FigureAreaTextBox = new System.Windows.Forms.TextBox();
             this.ResultLabel = new System.Windows.Forms.Label();
             this.GoBackButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
+            this.Dimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MovePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DimensionsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -157,6 +159,8 @@
             // 
             this.GiveDimensionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.GiveDimensionButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GiveDimensionButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.GiveDimensionButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.GiveDimensionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GiveDimensionButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GiveDimensionButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -173,36 +177,47 @@
             // 
             this.DimensionsDataGridView.AllowUserToAddRows = false;
             this.DimensionsDataGridView.AllowUserToDeleteRows = false;
+            this.DimensionsDataGridView.AllowUserToResizeRows = false;
             this.DimensionsDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.DimensionsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DimensionsDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.DimensionsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DimensionsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DimensionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DimensionsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Dimensions,
             this.ValueDimensions});
             this.DimensionsDataGridView.Cursor = System.Windows.Forms.Cursors.IBeam;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DimensionsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DimensionsDataGridView.EnableHeadersVisualStyles = false;
             this.DimensionsDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.DimensionsDataGridView.Location = new System.Drawing.Point(11, 151);
             this.DimensionsDataGridView.Name = "DimensionsDataGridView";
+            this.DimensionsDataGridView.RowHeadersVisible = false;
             this.DimensionsDataGridView.Size = new System.Drawing.Size(276, 97);
             this.DimensionsDataGridView.TabIndex = 7;
             this.DimensionsDataGridView.Visible = false;
-            // 
-            // Dimensions
-            // 
-            this.Dimensions.HeaderText = "Dimensions";
-            this.Dimensions.Name = "Dimensions";
-            this.Dimensions.ReadOnly = true;
-            this.Dimensions.Width = 125;
-            // 
-            // ValueDimensions
-            // 
-            this.ValueDimensions.HeaderText = "Values";
-            this.ValueDimensions.Name = "ValueDimensions";
-            this.ValueDimensions.Width = 105;
             // 
             // GetResultButton
             // 
             this.GetResultButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.GetResultButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GetResultButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.GetResultButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.GetResultButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GetResultButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GetResultButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -244,6 +259,8 @@
             // 
             this.GoBackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.GoBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GoBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.GoBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.GoBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GoBackButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GoBackButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -259,6 +276,8 @@
             // 
             this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.BackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -269,6 +288,21 @@
             this.BackButton.Text = "Don\'t save and exit";
             this.BackButton.UseVisualStyleBackColor = false;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
+            // Dimensions
+            // 
+            this.Dimensions.FillWeight = 150F;
+            this.Dimensions.HeaderText = "Dimensions";
+            this.Dimensions.Name = "Dimensions";
+            this.Dimensions.ReadOnly = true;
+            this.Dimensions.Width = 125;
+            // 
+            // ValueDimensions
+            // 
+            this.ValueDimensions.FillWeight = 150F;
+            this.ValueDimensions.HeaderText = "Values";
+            this.ValueDimensions.Name = "ValueDimensions";
+            this.ValueDimensions.Width = 151;
             // 
             // FigureForm
             // 
@@ -319,10 +353,10 @@
         private System.Windows.Forms.Button GetResultButton;
         private System.Windows.Forms.TextBox FigureAreaTextBox;
         private System.Windows.Forms.Label ResultLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dimensions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValueDimensions;
         private System.Windows.Forms.Button GoBackButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dimensions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValueDimensions;
     }
 }
 

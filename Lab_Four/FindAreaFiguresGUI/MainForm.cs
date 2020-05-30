@@ -49,7 +49,26 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
+            DataFiguresGridView.ScrollBars = ScrollBars.None;
+            DataFiguresGridView.AutoGenerateColumns = false;
+            DataFiguresGridView.AutoSize = false;
+
             DataFiguresGridView.DataSource = _figures;
+            var column1 = new DataGridViewTextBoxColumn();
+            var column2 = new DataGridViewTextBoxColumn();
+            var column3 = new DataGridViewTextBoxColumn();
+
+            column1.DataPropertyName = "NameFigure";
+            column2.DataPropertyName = "FigureArea";
+            column3.DataPropertyName = "DimensionsToOutput";
+
+            column1.Name = "Name Figure";
+            column2.Name = "Figure Area";
+            column3.Name = "Dimensions";
+                                                         
+            DataFiguresGridView.Columns.Add(column1);
+            DataFiguresGridView.Columns.Add(column2);
+            DataFiguresGridView.Columns.Add(column3);
         }
 
         /// <summary>
@@ -127,11 +146,17 @@ namespace FindAreaFiguresGUI
 
             var fallPoint = fallPoints;
 
-            this.Width = 45 + 22 + fallPoint;
-            DataFiguresGridView.Width = 45 + fallPoint;
+            this.Width =  22 + fallPoint;
+            int buffer = DataFiguresGridView.Width;
+            DataFiguresGridView.Width = fallPoint;
+            SaveButton.Width = SaveButton.Width +
+                DataFiguresGridView.Width - buffer;
+            LoadButton.Width = LoadButton.Width + 
+                DataFiguresGridView.Width - buffer;
 
-            CloseLabel.Location = new Point(45 + fallPoint - 3, 3);
-            MinimazeLabel.Location = new Point(45 + fallPoint - 33, 3);
+
+            CloseLabel.Location = new Point(fallPoint - 3, 3);
+            MinimazeLabel.Location = new Point(fallPoint - 33, 3);
 
             fallPoint = 0;
             fallPoints = 0;

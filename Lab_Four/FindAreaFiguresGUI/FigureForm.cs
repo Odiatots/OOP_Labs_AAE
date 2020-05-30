@@ -68,6 +68,7 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
+            DimensionsDataGridView.ScrollBars = ScrollBars.None;
             _itemsList = new List<IFigure>();
             _itemsList.Add(new Circle());
             _itemsList.Add(new FindAreaFigures.Rectangle());

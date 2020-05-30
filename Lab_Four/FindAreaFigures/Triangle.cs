@@ -163,7 +163,7 @@ namespace FindAreaFigures
                         break;
                 }
 
-                return bufferArea;
+                return Math.Round(bufferArea, 3);
             }
             set => _figureArea = value;
         }
