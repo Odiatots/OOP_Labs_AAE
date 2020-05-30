@@ -52,6 +52,11 @@ namespace FindAreaFiguresGUI
         private BindingList<IFigure> _figures;
 
         /// <summary>
+        /// Флаг выборка CalcTypeArea
+        /// </summary>
+        private bool _calcTypeFlag = false;
+
+        /// <summary>
         /// Иниицаилизация формы фигур
         /// </summary>
         public FigureForm(BindingList<IFigure> figures)
@@ -159,6 +164,7 @@ namespace FindAreaFiguresGUI
         private void CalcTypeComboBox_SelectionChangeCommitted(
             object sender, EventArgs e)
         {
+            _calcTypeFlag = true;
             GetResultButton.Visible = false;
             GiveDimensionButton.Visible = true;
             DimensionsDataGridView.Rows.Clear();
@@ -285,8 +291,35 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void GoBackButton_Click(object sender, EventArgs e)
         {
-            _figures.Add(_classFigure);
-            Close();
+            //if (!(_classFigure == null) & _calcTypeFlag & 
+            //    !(FigureAreaTextBox.Text == String.Empty))
+            //{
+            //    _figures.Add(_classFigure);
+            //    Close();
+            //}
+            //else
+            //{
+            //    GiveStandartMessageBox($"The input " +
+            //        $"is not complete!\nEnter all the data");
+            //}
+
+
+            if (_classFigure == null || !_calcTypeFlag)
+            {
+                GiveStandartMessageBox($"The input " +
+                    $"is not complete!\nEnter all the data");
+            }
+            else if (FigureAreaTextBox.Text == String.Empty)
+            {
+                GiveStandartMessageBox($"No result!\n" +
+                    $"click let me input, enter the data\n" +
+                    $"and click Go! to get the result");
+            }
+            else
+            {
+                _figures.Add(_classFigure);
+                Close();
+            }
         }
 
         /// <summary>
