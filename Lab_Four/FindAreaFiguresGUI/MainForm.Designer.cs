@@ -110,6 +110,7 @@
             this.DataFiguresGridView.Location = new System.Drawing.Point(11, 75);
             this.DataFiguresGridView.Name = "DataFiguresGridView";
             this.DataFiguresGridView.ReadOnly = true;
+            this.DataFiguresGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataFiguresGridView.Size = new System.Drawing.Size(409, 246);
             this.DataFiguresGridView.TabIndex = 1;
             // 

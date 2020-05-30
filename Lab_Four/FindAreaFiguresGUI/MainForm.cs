@@ -144,11 +144,9 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void RemoveFigure_Click(object sender, EventArgs e)
         {
-            int _counter = DataFiguresGridView.SelectedRows.Count;
-
-            for (int i = 0; i < _counter; i++)
+            foreach (DataGridViewRow drv in DataFiguresGridView.SelectedRows)
             {
-                _figures.RemoveAt(DataFiguresGridView.SelectedRows[0].Index);
+                DataFiguresGridView.Rows.Remove(drv);
             }
         }
 
