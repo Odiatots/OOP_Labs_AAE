@@ -207,19 +207,31 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var formatter = new BinaryFormatter();
-            using (var fileStream = new FileStream(
-                "Figures.figcalc", FileMode.OpenOrCreate))
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                formatter.Serialize(fileStream, _figures);
-                MessageBox.Show("File saved!",
-                    "Message", 
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
-            }
+                saveFileDialog.InitialDirectory = "c:\\";
+                saveFileDialog.Filter = "figcalc files " +
+                    "(*.figcalc)|*.figcalc|All files (*.*)|*.*";
+                saveFileDialog.FilterIndex = 1;
+                saveFileDialog.RestoreDirectory = true;
 
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var formatter = new BinaryFormatter();
+                    var fileSave = saveFileDialog.FileName;
+                    using (var fileStream = new FileStream(
+                        fileSave, FileMode.OpenOrCreate))
+                    {
+                        formatter.Serialize(fileStream, _figures);
+                        MessageBox.Show("File saved!",
+                            "Message",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -229,26 +241,54 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            var formatter = new BinaryFormatter();
-            using (var fileStream = new FileStream(
-                "Figures.figcalc", FileMode.OpenOrCreate))
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                var newFigures = (BindingList<IFigure>)
-                    formatter.Deserialize(fileStream);
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "figcalc files " +
+                    "(*.figcalc)|*.figcalc|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
 
-                _figures.Clear();
-
-                foreach (var figure in newFigures)
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    _figures.Add(figure);
-                }
+                    var formatter = new BinaryFormatter();
+                    var fileLoad = openFileDialog.FileName;
+                    var fileLoadSplit = fileLoad.Split('.');
 
-                MessageBox.Show("File downloaded!",
-                    "Message",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+                    if (fileLoadSplit.Last() == "figcalc")
+                    {
+                        using (var fileStream = new FileStream(
+                            fileLoad, FileMode.OpenOrCreate))
+                        {
+                            var newFigures = (BindingList<IFigure>)
+                                formatter.Deserialize(fileStream);
+
+                            _figures.Clear();
+
+                            foreach (var figure in newFigures)
+                            {
+                                _figures.Add(figure);
+                            }
+
+                            MessageBox.Show("File downloaded!",
+                                "Message",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1,
+                                MessageBoxOptions.DefaultDesktopOnly);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect file format " +
+                            "(not *.figcalc)!",
+                                "Message",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error,
+                                MessageBoxDefaultButton.Button1,
+                                MessageBoxOptions.DefaultDesktopOnly);
+                    }
+                }
             }
         }
     }
