@@ -25,11 +25,6 @@ namespace FindAreaFigures
                     $"{name} must be greater " +
                     $"than or equal to zero");
             }
-            //else if (Double.IsNaN(dimension))
-            //{
-            //    throw new ArithmeticException(
-            //        $"{name} is NaN");
-            //}
             else
             {
                 return dimension;

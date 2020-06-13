@@ -101,7 +101,7 @@ namespace FindAreaFigures
                 value, nameof(value));
         }
 
-        // TODO: реализовать лучше через отдельный класс Params (value, name) или через enum
+        
         /// <summary>
         /// Свойство параметр способы расчета
         /// </summary>
@@ -276,9 +276,12 @@ namespace FindAreaFigures
         /// <param name="b">Сторона 2</param>
         /// <param name="c">Сторона 3</param>
         /// <returns>да/нет</returns>
-        private bool IsExistTriangle(double a, double b, double c)
+        private bool IsExistTriangle(
+            double firstSide, double secondSide, double thirdSide)
         {
-            if (a + b > c & a + c > b & b + c > a)
+            if (firstSide + secondSide > thirdSide & 
+                firstSide + thirdSide > secondSide & 
+                secondSide + thirdSide > firstSide)
             {
                 return true;
             }
