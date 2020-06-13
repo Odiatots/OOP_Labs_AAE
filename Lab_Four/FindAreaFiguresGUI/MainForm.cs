@@ -209,7 +209,9 @@ namespace FindAreaFiguresGUI
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.InitialDirectory = "c:\\";
+                //TODO: Вопрос с абсолютным путём
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Favorites);
+                saveFileDialog.InitialDirectory = path;
                 saveFileDialog.Filter = "figcalc files " +
                     "(*.figcalc)|*.figcalc|All files (*.*)|*.*";
                 saveFileDialog.FilterIndex = 1;
@@ -243,15 +245,19 @@ namespace FindAreaFiguresGUI
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\";
+                //TODO: Вопрос с абсолютным путём
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Favorites);
+                openFileDialog.InitialDirectory = path;
                 openFileDialog.Filter = "figcalc files " +
                     "(*.figcalc)|*.figcalc|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
 
+                //TODO: мой, трайкетч сверху загрузки, вдруг файл поврежден
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     var formatter = new BinaryFormatter();
+                    //TODO: Переписать на использование системной библиотеки
                     var fileLoad = openFileDialog.FileName;
                     var fileLoadSplit = fileLoad.Split('.');
 

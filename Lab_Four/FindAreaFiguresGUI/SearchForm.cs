@@ -106,6 +106,7 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void SearchForm_Load(object sender, EventArgs e)
         {
+            //TODO: Дублируется
             DataFiguresGridView.ScrollBars = ScrollBars.None;
             DataFiguresGridView.AutoGenerateColumns = false;
             DataFiguresGridView.AutoSize = false;
@@ -137,6 +138,7 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void RefreshButton_Click(object sender, EventArgs e)
         {
+            //TODO: Дублируется
             CloseLabel.Location = new Point(0, 3);
             MinimazeLabel.Location = new Point(0, 3);
             this.Width = 0;
@@ -166,8 +168,10 @@ namespace FindAreaFiguresGUI
         /// <summary>
         /// Поиск
         /// </summary>
+        //TODO: RSDN переименовать
         private void GoSearch()
         {
+            //TODO: Разбить метод
             _figuresFilter.Clear();
 
             if (FigureRadioButton.Checked)

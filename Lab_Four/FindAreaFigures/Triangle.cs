@@ -102,7 +102,6 @@ namespace FindAreaFigures
                 value, nameof(value));
         }
 
-        // TODO: реализовать лучше через отдельный класс Params (value, name) или через enum
         /// <summary>
         /// Свойство параметр способы расчета
         /// </summary>
