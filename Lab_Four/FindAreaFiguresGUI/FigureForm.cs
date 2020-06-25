@@ -291,19 +291,6 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void GoBackButton_Click(object sender, EventArgs e)
         {
-            //if (!(_classFigure == null) & _calcTypeFlag & 
-            //    !(FigureAreaTextBox.Text == String.Empty))
-            //{
-            //    _figures.Add(_classFigure);
-            //    Close();
-            //}
-            //else
-            //{
-            //    GiveStandartMessageBox($"The input " +
-            //        $"is not complete!\nEnter all the data");
-            //}
-
-
             if (_classFigure == null || !_calcTypeFlag)
             {
                 GiveStandartMessageBox($"The input " +

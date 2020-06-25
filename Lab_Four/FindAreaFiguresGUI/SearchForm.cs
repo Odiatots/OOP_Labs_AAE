@@ -106,27 +106,8 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void SearchForm_Load(object sender, EventArgs e)
         {
-            //TODO: Дублируется
-            DataFiguresGridView.ScrollBars = ScrollBars.None;
-            DataFiguresGridView.AutoGenerateColumns = false;
-            DataFiguresGridView.AutoSize = false;
-
-            DataFiguresGridView.DataSource = _figuresFilter;
-            var column1 = new DataGridViewTextBoxColumn();
-            var column2 = new DataGridViewTextBoxColumn();
-            var column3 = new DataGridViewTextBoxColumn();
-
-            column1.DataPropertyName = "NameFigure";
-            column2.DataPropertyName = "FigureArea";
-            column3.DataPropertyName = "DimensionsToOutput";
-
-            column1.Name = "Name Figure";
-            column2.Name = "Figure Area";
-            column3.Name = "Dimensions";
-
-            DataFiguresGridView.Columns.Add(column1);
-            DataFiguresGridView.Columns.Add(column2);
-            DataFiguresGridView.Columns.Add(column3);
+            //TODO: Дублируется - решено
+            StandartMethods.LoadDataGrid(DataFiguresGridView, _figuresFilter);
 
             FigureRadioButton.Checked = true;
         }
@@ -138,113 +119,129 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            //TODO: Дублируется
-            CloseLabel.Location = new Point(0, 3);
-            MinimazeLabel.Location = new Point(0, 3);
-            this.Width = 0;
-            var fallAllPoint = DataFiguresGridView.Columns;
-            int fallPoints = 0;
-            foreach (DataGridViewColumn r in fallAllPoint)
-            {
-                fallPoints += r.Width;
-            }
+            //TODO: Дублируется - частично решено?
 
-            var fallPoint = fallPoints;
+            StandartMethods.RefreshForm(CloseLabel, MinimazeLabel, this);
+
+            var fallPoint = StandartMethods.FallPointsSearch(DataFiguresGridView);
 
             this.Width = 22 + fallPoint;
             DataFiguresGridView.Width = fallPoint;
             int buffer = SearchTextBox.Width;
             SearchTextBox.Width = fallPoint;
-            SearchButton.Width = SearchButton.Width + 
+            SearchButton.Width = SearchButton.Width +
                 SearchTextBox.Width - buffer;
 
             CloseLabel.Location = new Point(fallPoint - 3, 3);
             MinimazeLabel.Location = new Point(fallPoint - 33, 3);
 
             fallPoint = 0;
-            fallPoints = 0;
         }
 
         /// <summary>
         /// Поиск
         /// </summary>
-        //TODO: RSDN переименовать
-        private void GoSearch()
+        //TODO: RSDN переименовать - решено
+        private void StartSearch()
         {
-            //TODO: Разбить метод
+            //TODO: Разбить метод - решено
             _figuresFilter.Clear();
 
             if (FigureRadioButton.Checked)
             {
-                try
-                {
-                    foreach (var row in _figures)
-                    {
-                        if (row.NameFigure == SearchTextBox.Text)
-                        {
-                            _figuresFilter.Add(row);
-                        }
-                    }
-                }
-                catch (Exception exception)
-                {
-                    GiveStandartMessageBox(
-                        $"{exception}\nEnter the string!");
-                }
+                StartSearchFigure();
             }
             else if (AreaRadioButton.Checked)
             {
-                try
-                {
-                    foreach (var row in _figures)
-                    {
-                        if (row.FigureArea ==
-                            Convert.ToDouble(SearchTextBox.Text))
-                        {
-                            _figuresFilter.Add(row);
-                        }
-                        if (Convert.ToDouble(SearchTextBox.Text) < 0)
-                        {
-                            GiveStandartMessageBox($"Enter non-negative " +
-                                $"decimal number!");
-                        }
-                    }
-                }
-                catch
-                {
-                    GiveStandartMessageBox($"\nEnter decimal" +
-                        $" number (separator - comma)!");
-                }
+                StartSearchArea();
             }
             else if (AreaAprRadioButton.Checked)
             {
-                try
-                {
-                    foreach (var row in _figures)
-                    {
-                        if (row.FigureArea < 
-                            1.05*Convert.ToDouble(SearchTextBox.Text) & 
-                            row.FigureArea >
-                            0.95 * Convert.ToDouble(SearchTextBox.Text))
-                        {
-                            _figuresFilter.Add(row);
-                        }
-                        if (Convert.ToDouble(SearchTextBox.Text) < 0)
-                        {
-                            GiveStandartMessageBox($"Enter non-negative " +
-                                $"decimal number!");
-                        }
-                    }
-                }
-                catch
-                {
-                    GiveStandartMessageBox($"\nEnter decimal" +
-                        $" number (separator - comma)!");
-                }
+                StartSearchAreaApr();
             }
 
         }
 
+        /// <summary>
+        /// Поиск по фигуре
+        /// </summary>
+        private void StartSearchFigure()
+        {
+            try
+            {
+                foreach (var row in _figures)
+                {
+                    if (row.NameFigure == SearchTextBox.Text)
+                    {
+                        _figuresFilter.Add(row);
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                GiveStandartMessageBox(
+                    $"{exception}\nEnter the string!");
+            }
+        }
+
+        /// <summary>
+        /// Поиск по площади
+        /// </summary>
+        private void StartSearchArea()
+        {
+            try
+            {
+                foreach (var row in _figures)
+                {
+                    if (row.FigureArea ==
+                        Convert.ToDouble(SearchTextBox.Text))
+                    {
+                        _figuresFilter.Add(row);
+                    }
+                    if (Convert.ToDouble(SearchTextBox.Text) < 0)
+                    {
+                        GiveStandartMessageBox($"Enter non-negative " +
+                            $"decimal number!");
+                    }
+                }
+            }
+            catch
+            {
+                GiveStandartMessageBox($"\nEnter decimal" +
+                    $" number (separator - comma)!");
+            }
+        }
+
+        /// <summary>
+        /// Поиск по примерной площади
+        /// </summary>
+        private void StartSearchAreaApr()
+        {
+            try
+            {
+                foreach (var row in _figures)
+                {
+                    if (row.FigureArea <
+                        1.05 * Convert.ToDouble(SearchTextBox.Text) &
+                        row.FigureArea >
+                        0.95 * Convert.ToDouble(SearchTextBox.Text))
+                    {
+                        _figuresFilter.Add(row);
+                    }
+                    if (Convert.ToDouble(SearchTextBox.Text) < 0)
+                    {
+                        GiveStandartMessageBox($"Enter non-negative " +
+                            $"decimal number!");
+                    }
+                }
+            }
+            catch
+            {
+                GiveStandartMessageBox($"\nEnter decimal" +
+                    $" number (separator - comma)!");
+            }
+        }
+        
         /// <summary>
         /// Вызов распространенного экспешина
         /// </summary>
@@ -266,7 +263,7 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            GoSearch();
+            StartSearch();
         }
     }
 }

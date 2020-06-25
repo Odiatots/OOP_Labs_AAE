@@ -49,26 +49,7 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            DataFiguresGridView.ScrollBars = ScrollBars.None;
-            DataFiguresGridView.AutoGenerateColumns = false;
-            DataFiguresGridView.AutoSize = false;
-
-            DataFiguresGridView.DataSource = _figures;
-            var column1 = new DataGridViewTextBoxColumn();
-            var column2 = new DataGridViewTextBoxColumn();
-            var column3 = new DataGridViewTextBoxColumn();
-
-            column1.DataPropertyName = "NameFigure";
-            column2.DataPropertyName = "FigureArea";
-            column3.DataPropertyName = "DimensionsToOutput";
-
-            column1.Name = "Name Figure";
-            column2.Name = "Figure Area";
-            column3.Name = "Dimensions";
-                                                         
-            DataFiguresGridView.Columns.Add(column1);
-            DataFiguresGridView.Columns.Add(column2);
-            DataFiguresGridView.Columns.Add(column3);
+            StandartMethods.LoadDataGrid(DataFiguresGridView, _figures);
         }
 
         /// <summary>
@@ -134,17 +115,9 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            CloseLabel.Location = new Point(0, 3);
-            MinimazeLabel.Location = new Point(0, 3);
-            this.Width = 0;
-            var fallAllPoint = DataFiguresGridView.Columns;
-            int fallPoints = 0;
-            foreach (DataGridViewColumn r in fallAllPoint)
-            {
-                fallPoints += r.Width;
-            }
+            StandartMethods.RefreshForm(CloseLabel, MinimazeLabel, this);
 
-            var fallPoint = fallPoints;
+            var fallPoint = StandartMethods.FallPointsSearch(DataFiguresGridView);
 
             this.Width =  22 + fallPoint;
             int buffer = DataFiguresGridView.Width;
@@ -159,7 +132,6 @@ namespace FindAreaFiguresGUI
             MinimazeLabel.Location = new Point(fallPoint - 33, 3);
 
             fallPoint = 0;
-            fallPoints = 0;
         }
 
         /// <summary>
@@ -209,8 +181,9 @@ namespace FindAreaFiguresGUI
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                //TODO: Вопрос с абсолютным путём
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.Favorites);
+                //TODO: Вопрос с абсолютным путём - решено
+                string path = Environment.GetFolderPath(
+                    Environment.SpecialFolder.MyDocuments);
                 saveFileDialog.InitialDirectory = path;
                 saveFileDialog.Filter = "figcalc files " +
                     "(*.figcalc)|*.figcalc|All files (*.*)|*.*";
@@ -225,12 +198,7 @@ namespace FindAreaFiguresGUI
                         fileSave, FileMode.OpenOrCreate))
                     {
                         formatter.Serialize(fileStream, _figures);
-                        MessageBox.Show("File saved!",
-                            "Message",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information,
-                            MessageBoxDefaultButton.Button1,
-                            MessageBoxOptions.DefaultDesktopOnly);
+                        GiveStandartPositiveMessageBox("File saved!");
                     }
                 }
             }
@@ -245,57 +213,83 @@ namespace FindAreaFiguresGUI
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                //TODO: Вопрос с абсолютным путём
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.Favorites);
+                //TODO: Вопрос с абсолютным путём - решено
+                string path = Environment.GetFolderPath(
+                    Environment.SpecialFolder.MyDocuments);
                 openFileDialog.InitialDirectory = path;
                 openFileDialog.Filter = "figcalc files " +
                     "(*.figcalc)|*.figcalc|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
 
-                //TODO: мой, трайкетч сверху загрузки, вдруг файл поврежден
+                //TODO: мой, трайкетч сверху загрузки, вдруг файл поврежден - решено
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     var formatter = new BinaryFormatter();
-                    //TODO: Переписать на использование системной библиотеки
+                    //TODO: Переписать на использование системной библиотеки - решено
                     var fileLoad = openFileDialog.FileName;
-                    var fileLoadSplit = fileLoad.Split('.');
+                    var extenstionFileLoad = Path.GetExtension(fileLoad);
 
-                    if (fileLoadSplit.Last() == "figcalc")
+                    if (extenstionFileLoad == ".figcalc")
                     {
-                        using (var fileStream = new FileStream(
-                            fileLoad, FileMode.OpenOrCreate))
+                        try
                         {
-                            var newFigures = (BindingList<IFigure>)
-                                formatter.Deserialize(fileStream);
-
-                            _figures.Clear();
-
-                            foreach (var figure in newFigures)
+                            using (var fileStream = new FileStream(
+                                fileLoad, FileMode.OpenOrCreate))
                             {
-                                _figures.Add(figure);
-                            }
+                                var newFigures = (BindingList<IFigure>)
+                                    formatter.Deserialize(fileStream);
 
-                            MessageBox.Show("File downloaded!",
-                                "Message",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.DefaultDesktopOnly);
+                                _figures.Clear();
+
+                                foreach (var figure in newFigures)
+                                {
+                                    _figures.Add(figure);
+                                }
+
+                                GiveStandartPositiveMessageBox("File downloaded!");
+                            }
                         }
+                        catch (Exception exception)
+                        {
+                            GiveStandartMessageBox($"{exception}");
+                        }                                                                              
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect file format " +
-                            "(not *.figcalc)!",
-                                "Message",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.DefaultDesktopOnly);
+                        GiveStandartMessageBox("Incorrect file format " +
+                            "(not *.figcalc)!");
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Вызов распространенного экспешина
+        /// </summary>
+        /// <param name="exception">Текст исключения</param>
+        private void GiveStandartMessageBox(string exception)
+        {
+            Console.WriteLine(exception);
+            MessageBox.Show($"{exception}.",
+                "Message", MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+        }
+
+        /// <summary>
+        /// Вызов окна подтверждения
+        /// </summary>
+        /// <param name="exception">Текст исключения</param>
+        private void GiveStandartPositiveMessageBox(string message)
+        {
+            MessageBox.Show($"{message}.",
+                "Message", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information, 
+                MessageBoxDefaultButton.Button1, 
+                MessageBoxOptions.DefaultDesktopOnly);
         }
     }
 }
