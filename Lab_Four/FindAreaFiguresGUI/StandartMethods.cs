@@ -77,5 +77,19 @@ namespace FindAreaFiguresGUI
             return fallPoints;
         }
 
+        /// <summary>
+        /// Распространенный вызов экспешена
+        /// </summary>
+        /// <param name="exception">Текст исключения</param>
+        public static void GiveStandartMessageBox(string exception)
+        {
+            Console.WriteLine(exception);
+            MessageBox.Show($"{exception}.",
+                "Message", MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+        }
+
     }
 }

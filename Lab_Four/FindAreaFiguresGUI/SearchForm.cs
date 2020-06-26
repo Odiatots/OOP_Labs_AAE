@@ -107,7 +107,8 @@ namespace FindAreaFiguresGUI
         private void SearchForm_Load(object sender, EventArgs e)
         {
             //TODO: Дублируется - решено
-            StandartMethods.LoadDataGrid(DataFiguresGridView, _figuresFilter);
+            StandartMethods.LoadDataGrid(
+                DataFiguresGridView, _figuresFilter);
 
             FigureRadioButton.Checked = true;
         }
@@ -123,7 +124,8 @@ namespace FindAreaFiguresGUI
 
             StandartMethods.RefreshForm(CloseLabel, MinimazeLabel, this);
 
-            var fallPoint = StandartMethods.FallPointsSearch(DataFiguresGridView);
+            var fallPoint = StandartMethods.FallPointsSearch(
+                DataFiguresGridView);
 
             this.Width = 22 + fallPoint;
             DataFiguresGridView.Width = fallPoint;
@@ -179,7 +181,7 @@ namespace FindAreaFiguresGUI
             }
             catch (Exception exception)
             {
-                GiveStandartMessageBox(
+                StandartMethods.GiveStandartMessageBox(
                     $"{exception}\nEnter the string!");
             }
         }
@@ -200,15 +202,15 @@ namespace FindAreaFiguresGUI
                     }
                     if (Convert.ToDouble(SearchTextBox.Text) < 0)
                     {
-                        GiveStandartMessageBox($"Enter non-negative " +
-                            $"decimal number!");
+                        StandartMethods.GiveStandartMessageBox(
+                            $"Enter non-negative decimal number!");
                     }
                 }
             }
             catch
             {
-                GiveStandartMessageBox($"\nEnter decimal" +
-                    $" number (separator - comma)!");
+                StandartMethods.GiveStandartMessageBox(
+                    $"\nEnter decimal number (separator - comma)!");
             }
         }
 
@@ -230,30 +232,16 @@ namespace FindAreaFiguresGUI
                     }
                     if (Convert.ToDouble(SearchTextBox.Text) < 0)
                     {
-                        GiveStandartMessageBox($"Enter non-negative " +
-                            $"decimal number!");
+                        StandartMethods.GiveStandartMessageBox(
+                            $"Enter non-negative decimal number!");
                     }
                 }
             }
             catch
             {
-                GiveStandartMessageBox($"\nEnter decimal" +
-                    $" number (separator - comma)!");
+                StandartMethods.GiveStandartMessageBox(
+                    $"\nEnter decimal number (separator - comma)!");
             }
-        }
-        
-        /// <summary>
-        /// Вызов распространенного экспешина
-        /// </summary>
-        /// <param name="exception">Текст исключения</param>
-        private void GiveStandartMessageBox(string exception)
-        {
-            Console.WriteLine(exception);
-            MessageBox.Show($"{exception}.",
-                "Message", MessageBoxButtons.OK,
-                MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.DefaultDesktopOnly);
         }
 
         /// <summary>

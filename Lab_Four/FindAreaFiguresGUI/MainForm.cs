@@ -117,7 +117,8 @@ namespace FindAreaFiguresGUI
         {
             StandartMethods.RefreshForm(CloseLabel, MinimazeLabel, this);
 
-            var fallPoint = StandartMethods.FallPointsSearch(DataFiguresGridView);
+            var fallPoint = StandartMethods.FallPointsSearch(
+                DataFiguresGridView);
 
             this.Width =  22 + fallPoint;
             int buffer = DataFiguresGridView.Width;
@@ -247,35 +248,23 @@ namespace FindAreaFiguresGUI
                                     _figures.Add(figure);
                                 }
 
-                                GiveStandartPositiveMessageBox("File downloaded!");
+                                GiveStandartPositiveMessageBox(
+                                    "File downloaded!");
                             }
                         }
                         catch (Exception exception)
                         {
-                            GiveStandartMessageBox($"{exception}");
+                            StandartMethods.GiveStandartMessageBox(
+                                $"{exception}");
                         }                                                                              
                     }
                     else
                     {
-                        GiveStandartMessageBox("Incorrect file format " +
-                            "(not *.figcalc)!");
+                        StandartMethods.GiveStandartMessageBox(
+                            "Incorrect file format (not *.figcalc)!");
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Вызов распространенного экспешина
-        /// </summary>
-        /// <param name="exception">Текст исключения</param>
-        private void GiveStandartMessageBox(string exception)
-        {
-            Console.WriteLine(exception);
-            MessageBox.Show($"{exception}.",
-                "Message", MessageBoxButtons.OK,
-                MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.DefaultDesktopOnly);
         }
 
         /// <summary>

@@ -226,7 +226,7 @@ namespace FindAreaFiguresGUI
             }
             catch (ArgumentOutOfRangeException exception)
             {
-                GiveStandartMessageBox(exception.Message);
+                StandartMethods.GiveStandartMessageBox(exception.Message);
             }
 
             // расчет площади
@@ -236,7 +236,7 @@ namespace FindAreaFiguresGUI
             }
             catch (ArgumentOutOfRangeException exception)
             {
-                GiveStandartMessageBox(exception.Message);
+                StandartMethods.GiveStandartMessageBox(exception.Message);
             }
 
             // вывод результатов в текстбокс
@@ -255,12 +255,12 @@ namespace FindAreaFiguresGUI
 
             if (!Double.TryParse(value, out buffer))
             {
-                GiveStandartMessageBox($"{name} - INVALID");
-
+                StandartMethods.GiveStandartMessageBox($"{name} - INVALID");
             }
             else if (String.IsNullOrEmpty(value))
             {
-                GiveStandartMessageBox($"{name} - is null or empty");
+                StandartMethods.GiveStandartMessageBox(
+                    $"{name} - is null or empty");
             }
             else
             {
@@ -269,21 +269,7 @@ namespace FindAreaFiguresGUI
 
             return buffer;
         }
-
-        /// <summary>
-        /// Вызов распространенного экспешина
-        /// </summary>
-        /// <param name="exception">Текст исключения</param>
-        private void GiveStandartMessageBox(string exception)
-        {
-            Console.WriteLine(exception);
-            MessageBox.Show($"{exception}.",
-                "Message", MessageBoxButtons.OK,
-                MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.DefaultDesktopOnly);
-        }
-
+   
         /// <summary>
         /// Выход к основному окну с добавлением фигуры
         /// </summary>
@@ -293,12 +279,12 @@ namespace FindAreaFiguresGUI
         {
             if (_classFigure == null || !_calcTypeFlag)
             {
-                GiveStandartMessageBox($"The input " +
-                    $"is not complete!\nEnter all the data");
+                StandartMethods.GiveStandartMessageBox(
+                    $"The input is not complete!\nEnter all the data");
             }
             else if (FigureAreaTextBox.Text == String.Empty)
             {
-                GiveStandartMessageBox($"No result!\n" +
+                StandartMethods.GiveStandartMessageBox($"No result!\n" +
                     $"click let me input, enter the data\n" +
                     $"and click Go! to get the result");
             }
