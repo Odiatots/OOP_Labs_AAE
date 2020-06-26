@@ -244,11 +244,14 @@ namespace FindAreaFiguresGUI
             {
                 _classFigure.ValuesDimensionsFigure = _calcBuffer;
             }
-            catch (ArgumentOutOfRangeException exception)
+            catch (Exception exception)
             {
-                StandartMethods.GiveStandartMessageBox(exception.Message);
+                if (exception is ArgumentOutOfRangeException ||
+                    exception is ArithmeticException)
+                    StandartMethods.GiveStandartMessageBox(
+                        exception.Message);
             }
-
+                       
             // расчет площади
             GetResultButtonForArea();
 
