@@ -45,7 +45,7 @@ namespace FindAreaFiguresGUI
         /// Последняя точка курсора
         /// </summary>
         private Point _lastPoint;
-        
+
         /// <summary>
         /// Лист фигур из основной формы
         /// </summary>
@@ -190,7 +190,7 @@ namespace FindAreaFiguresGUI
             DimensionsDataGridView.Rows.Clear();
 
             // передача типа расчета в класс
-            _classFigure.CalcTypeArea = 
+            _classFigure.CalcTypeArea =
                 CalcTypeComboBox.SelectedItem as String;
 
 
@@ -228,7 +228,7 @@ namespace FindAreaFiguresGUI
         {
             // измерения с формы
             List<double> _calcBuffer = new List<double>();
-            
+
             // сохранения введенных параметров с формы
             for (int i = 0; i < _calcTypesToForm.Count; i++)
             {
@@ -250,18 +250,34 @@ namespace FindAreaFiguresGUI
             }
 
             // расчет площади
-            try
-            {
-                _areaFigure = _classFigure.FigureArea; ;
-            }
-            catch (ArgumentOutOfRangeException exception)
-            {
-                StandartMethods.GiveStandartMessageBox(exception.Message);
-            }
+            GetResultButtonForArea();
 
             // вывод результатов в текстбокс
             FigureAreaTextBox.Text = $"{_areaFigure}";
 
+        }
+        
+        /// <summary>
+        /// Проверка на существование треугольника
+        /// </summary>
+        bool flagTriangleExist = true;
+
+        /// <summary>
+        /// Вспомогательный метод для расчета площади
+        /// </summary>
+        private void GetResultButtonForArea()
+        {
+            try
+            {
+                flagTriangleExist = true;
+                _areaFigure = _classFigure.FigureArea;
+            }
+            catch (ArgumentOutOfRangeException exception)
+            {
+                StandartMethods.GiveStandartMessageBox(exception.Message);
+
+                flagTriangleExist = false;
+            }
         }
 
         /// <summary>
@@ -307,6 +323,10 @@ namespace FindAreaFiguresGUI
                 StandartMethods.GiveStandartMessageBox($"No result!\n" +
                     $"click let me input, enter the data\n" +
                     $"and click Go! to get the result.");
+            }
+            else if (_classFigure.NameFigure == "Triangle" && !flagTriangleExist)
+            {
+                GetResultButtonForArea();
             }
             else
             {

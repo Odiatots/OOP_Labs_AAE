@@ -54,11 +54,10 @@ namespace FindAreaFiguresGUI
         /// <param name="minimazeLabel">свернуть</param>
         /// <param name="form">форма</param>
         public static void RefreshForm(Label closeLabel,
-            Label minimazeLabel, Form form)
+            Label minimazeLabel)
         {
             closeLabel.Location = new Point(0, 3);
             minimazeLabel.Location = new Point(0, 3);
-            form.Width = 0;
 
         }
 

@@ -159,7 +159,7 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            StandartMethods.RefreshForm(CloseLabel, MinimazeLabel, this);
+            StandartMethods.RefreshForm(CloseLabel, MinimazeLabel);
 
             var fallPoint = StandartMethods.FallPointsSearch(
                 DataFiguresGridView);

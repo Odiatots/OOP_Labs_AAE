@@ -167,7 +167,7 @@ namespace FindAreaFiguresGUI
         {
             //TODO: Дублируется - частично решено?
 
-            StandartMethods.RefreshForm(CloseLabel, MinimazeLabel, this);
+            StandartMethods.RefreshForm(CloseLabel, MinimazeLabel);
 
             var fallPoint = StandartMethods.FallPointsSearch(
                 DataFiguresGridView);
