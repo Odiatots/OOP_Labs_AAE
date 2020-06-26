@@ -193,6 +193,7 @@ namespace FindAreaFiguresGUI
             GetResultButton.Visible = true;
             FigureAreaTextBox.Visible = true;
             ResultLabel.Visible = true;
+
             DimensionsDataGridView.Rows.Clear();
 
             // создание списка расчетных параметров для выведения на форму
