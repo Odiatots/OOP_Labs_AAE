@@ -230,8 +230,10 @@ namespace FindAreaFiguresGUI
             {
                 _classFigure.ValuesDimensionsFigure = _calcBuffer;
             }
-            catch (ArgumentOutOfRangeException exception)
+            catch (Exception exception)
             {
+                if (exception is ArgumentOutOfRangeException ||
+                    exception is ArithmeticException)
                 GiveStandartMessageBox(exception.Message);
             }
 
