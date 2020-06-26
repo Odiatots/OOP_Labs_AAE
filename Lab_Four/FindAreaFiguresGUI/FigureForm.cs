@@ -114,6 +114,16 @@ namespace FindAreaFiguresGUI
         }
 
         /// <summary>
+        /// Запоминание последней позиции зажатой мыши
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AreaLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            MovePanel_MouseDown(sender, e);
+        }
+
+        /// <summary>
         /// Перемещение окна за мышью
         /// </summary>
         /// <param name="sender"></param>
@@ -125,6 +135,16 @@ namespace FindAreaFiguresGUI
                 this.Left += e.X - _lastPoint.X;
                 this.Top += e.Y - _lastPoint.Y;
             }
+        }
+
+        /// <summary>
+        /// Перемещение окна за мышью
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AreaLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            MovePanel_MouseMove(sender, e);
         }
 
         /// <summary>
@@ -255,12 +275,12 @@ namespace FindAreaFiguresGUI
 
             if (!Double.TryParse(value, out buffer))
             {
-                StandartMethods.GiveStandartMessageBox($"{name} - INVALID");
+                StandartMethods.GiveStandartMessageBox($"{name} - INVALID.");
             }
             else if (String.IsNullOrEmpty(value))
             {
                 StandartMethods.GiveStandartMessageBox(
-                    $"{name} - is null or empty");
+                    $"{name} - is null or empty.");
             }
             else
             {
@@ -280,13 +300,13 @@ namespace FindAreaFiguresGUI
             if (_classFigure == null || !_calcTypeFlag)
             {
                 StandartMethods.GiveStandartMessageBox(
-                    $"The input is not complete!\nEnter all the data");
+                    $"The input is not complete!\nEnter all the data.");
             }
             else if (FigureAreaTextBox.Text == String.Empty)
             {
                 StandartMethods.GiveStandartMessageBox($"No result!\n" +
                     $"click let me input, enter the data\n" +
-                    $"and click Go! to get the result");
+                    $"and click Go! to get the result.");
             }
             else
             {

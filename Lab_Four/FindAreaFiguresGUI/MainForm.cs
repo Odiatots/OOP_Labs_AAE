@@ -36,10 +36,35 @@ namespace FindAreaFiguresGUI
         {
             InitializeComponent();
 
+            DataFiguresGridView.ScrollBars = ScrollBars.None;
+            DataFiguresGridView.MouseWheel += new 
+                MouseEventHandler(MouseWheel);
+
             #if !DEBUG
             RandomButton.Visible = false;
             #endif
 
+        }
+
+        /// <summary>
+        /// Скролл мышкой по DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0 &&
+                DataFiguresGridView.FirstDisplayedScrollingRowIndex > 0)
+            {
+                DataFiguresGridView.FirstDisplayedScrollingRowIndex--;
+            }
+            else if (e.Delta < 0 && 
+                DataFiguresGridView.Rows.Count > 
+                (DataFiguresGridView.FirstDisplayedScrollingRowIndex + 
+                SystemInformation.MouseWheelScrollLines))
+            {
+                DataFiguresGridView.FirstDisplayedScrollingRowIndex++;
+            }
         }
 
         /// <summary>
@@ -83,6 +108,16 @@ namespace FindAreaFiguresGUI
         }
 
         /// <summary>
+        /// Запоминание последней позиции зажатой мыши
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AreaLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            MovePanel_MouseDown(sender, e);
+        }
+
+        /// <summary>
         /// Перемещение окна за мышью
         /// </summary>
         /// <param name="sender"></param>
@@ -97,6 +132,16 @@ namespace FindAreaFiguresGUI
         }
 
         /// <summary>
+        /// Перемещение окна за мышью
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AreaLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            MovePanel_MouseMove(sender, e);
+        }
+
+        /// <summary>
         /// Вызов формы добавления фигур
         /// </summary>
         /// <param name="sender"></param>
@@ -104,8 +149,7 @@ namespace FindAreaFiguresGUI
         private void AddFigure_Click(object sender, EventArgs e)
         {
             var figure = new FigureForm(_figures);
-            figure.Show();
-
+            figure.ShowDialog();
         }
 
         /// <summary>
@@ -160,7 +204,7 @@ namespace FindAreaFiguresGUI
                 MinimazeLabel.Location,
                 this.Width,
                 DataFiguresGridView.Width);
-            search.Show();
+            search.ShowDialog();
         }
 
         /// <summary>
@@ -229,9 +273,8 @@ namespace FindAreaFiguresGUI
                     var formatter = new BinaryFormatter();
                     //TODO: Переписать на использование системной библиотеки - решено
                     var fileLoad = openFileDialog.FileName;
-                    var extenstionFileLoad = Path.GetExtension(fileLoad);
 
-                    if (extenstionFileLoad == ".figcalc")
+                    if (Path.GetExtension(fileLoad) == ".figcalc")
                     {
                         try
                         {
@@ -249,13 +292,13 @@ namespace FindAreaFiguresGUI
                                 }
 
                                 GiveStandartPositiveMessageBox(
-                                    "File downloaded!");
+                                    "File loaded!");
                             }
                         }
-                        catch (Exception exception)
+                        catch
                         {
                             StandartMethods.GiveStandartMessageBox(
-                                $"{exception}");
+                                "File is corrupted, unable to load!");
                         }                                                                              
                     }
                     else
@@ -273,7 +316,7 @@ namespace FindAreaFiguresGUI
         /// <param name="exception">Текст исключения</param>
         private void GiveStandartPositiveMessageBox(string message)
         {
-            MessageBox.Show($"{message}.",
+            MessageBox.Show($"{message}",
                 "Message", 
                 MessageBoxButtons.OK, 
                 MessageBoxIcon.Information, 

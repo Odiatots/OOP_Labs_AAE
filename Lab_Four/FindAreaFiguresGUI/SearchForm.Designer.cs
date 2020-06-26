@@ -34,7 +34,7 @@
             this.MovePanel = new System.Windows.Forms.Panel();
             this.MinimazeLabel = new System.Windows.Forms.Label();
             this.CloseLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.SearchLabel = new System.Windows.Forms.Label();
             this.TypeFigureLabel = new System.Windows.Forms.Label();
             this.RefreshButton = new System.Windows.Forms.Button();
             this.DataFiguresGridView = new System.Windows.Forms.DataGridView();
@@ -52,7 +52,7 @@
             this.MovePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.MovePanel.Controls.Add(this.MinimazeLabel);
             this.MovePanel.Controls.Add(this.CloseLabel);
-            this.MovePanel.Controls.Add(this.label1);
+            this.MovePanel.Controls.Add(this.SearchLabel);
             this.MovePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MovePanel.Location = new System.Drawing.Point(0, 0);
             this.MovePanel.Name = "MovePanel";
@@ -87,16 +87,18 @@
             this.CloseLabel.Text = "x";
             this.CloseLabel.Click += new System.EventHandler(this.CloseLabel_Click);
             // 
-            // label1
+            // SearchLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(7, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Search";
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.SearchLabel.Location = new System.Drawing.Point(7, 6);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(57, 21);
+            this.SearchLabel.TabIndex = 0;
+            this.SearchLabel.Text = "Search";
+            this.SearchLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SearchLabel_MouseDown);
+            this.SearchLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SearchLabel_MouseMove);
             // 
             // TypeFigureLabel
             // 
@@ -264,7 +266,7 @@
         private System.Windows.Forms.Panel MovePanel;
         private System.Windows.Forms.Label MinimazeLabel;
         private System.Windows.Forms.Label CloseLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label SearchLabel;
         private System.Windows.Forms.Label TypeFigureLabel;
         private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.DataGridView DataFiguresGridView;

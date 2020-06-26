@@ -37,6 +37,10 @@ namespace FindAreaFiguresGUI
         {
             InitializeComponent();
 
+            DataFiguresGridView.ScrollBars = ScrollBars.None;
+            DataFiguresGridView.MouseWheel += new
+                MouseEventHandler(MouseWheel);
+
             _figures = figures;
             CloseLabel.Location = pointClose;
             MinimazeLabel.Location = pointMinimaze;
@@ -47,6 +51,27 @@ namespace FindAreaFiguresGUI
             SearchButton.Width = SearchButton.Width + 
                 SearchTextBox.Width - buffer;
 
+        }
+
+        /// <summary>
+        /// Скролл мышкой по DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0 &&
+                DataFiguresGridView.FirstDisplayedScrollingRowIndex > 0)
+            {
+                DataFiguresGridView.FirstDisplayedScrollingRowIndex--;
+            }
+            else if (e.Delta < 0 &&
+                DataFiguresGridView.Rows.Count >
+                (DataFiguresGridView.FirstDisplayedScrollingRowIndex +
+                SystemInformation.MouseWheelScrollLines))
+            {
+                DataFiguresGridView.FirstDisplayedScrollingRowIndex++;
+            }
         }
 
         /// <summary>
@@ -84,7 +109,17 @@ namespace FindAreaFiguresGUI
         {
             _lastPoint = new Point(e.X, e.Y);
         }
-        
+
+        /// <summary>
+        /// Запоминание последней позиции зажатой мыши
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            MovePanel_MouseDown(sender, e);
+        }
+
         /// <summary>
         /// Перемещение окна за мышью
         /// </summary>
@@ -97,6 +132,16 @@ namespace FindAreaFiguresGUI
                 this.Left += e.X - _lastPoint.X;
                 this.Top += e.Y - _lastPoint.Y;
             }
+        }
+
+        /// <summary>
+        /// Перемещение окна за мышью
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            MovePanel_MouseMove(sender, e);
         }
 
         /// <summary>
@@ -253,5 +298,6 @@ namespace FindAreaFiguresGUI
         {
             StartSearch();
         }
+
     }
 }

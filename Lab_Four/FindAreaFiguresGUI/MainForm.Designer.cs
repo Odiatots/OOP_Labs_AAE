@@ -36,14 +36,14 @@
             this.MovePanel = new System.Windows.Forms.Panel();
             this.MinimazeLabel = new System.Windows.Forms.Label();
             this.CloseLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.RandomButton = new System.Windows.Forms.Button();
+            this.AreaLabel = new System.Windows.Forms.Label();
             this.DataFiguresGridView = new System.Windows.Forms.DataGridView();
             this.TypeFigureLabel = new System.Windows.Forms.Label();
             this.AddFigure = new System.Windows.Forms.Button();
             this.RemoveFigure = new System.Windows.Forms.Button();
             this.RefreshButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.RandomButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.LoadButton = new System.Windows.Forms.Button();
             this.MovePanel.SuspendLayout();
@@ -56,7 +56,7 @@
             this.MovePanel.Controls.Add(this.MinimazeLabel);
             this.MovePanel.Controls.Add(this.CloseLabel);
             this.MovePanel.Controls.Add(this.RandomButton);
-            this.MovePanel.Controls.Add(this.label1);
+            this.MovePanel.Controls.Add(this.AreaLabel);
             this.MovePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MovePanel.Location = new System.Drawing.Point(0, 0);
             this.MovePanel.Name = "MovePanel";
@@ -91,16 +91,33 @@
             this.CloseLabel.Text = "x";
             this.CloseLabel.Click += new System.EventHandler(this.CloseLabel_Click);
             // 
-            // label1
+            // RandomButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(7, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Area calculator list";
+            this.RandomButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.RandomButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RandomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RandomButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.RandomButton.Location = new System.Drawing.Point(150, 5);
+            this.RandomButton.Name = "RandomButton";
+            this.RandomButton.Size = new System.Drawing.Size(65, 24);
+            this.RandomButton.TabIndex = 14;
+            this.RandomButton.Text = "Random";
+            this.RandomButton.UseVisualStyleBackColor = false;
+            this.RandomButton.Click += new System.EventHandler(this.RandomBurron_Click);
+            // 
+            // AreaLabel
+            // 
+            this.AreaLabel.AutoSize = true;
+            this.AreaLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AreaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.AreaLabel.Location = new System.Drawing.Point(7, 6);
+            this.AreaLabel.Name = "AreaLabel";
+            this.AreaLabel.Size = new System.Drawing.Size(137, 21);
+            this.AreaLabel.TabIndex = 0;
+            this.AreaLabel.Text = "Area calculator list";
+            this.AreaLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AreaLabel_MouseDown);
+            this.AreaLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AreaLabel_MouseMove);
             // 
             // DataFiguresGridView
             // 
@@ -147,6 +164,7 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.DataFiguresGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DataFiguresGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.DataFiguresGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.DataFiguresGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataFiguresGridView.Size = new System.Drawing.Size(280, 246);
             this.DataFiguresGridView.TabIndex = 1;
@@ -230,21 +248,6 @@
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // RandomButton
-            // 
-            this.RandomButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RandomButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RandomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RandomButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandomButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.RandomButton.Location = new System.Drawing.Point(150, 5);
-            this.RandomButton.Name = "RandomButton";
-            this.RandomButton.Size = new System.Drawing.Size(65, 24);
-            this.RandomButton.TabIndex = 14;
-            this.RandomButton.Text = "Random";
-            this.RandomButton.UseVisualStyleBackColor = false;
-            this.RandomButton.Click += new System.EventHandler(this.RandomBurron_Click);
-            // 
             // SaveButton
             // 
             this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
@@ -315,7 +318,7 @@
         private System.Windows.Forms.Panel MovePanel;
         private System.Windows.Forms.Label MinimazeLabel;
         private System.Windows.Forms.Label CloseLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label AreaLabel;
         private System.Windows.Forms.DataGridView DataFiguresGridView;
         private System.Windows.Forms.Label TypeFigureLabel;
         private System.Windows.Forms.Button AddFigure;

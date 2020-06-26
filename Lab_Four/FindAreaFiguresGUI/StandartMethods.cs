@@ -84,7 +84,7 @@ namespace FindAreaFiguresGUI
         public static void GiveStandartMessageBox(string exception)
         {
             Console.WriteLine(exception);
-            MessageBox.Show($"{exception}.",
+            MessageBox.Show($"{exception}",
                 "Message", MessageBoxButtons.OK,
                 MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1,
