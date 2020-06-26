@@ -13,6 +13,7 @@ namespace PersonsLib
     public class Person
     {
 
+
         #region Поля и свойства
         /// <summary>
         /// Имя человека
