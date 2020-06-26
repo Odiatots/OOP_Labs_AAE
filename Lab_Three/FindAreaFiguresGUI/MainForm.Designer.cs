@@ -32,7 +32,7 @@
             this.MovePanel = new System.Windows.Forms.Panel();
             this.MinimazeLabel = new System.Windows.Forms.Label();
             this.CloseLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.AreaLabel = new System.Windows.Forms.Label();
             this.TypeFigureComboBox = new System.Windows.Forms.ComboBox();
             this.TypeFigureLabel = new System.Windows.Forms.Label();
             this.CalcTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,7 @@
             this.MovePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.MovePanel.Controls.Add(this.MinimazeLabel);
             this.MovePanel.Controls.Add(this.CloseLabel);
-            this.MovePanel.Controls.Add(this.label1);
+            this.MovePanel.Controls.Add(this.AreaLabel);
             this.MovePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MovePanel.Location = new System.Drawing.Point(0, 0);
             this.MovePanel.Name = "MovePanel";
@@ -88,21 +88,24 @@
             this.CloseLabel.Text = "x";
             this.CloseLabel.Click += new System.EventHandler(this.CloseLabel_Click);
             // 
-            // label1
+            // AreaLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(7, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Area calculator";
+            this.AreaLabel.AutoSize = true;
+            this.AreaLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AreaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.AreaLabel.Location = new System.Drawing.Point(7, 6);
+            this.AreaLabel.Name = "AreaLabel";
+            this.AreaLabel.Size = new System.Drawing.Size(113, 21);
+            this.AreaLabel.TabIndex = 0;
+            this.AreaLabel.Text = "Area calculator";
+            this.AreaLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AreaLabel_MouseDown);
+            this.AreaLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AreaLabel_MouseMove);
             // 
             // TypeFigureComboBox
             // 
             this.TypeFigureComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.TypeFigureComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TypeFigureComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TypeFigureComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TypeFigureComboBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TypeFigureComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -128,6 +131,7 @@
             // 
             this.CalcTypeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.CalcTypeComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CalcTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CalcTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CalcTypeComboBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CalcTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -273,7 +277,7 @@
         #endregion
 
         private System.Windows.Forms.Panel MovePanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label AreaLabel;
         private System.Windows.Forms.Label CloseLabel;
         private System.Windows.Forms.ComboBox TypeFigureComboBox;
         private System.Windows.Forms.Label MinimazeLabel;

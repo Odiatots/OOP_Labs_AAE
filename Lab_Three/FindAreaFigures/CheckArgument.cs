@@ -23,7 +23,12 @@ namespace FindAreaFigures
             {
                 throw new ArgumentOutOfRangeException(
                     $"{name} must be greater " +
-                    $"than or equal to zero");
+                    $"than or equal to zero.");
+            }
+            else if (Double.IsNaN(dimension))
+            {
+                throw new ArithmeticException(
+                    $"{name} is NaN");
             }
             else
             {
@@ -43,7 +48,7 @@ namespace FindAreaFigures
             if (dimension > 180)
             {
                 throw new ArgumentOutOfRangeException(
-                    $"{name} must be less than 180");
+                    $"{name} must be less than 180.");
             }
             else
             {

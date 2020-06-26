@@ -101,6 +101,16 @@ namespace FindAreaFiguresGUI
         }
 
         /// <summary>
+        /// Запоминание последней позиции зажатой мыши
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AreaLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            MovePanel_MouseDown(sender, e);
+        }
+
+        /// <summary>
         /// Перемещение окна за мышью
         /// </summary>
         /// <param name="sender"></param>
@@ -112,6 +122,16 @@ namespace FindAreaFiguresGUI
                 this.Left += e.X - _lastPoint.X;
                 this.Top += e.Y - _lastPoint.Y;
             }
+        }
+
+        /// <summary>
+        /// Перемещение окна за мышью
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AreaLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            MovePanel_MouseMove(sender, e);
         }
 
         /// <summary>
@@ -269,5 +289,7 @@ namespace FindAreaFiguresGUI
                 MessageBoxDefaultButton.Button1,
                 MessageBoxOptions.DefaultDesktopOnly);
         }
+
+
     }
 }

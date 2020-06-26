@@ -154,7 +154,7 @@ namespace FindAreaFigures
                         else
                         {
                             throw new ArgumentOutOfRangeException(
-                                "triangle does not exist");
+                                "triangle does not exist.");
                         }
                         break;
                     default:
