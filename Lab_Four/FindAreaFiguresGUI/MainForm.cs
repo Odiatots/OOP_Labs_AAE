@@ -148,8 +148,12 @@ namespace FindAreaFiguresGUI
         /// <param name="e"></param>
         private void AddFigure_Click(object sender, EventArgs e)
         {
-            var figure = new FigureForm(_figures);
-            figure.ShowDialog();
+            var figure = new FigureForm();
+            if (figure.ShowDialog() == DialogResult.OK)
+            {
+                _figures.Add(figure.ClassFigure);
+            }
+
         }
 
         /// <summary>

@@ -47,23 +47,24 @@ namespace FindAreaFiguresGUI
         private Point _lastPoint;
 
         /// <summary>
-        /// Лист фигур из основной формы
-        /// </summary>
-        private BindingList<IFigure> _figures;
-
-        /// <summary>
         /// Флаг выборка CalcTypeArea
         /// </summary>
         private bool _calcTypeFlag = false;
 
         /// <summary>
+        /// Свойство передачи фигуры
+        /// </summary>
+        public IFigure ClassFigure
+        {
+            get => _classFigure;
+        }
+
+        /// <summary>
         /// Иниицаилизация формы фигур
         /// </summary>
-        public FigureForm(BindingList<IFigure> figures)
+        public FigureForm()
         {
             InitializeComponent();
-
-            _figures = figures;
         }
 
         /// <summary>
@@ -334,7 +335,8 @@ namespace FindAreaFiguresGUI
             }
             else
             {
-                _figures.Add(_classFigure);
+                this.DialogResult = DialogResult.OK;
+                //_figures.Add(_classFigure);
                 Close();
             }
         }
