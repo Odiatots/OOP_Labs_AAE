@@ -265,7 +265,7 @@ namespace FindAreaFiguresGUI
         /// <summary>
         /// Проверка на существование треугольника
         /// </summary>
-        bool flagTriangleExist = true;
+        private bool _flagTriangleExist = true;
 
         /// <summary>
         /// Вспомогательный метод для расчета площади
@@ -274,14 +274,14 @@ namespace FindAreaFiguresGUI
         {
             try
             {
-                flagTriangleExist = true;
+                _flagTriangleExist = true;
                 _areaFigure = _classFigure.FigureArea;
             }
             catch (ArgumentOutOfRangeException exception)
             {
                 StandartMethods.GiveStandartMessageBox(exception.Message);
 
-                flagTriangleExist = false;
+                _flagTriangleExist = false;
             }
         }
 
@@ -329,7 +329,7 @@ namespace FindAreaFiguresGUI
                     $"click let me input, enter the data\n" +
                     $"and click Go! to get the result.");
             }
-            else if (_classFigure.NameFigure == "Triangle" && !flagTriangleExist)
+            else if (_classFigure.NameFigure == "Triangle" && !_flagTriangleExist)
             {
                 GetResultButtonForArea();
             }
