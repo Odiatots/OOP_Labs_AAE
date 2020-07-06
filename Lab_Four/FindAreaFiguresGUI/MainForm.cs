@@ -21,7 +21,7 @@ namespace FindAreaFiguresGUI
         /// <summary>
         /// Основной лист фигур
         /// </summary>
-        private static BindingList<IFigure> _figures = 
+        private BindingList<IFigure> _figures = 
             new BindingList<IFigure>();
 
         /// <summary>
