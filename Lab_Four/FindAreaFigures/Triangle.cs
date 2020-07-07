@@ -59,7 +59,7 @@ namespace FindAreaFigures
         {
             get => _firstSideTriangle;
             set => _firstSideTriangle = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Side 1");
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace FindAreaFigures
         {
             get => _secondSideTriangle;
             set => _secondSideTriangle = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Side 2");
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace FindAreaFigures
         {
             get => _thirdSideTriangle;
             set => _thirdSideTriangle = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Side 3");
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace FindAreaFigures
         {
             get => _angleBetweenSidesTriangle;
             set => _angleBetweenSidesTriangle = 
-                CheckArgument.ChekExceptionAngle(value, nameof(value));
+                CheckArgument.ChekExceptionAngle(value, name: "Angle, grad.");
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace FindAreaFigures
         {
             get => _sideDownTriangle;
             set => _sideDownTriangle = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Side down");
         }
 
         /// <summary>

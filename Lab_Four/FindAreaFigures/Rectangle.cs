@@ -56,7 +56,7 @@ namespace FindAreaFigures
         {
             get => _lengthRectangle;
             set => _lengthRectangle = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Length");
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace FindAreaFigures
         {
             get => _widthRectangle;
             set => _widthRectangle = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Width");
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace FindAreaFigures
         {
             get => _diagonalRectangle;
             set => _diagonalRectangle = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Diagonal");
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace FindAreaFigures
             get => _angleBetweenDiagonalsRectangle;
             set => _angleBetweenDiagonalsRectangle = 
                 CheckArgument.ChekExceptionAngle(
-                value, nameof(value));
+                value, name: "Angle, grad.");
         }
 
         /// <summary>

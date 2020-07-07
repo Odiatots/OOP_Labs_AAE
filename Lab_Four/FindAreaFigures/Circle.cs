@@ -51,7 +51,7 @@ namespace FindAreaFigures
         {
             get => _radiusCircle;
             set => _radiusCircle = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Radius");
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace FindAreaFigures
         {
             get => _diameterCircle;
             set => _diameterCircle = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Diameter");
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace FindAreaFigures
         {
             get => _circumference;
             set => _circumference = CheckArgument.ChekException(
-                value, nameof(value));
+                value, name: "Circumference");
         }
 
 
